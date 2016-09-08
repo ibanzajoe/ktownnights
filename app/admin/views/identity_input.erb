@@ -1,0 +1,166 @@
+<form role="form" method="POST" id="identity_form" action="/identity_save">
+  <label class="label">Username you want to use to be seen</label>
+  <p class="control has-icon has-icon-right">
+    <input class="input is-success" type="text" placeholder="ex. Brandon Fraiser">
+    <i class="fa fa-check"></i>
+    <span class="help is-success">This username is available</span>
+  </p>
+  <label class="label">Sex:</label>
+  <p class="control">
+    <label class="radio">
+      <input type="radio" name="question">
+      Male
+    </label>
+    <label class="radio">
+      <input type="radio" name="question">
+      Female
+    </label>
+  </p>
+  <label class="label">Sexual Orientation</label>
+  <p class="control">
+    <input class="input" type="text" placeholder="Describe your orientation" name="sexual_orientation">
+  </p>
+  <label class="label">Date of Birth</label>
+  <p class="control b_day">
+    <input type="date" name="birthday" placeholder="mm/dd/yyyy">
+  </p>
+
+  <label class="label">Your Body Type</label>
+    <p class="control">
+      <label class="radio">
+        <input type="radio" name="body_type">
+        Fatty
+      </label>
+      <label class="radio">
+        <input type="radio" name="body_type">
+        Average
+      </label>
+      <label class="radio">
+        <input type="radio" name="body_type">
+        Skinny
+      </label>
+      <label class="radio">
+        <input type="radio" name="body_type">
+        Buff
+      </label>
+      <label class="radio">
+        <input type="radio" name="body_type">
+        Undisclosed
+      </label>
+    </p>
+
+  <label class="label">How do you identify your race</label>
+  <p class="control">
+    <span class="select">
+      <select name="race">
+        <option>Select</option>
+        <option value="asian">Asian</option>
+        <option value="white">White</option>
+        <option value="hispanic">Hispanic</option>
+        <option value="black">Black</option>
+        <option value="middle_east">Middle Eastern</option>
+        <option value="pacific_island">Pacific Islander</option>
+        <option value="indian">Indian</option>
+      </select>
+    </span>
+  </p>
+
+  <label class="label">2nd Language after English you are most comfortable with</label>
+  <p class="control">
+    <input class="input" type="text" placeholder="Second Language" name="language">
+  </p>
+
+  <label class="label">Highest Education Completed</label>
+  <p class="control">
+    <span class="select">
+      <select name="education">
+        <option>Select</option>
+        <option value="none">None</option>
+        <option value="high_school">High School</option>
+        <option value="associates_degree">Associates Degree / Two Year Degree</option>
+        <option value="bach_degree">Bachelors Degree / Four Year Degree</option>
+        <option value="grad_degree">Graduate Degree</option>
+        <option value="post_grad_degree">Doctorate Degree </option>
+      </select>
+    </span>
+  </p>
+
+  <label class="label">Religion</label>
+  <p class="control">
+    <span class="select">
+      <select name="education">
+        <option>Select</option>
+        <option value="atheist">None / Atheist</option>
+        <option value="agnostic">None / Agnostic</option>
+        <option value="christian">Christian / Protestant</option>
+        <option value="catholic">Catholic</option>
+        <option value="muslim">Muslim</option>
+        <option value="buddhist">Buddhist</option>
+        <option value="hindu">Hindu</option>
+        <option value="Shik">Shik</option>
+      </select>
+    </span>
+  </p>
+
+  <label class="label">Cigarette Smoking</label>
+  <p class="control">
+    <span class="select">
+      <select name="smoke">
+        <option>Select</option>
+        <option value="chain">Chain Smoker</option>
+        <option value="frequent">Frequently</option>
+        <option value="sometimes">Often / Sometimes</option>
+        <option value="rarely">Rarely / Socially</option>
+        <option value="quit">Quit Smoking / Never Smoked</option>
+      </select>
+    </span>
+  </p>
+
+  <label class="label">Relationship with Alcohol</label>
+  <p class="control">
+    <span class="select">
+      <select name="drink">
+        <option>Select</option>
+        <option value="alcoholic">I am an Alcoholic</option>
+        <option value="binge">I binge drink often</option>
+        <option value="sometimes">Often / Sometimes</option>
+        <option value="often">Rarely / Socially</option>
+        <option value="quit">Quit Drinking / Never Drink</option>
+      </select>
+    </span>
+  </p>
+
+  <label class="label">Age preference you are looking for</label>
+    <p class="control">
+      <input type="text" name="youngest_age" placeholder="youngest age example: 21">
+      <input type="text" name="oldest_age" placeholder="oldest age example: 75">
+    </p>
+
+  <label class="label">Relationship type you are looking for</label>
+  <p class="control">
+    <span class="select">
+      <select name="date_type">
+        <option>Select</option>
+        <option value="casual">No commitment / casual</option>
+        <option value="not_serious">Date but nothing serious</option>
+        <option value="somewhat_serious">Something consistent</option>
+        <option value="very_serous">Very serious relationship</option>
+        <option value="marriage">Something leading to marriage</option>
+      </select>
+    </span>
+  </p>
+
+  <p class="control">
+    <button class="button is-primary">Submit</button>
+    <button class="button is-link">Cancel</button>
+  </p>
+</form>
+<script>
+  $(function(){
+    var $select = $(".1-100");
+    for (i=1; i<=100; i++){
+      $select.append($('<option></option>').val(i).html(i))
+    }
+  })
+
+</script>

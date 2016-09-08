@@ -1,0 +1,75 @@
+<section class="user_input">
+  <h2>This is the User Input Page</h2>
+
+  <div class="field row" id="field_open_slots">
+    <div class="">
+      <form role="form" method="POST" class="form-horizontal blog-input" id="form1" action="/user_save">
+        <input type="hidden" class="created_date" value="<%= Date.today.to_s %>" name="date">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input class="name-input" type="text" name="name">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input class="pass-input" type="text" name="password">
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input class="username-input" type="text" name="username">
+        </div>
+        <hr>
+        <div class="user-button">
+          <button type="submit" form="form1" value="Submit">Submit</button>
+        </div>
+      </form>
+      <!-- /.form-group -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <hr>
+  <hr>
+  <div class="display_users">
+    <table class="table is-bordered" data-sort="table" id="sortable">
+      <thead>
+      <tr>
+        <th><input type="checkbox" class="select-all" id="selectAll"></th>
+        <th class="headerSortUp">ID</th>
+        <!-- <th>Rank</th> -->
+        <th>name</th>
+        <th>password</th>
+        <th>username</th>
+        <th>created date</th>
+      </tr>
+      </thead>
+      <tbody>
+      <form role="form" method="POST" class="form-horizontal" id="form2" action="/data_delete">
+        <% @user.each do |user| %>
+            <tr data-id="<%= user[:id] %>">
+              <td><input type="checkbox" class="select-row checkall"></td>
+              <td><%= user[:id] %></td>
+              <td><%= user[:name] %></td>
+              <td><%= user[:password] %></td>
+              <td><%= user[:username] %></td>
+              <td><%= user[:date] %></td>
+            </tr>
+        <% end %>
+        <tr>
+          <button type="submit" form="form2" value="Submit">Delete</button>
+        </tr>
+      </form>
+
+      <tr>
+        <th colspan="6"><a href="javascript:;" class="deleteall" title="dtable">Delete Selected</a></th>
+
+      </tr>
+
+
+      </tbody>
+    </table>
+
+
+
+  </div>
+
+
+</section>

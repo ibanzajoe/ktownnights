@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.1.2/css/bulma.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.min.js"></script>
+</head>
+<body>
+<div class="nav-row text-center">
+  <div id="navigation">
+    <div class="section" id="navigation-wrapper">
+      <div class="widget HTML" data-version="1" id="HTML1">
+        <ul class="menu">
+          <li>
+            <a href="/login">Login</a>
+          </li>
+          <li>
+            <a href="/user_input">User Input</a>
+          </li>
+          <li>
+            <a href="/comment">Comment</a>
+          </li>
+          <li>
+            <a href="/vote_count">Vote Count</a>
+          </li>
+
+          <li>
+            <%= session[:user_id] %>
+            <a href="/logout">Log Out</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="content-row">
+  <div class="content">
+    <%=yield%>
+  </div>
+</div>
+
+
+</body>
+<br>
+<br>
+
+<hr>
+<footer class="footer text-center" style="clear: left;">
+  <small>
+    &copy; Blog <code>BETA</code> <time>2016</time>. All rights reserved.
+    <br>
+
+  </small>
+</footer>

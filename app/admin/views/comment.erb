@@ -1,0 +1,129 @@
+
+<% def comment(chill)%>
+    <div class="comment_reply_container columns column is-multiline is-gapless box">
+      <div class="comment_sidebar is-narrow ">
+        <a class="comment_upvote" href="" name="<%= chill[:id] %>"><img src="/images/up_arrow.png" alt="up_arrow" style="width: 20px; height: 20px;"></a>
+        <br>
+        <p class="vote_count" id="comment_vote_<%= chill[:id] %>"><%=chill[:vote_count]%></p>
+        <a class="comment_downvote" href="" name="<%= chill[:id] %>"><img src="/images/down_arrow.png" alt="down_arrow" style="width: 20px; height: 20px; margin-right: 2px;"></a>
+
+
+
+      </div>
+      <div class="comment_content_container column is-10 ">
+        <div class="flex_item_1">
+          <div class="column box">
+            <span class="p_username column is-narrow">
+              <% @username = User.where(:id => chill[:user_id]).first %>
+              <%= @username[:username] %>
+            </span>
+
+            <span class="p_date column is-offset-9" style="text-align: right;"><%= chill[:date] %></span>
+            <!-- <p>username, first name, last name, date of post</p> -->
+
+
+          </div>
+        </div>
+        <div class="flex_item_2 " >
+          <span class="comment_content box">
+            <%= chill[:content] %>
+
+            <br>
+            <!-- <p> comment content goes here </p> -->
+            <%= chill[:tags] %>
+            <!-- <p> comment tags goes here </p> -->
+
+          </span>
+        </div>
+        <div class="flex_item_3 comment_reply box">
+          <form role="form" id="form_comment_<%= chill[:id] %>" method="POST" action="/comment_reply">
+            <input type="hidden" name="id" value="<%= chill[:id] %>">
+            <input type="hidden" name="date" value="<%= Date.today.to_s %>">
+            <input type="text" name="content" placeholder="Reply...">
+            <button type="submit" form="form_comment_<%= chill[:id] %>" value="Submit">Submit</button>
+          </form>
+
+        </div>
+      </div>
+      <!-- <p> date </p> -->
+      <div class="child_reply column is-multiline">
+        <% children(chill[:id]) %>
+      </div>
+    </div>
+<% end %>
+<% def children(xxx, parent = false)
+     if parent
+       child = Comment[xxx]
+       comment(child)
+     else
+       child = Comment.where(:child_of => xxx).all
+
+       child.each do |chill|
+         comment(chill)
+
+       end
+     end
+
+
+
+   end %>
+
+
+<div class="comment_input text-center">
+  <h1>Comment Input</h1>
+  <form role="form" method="POST" class="form_comment" id="form_comment1" action="/comment_save">
+    <input type="hidden" value="<%= session[:user_id] %>" name="user_id">
+    <input type="hidden" value="<%= Date.today.to_s %>" name="date">
+    <div class="form_group">
+      <div class="tiny_container">
+        <div id="text_field" class="tiny_text_container collapse">
+          <label for="content">Your Comment</label>
+          <textarea name="content"></textarea>
+        </div>
+      </div>
+    </div>
+    <button class="button is-danger is-small" type="submit" form="form_comment1" value="Submit">Submit</button>
+  </form>
+</div>
+
+
+
+
+<div class="row comment_output text-center">
+  <h1>Comment Output Section</h1>
+  <% @spec_data.each do |dat| %>
+      <%= children(dat[:id], true) %>
+
+  <% end %>
+</div>
+
+
+<script>
+  $(document).ready(function(){
+    $(".comment_upvote").click(function(e){
+      e.preventDefault()
+      var $this = $(this)
+      var comment_id = $(this).attr('name')
+      var id = {id: comment_id, vote: "upvote"}
+
+      // window.location.replace("/comment_vote/" + comment_id + "/" + "upvote")
+      $.post('/comment_vote', id, function(res){
+        //$this.parent().find(".vote_count").text(res.vote_count)
+        $("#comment_vote_" + comment_id).text(res.vote_count)
+      })
+    })
+    $(".comment_downvote").click(function(e){
+      e.preventDefault()
+      var $this = $(this)
+      var comment_id = $(this).attr('name')
+      var id = {id: comment_id, vote: "downvote"}
+
+      // window.location.replace("/comment_vote/" + comment_id + "/" + "upvote")
+      $.post('/comment_vote', id, function(res){
+        //$this.parent().find(".vote_count").text(res.vote_count)
+        $("#comment_vote_" + comment_id).text(res.vote_count)
+      })
+    })
+  })
+
+</script>

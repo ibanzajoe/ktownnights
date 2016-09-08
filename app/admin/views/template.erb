@@ -1,0 +1,2435 @@
+
+<!doctype html>
+<html lang="en-US">
+<head >
+  <script>
+    var require = {
+      "baseUrl": "http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US"
+    };
+  </script>
+  <meta charset="utf-8"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="description" content="Default Description"/>
+  <meta name="keywords" content="Magento, Varien, E-commerce"/>
+  <meta name="robots" content="INDEX,FOLLOW"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Home page</title>
+  <link  rel="stylesheet" type="text/css"  media="all" href="http://ld-magento.template-help.com/magento_58948/pub/static/_cache/merged/06f8a2b7dc7f40c728f3d2112e81fa80.min.css" />
+  <link  rel="stylesheet" type="text/css"  media="all" href="//fonts.googleapis.com/css?family=Open+Sans:400,600,300" />
+  <link  rel="stylesheet" type="text/css"  media="all" href="//fonts.googleapis.com/css?family=Ubuntu:300,300italic,400,500,600,700,900" />
+  <link  rel="stylesheet" type="text/css"  media="all" href="//fonts.googleapis.com/css?family=Montserrat:400,700" />
+  <link  rel="stylesheet" type="text/css"  media="all" href="//fonts.googleapis.com/css?family=Arizonia" />
+  <link  rel="stylesheet" type="text/css"  type="text/css" href="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/TemplateMonster_NewsletterPopup/fonts/font-awesome-4.5.0/css/font-awesome.min.css" />
+  <link  rel="stylesheet" type="text/css"  media="screen" rel="stylesheet" type="text/css" href="http://ld-magento.template-help.com/magento_58948/pub/static/_cache/merged/4dd04853d66a94aa60477be84a54fc39.min.css" />
+  <link  rel="icon" type="image/x-icon" href="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/Magento_Theme/favicon.ico" />
+  <link  rel="shortcut icon" type="image/x-icon" href="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/Magento_Theme/favicon.ico" />
+  <script  type="text/javascript"  src="http://ld-magento.template-help.com/magento_58948/pub/static/_cache/merged/07c7b42b304a3ab4d71086ceb7f8ed04.min.js"></script>
+</head>
+<body data-container="body" data-mage-init='{"loaderAjax": {}, "loader": { "icon": "http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/loader-2.gif"}}' class="cms-home cms-index-index page-layout-1column">
+<script>
+  var compareProductAddAjax = 1;</script>
+<!-- BEGIN GOOGLE ANALYTICS CODE -->
+<script>
+  //<![CDATA[
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+
+  ga('create', 'UA-7078796-5', 'auto');
+  ga('send', 'pageview');
+
+  //]]>
+</script>
+<!-- END GOOGLE ANALYTICS CODE -->
+<script type="text/x-magento-init">
+{"*": {"comparePopup": []}}
+</script>
+<div id="productComparePopup" style="display: none;">
+</div>
+<div class="page-wrapper">
+  <div class="side-navbar">
+  <div data-block="minicart" class="minicart-wrapper">
+    <!--    <a href="--><!--" class="side-navbar-btn--link action showcart"><span></span></a>-->
+    <a class="side-navbar-btn--link side-navbar-btn--cart" href="http://ld-magento.template-help.com/magento_58948/checkout/cart/"
+       data-bind="scope: 'minicart_content'">
+        <span class="counter qty empty"
+              data-bind="css: { empty: cart().summary_count == 0 }, blockLoader: isLoading">
+            <span class="counter-number"><!-- ko text: cart().summary_count --><!-- /ko --></span>
+            <span class="counter-label">
+            <!-- ko if: cart().summary_count -->
+              <!-- ko text: cart().summary_count --><!-- /ko -->
+              <!-- ko i18n: 'items' --><!-- /ko -->
+              <!-- /ko -->
+            </span>
+        </span>
+    </a>
+    <a class="action showcart" href="http://ld-magento.template-help.com/magento_58948/checkout/cart/"
+       data-bind="scope: 'minicart_content'">
+      <span class="text">My Cart</span>
+        <span class="counter qty empty"
+              data-bind="css: { empty: cart().summary_count == 0 }, blockLoader: isLoading">
+            <span class="counter-number"><!-- ko text: cart().summary_count --><!-- /ko --></span>
+            <span class="counter-label">
+            <!-- ko if: cart().summary_count -->
+              <!-- ko text: cart().summary_count --><!-- /ko -->
+              <!-- ko i18n: 'items' --><!-- /ko -->
+              <!-- /ko -->
+            </span>
+        </span>
+    </a>
+    <div class="block block-minicart empty"
+         data-role="dropdownDialog"
+         data-mage-init='{"dropdownDialog":{
+                "appendTo":"[data-block=minicart]",
+                "triggerTarget":".showcart",
+                "timeout": "2000",
+                "closeOnMouseLeave": false,
+                "closeOnEscape": true,
+                "triggerClass":"active",
+                "parentClass":"active",
+                "buttons":[]}}'>
+      <div id="minicart-content-wrapper" data-bind="scope: 'minicart_content'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+      </div>
+    </div>
+    <script>
+      window.checkout = {"shoppingCartUrl":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/","checkoutUrl":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/","updateItemQtyUrl":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/sidebar\/updateItemQty\/","removeItemUrl":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/sidebar\/removeItem\/","imageTemplate":"Magento_Catalog\/product\/image_with_borders","baseUrl":"http:\/\/ld-magento.template-help.com\/magento_58948\/","customerLoginUrl":"http:\/\/ld-magento.template-help.com\/magento_58948\/customer\/account\/login\/","isRedirectRequired":false,"autocomplete":"off","captcha":{"user_login":{"isCaseSensitive":false,"imageHeight":50,"imageSrc":"","refreshUrl":"http:\/\/ld-magento.template-help.com\/magento_58948\/captcha\/refresh\/","isRequired":false},"guest_checkout":{"isCaseSensitive":false,"imageHeight":50,"imageSrc":"","refreshUrl":"http:\/\/ld-magento.template-help.com\/magento_58948\/captcha\/refresh\/","isRequired":false}}};
+    </script>
+    <script type="text/x-magento-init">
+    {
+        "[data-block='minicart']": {
+            "Magento_Ui/js/core/app": {"components":{"minicart_content":{"children":{"subtotal.container":{"children":{"subtotal":{"children":{"subtotal.totals":{"config":{"display_cart_subtotal_incl_tax":0,"display_cart_subtotal_excl_tax":1,"template":"Magento_Tax\/checkout\/minicart\/subtotal\/totals"},"children":{"subtotal.totals.msrp":{"component":"Magento_Msrp\/js\/view\/checkout\/minicart\/subtotal\/totals","config":{"displayArea":"minicart-subtotal-hidden","template":"Magento_Msrp\/checkout\/minicart\/subtotal\/totals"}}},"component":"Magento_Tax\/js\/view\/checkout\/minicart\/subtotal\/totals"}},"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/subtotal"}}},"component":"uiComponent","config":{"displayArea":"subtotalContainer"}},"item.renderer":{"component":"uiComponent","config":{"displayArea":"defaultRenderer","template":"Magento_Checkout\/minicart\/item\/default"},"children":{"item.image":{"component":"Magento_Catalog\/js\/view\/image","config":{"template":"Magento_Catalog\/product\/image","displayArea":"itemImage"}},"checkout.cart.item.price.sidebar":{"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/item\/price","displayArea":"priceSidebar"}}}},"extra_info":{"component":"uiComponent","config":{"displayArea":"extraInfo"}},"promotion":{"component":"uiComponent","config":{"displayArea":"promotion"}}},"config":{"itemRenderer":{"default":"defaultRenderer","simple":"defaultRenderer","virtual":"defaultRenderer"},"template":"Magento_Checkout\/minicart\/content"},"component":"Magento_Checkout\/js\/view\/minicart"}},"types":[]}        },
+        "*": {
+            "Magento_Ui/js/block-loader": "http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/loader-1.gif"
+        }
+    }
+    </script>
+  </div>
+
+
+  <div class="side-navbar-box side-navbar-search"><a href="http://ld-magento.template-help.com/magento_58948/catalogsearch/advanced/" class="side-navbar-btn--link"><span></span></a>
+    <button class="side-navbar-btn">
+      <span></span>
+    </button><div class="side-navbar-popup"><button class="side-navbar-close">
+    <span></span>
+  </button><button class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search"><span></span></button>
+    <div class="block block-search rd-navbar-search">
+      <div class="block-title"><strong>Search</strong></div>
+      <div class="block-content form-group">
+        <form class="form minisearch rd-navbar-search-form" id="search_mini_form" action="http://ld-magento.template-help.com/magento_58948/catalogsearch/result/" method="get">
+          <div class="field search">
+            <label class="label" for="search" data-role="minisearch-label">
+              <span>Search</span>
+            </label>
+            <div class="control rd-navbar-search-form-input">
+              <input id="search"
+                     data-mage-init='{"quickSearch":{
+                                  "formSelector":"#search_mini_form",
+                                  "url":"http://ld-magento.template-help.com/magento_58948/search/ajax/suggest/",
+                                  "destinationSelector":"#search_autocomplete"}
+                             }'
+                     type="text"
+                     name="q"
+                     value=""
+                     placeholder="SEARCH"
+                     class="input-text"
+                     maxlength="128"
+                     role="combobox"
+                     aria-haspopup="false"
+                     aria-autocomplete="both"
+                     autocomplete="off"
+                     autofocus/>
+              <div id="search_autocomplete" class="search-autocomplete" data-scroll-scope="force"></div>
+              <div class="nested">
+                <a class="action advanced" href="http://ld-magento.template-help.com/magento_58948/catalogsearch/advanced/" data-action="advanced-search">
+                  Advanced Search    </a>
+              </div>
+            </div>
+          </div>
+          <div class="actions">
+            <button type="submit"
+                    title="Search"
+                    class="action search rd-navbar-search-form-submit">
+              <span>Search</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div></div></div><div class="side-navbar-box side-navbar-menu"><a href="http://ld-magento.template-help.com/magento_58948/customer/account/" class="side-navbar-btn--link"><span></span></a>
+  <button class="side-navbar-btn">
+    <span></span>
+  </button><div class="side-navbar-popup"><button class="side-navbar-close">
+  <span></span>
+</button><ul class="header links"><li><a href="http://ld-magento.template-help.com/magento_58948/customer/account/" >My Account</a></li><li class="link wishlist" data-bind="scope: 'wishlist'">
+  <a href="http://ld-magento.template-help.com/magento_58948/wishlist/">My Wish List        <!-- ko if: wishlist().counter -->
+    <span data-bind="text: wishlist().counter" class="counter qty"></span>
+    <!-- /ko -->
+  </a>
+</li>
+  <script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "wishlist": {
+                        "component": "Magento_Wishlist/js/view/wishlist"
+                    }
+                }
+            }
+        }
+    }
+
+</script>
+  <li class="toplinks-showcart-wrapper"><a class="action showcart" href="http://ld-magento.template-help.com/magento_58948/catalogsearch/advanced/">
+    <span class="text">View Cart</span>
+  </a></li><li class="nav item"><a href="http://ld-magento.template-help.com/magento_58948/#/">Help</a></li></ul></div></div><div class="side-navbar-box side-navbar-login"><li class="authorization-link TEST123 sign_in" data-label="or">
+  <a href="http://ld-magento.template-help.com/magento_58948/customer/account/login/">
+    <!--        -->    </a>
+</li>
+  <a href="http://ld-magento.template-help.com/magento_58948/customer/account/login/" class="side-navbar-btn--link"><span></span></a>
+  <button class="side-navbar-btn">
+    <span></span>
+  </button><div class="side-navbar-popup"><button class="side-navbar-close">
+  <span></span>
+</button><div class="block block-customer-login-popup login-block active">
+  <div class="block-title">
+    <strong id="block-customer-login-popup-heading" role="heading" aria-level="2">Login Form</strong>
+  </div>
+  <div class="block-content" aria-labelledby="block-customer-login-popup-heading">
+    <form class="form form-login-popup"
+          action="http://ld-magento.template-help.com/magento_58948/customer/account/loginPost/"
+          method="post"
+          id="login-form-popup"
+          data-mage-init='{"validation":{}}'>
+      <input name="form_key" type="hidden" value="pwcX741dvtlc8oAR" />            <fieldset class="fieldset login" data-hasrequired="* Required Fields">
+      <div class="field email required">
+        <div class="control">
+          <input name="login[username]"
+                 placeholder="Email:"
+                 value=""
+                 id="email"
+                 type="email"
+                 class="input-text"
+                 title="Email"
+                 data-validate="{required:true, 'validate-email':true}">
+        </div>
+      </div>
+      <div class="field password required">
+        <div class="control">
+          <input name="login[password]"
+                 placeholder="Password:"
+                 type="password"
+                 class="input-text"
+                 id="pass"
+                 title="Password"
+                 data-validate="{required:true, 'validate-password':true}"
+                 autocomplete="off">
+        </div>
+      </div>
+      <div class="field choice persistent">
+        <input type="checkbox" name="persistent_remember_me" class="checkbox" id="remember_me6u5bYOw3L8" checked="checked" title="Remember Me" />
+        <label for="remember_me6u5bYOw3L8" class="label"><span>Remember Me</span></label>
+      </div>
+      <div class="actions-toolbar">
+        <div class="primary">
+          <button type="submit" class="action login primary" name="send" id="send2">
+            <span>Sign in</span>
+          </button>
+        </div>
+        <ul class="secondary">
+          <li><a class="action remind-username" href="http://ld-magento.template-help.com/magento_58948/customer/account/forgotpassword/">
+            Forgot Your Username?                            </a></li>
+          <li><a class="action remind-password" href="http://ld-magento.template-help.com/magento_58948/customer/account/forgotpassword/">
+            Forgot Your Password?                            </a></li>
+          <li>
+            <button class="action login-switcher">
+              Create an Account                            </button>
+          </li>
+        </ul>
+      </div>
+    </fieldset>
+    </form>
+  </div>
+</div>
+  <form class="form create account form-create-account register-block" action="http://ld-magento.template-help.com/magento_58948/customer/account/createpost/" method="post" id="form-validate" enctype="multipart/form-data" autocomplete="off">
+    <fieldset class="fieldset create info">
+      <legend class="legend"><span>Personal Information</span></legend><br>
+      <input type="hidden" name="success_url" value="">
+      <input type="hidden" name="error_url" value="">
+
+
+      <div class="field field-name-firstname required">
+        <label class="label" for="firstname">
+          <span>First Name</span>
+        </label>
+
+        <div class="control">
+          <input type="text" id="firstname"
+                 name="firstname"
+                 value=""
+                 title="First Name"
+                 class="input-text required-entry"   data-validate="{required:true}">
+        </div>
+      </div>
+      <div class="field field-name-lastname required">
+        <label class="label"  for="lastname">
+          <span>Last Name</span>
+        </label>
+
+        <div class="control">
+          <input type="text" id="lastname"
+                 name="lastname"
+                 value=""
+                 title="Last Name"
+                 class="input-text required-entry"   data-validate="{required:true}">
+        </div>
+      </div>
+
+      <div class="field required">
+        <label for="email_address" class="label"><span>Email</span></label>
+        <div class="control">
+          <input type="email" name="email" id="email_address" value="" title="Email" class="input-text" data-validate="{required:true, 'validate-email':true}">
+        </div>
+      </div>
+      <div class="field choice newsletter">
+        <input type="checkbox" name="is_subscribed" title="Sign Up for Newsletter" value="1" id="is_subscribed" class="checkbox">
+        <label for="is_subscribed" class="label"><span>Sign Up for Newsletter</span></label>
+      </div>
+
+
+
+    </fieldset>
+    <fieldset class="fieldset create account" data-hasrequired="* Required Fields">
+      <legend class="legend"><span>Sign-in Information</span></legend><br>
+
+      <div class="field password required">
+        <label for="password" class="label"><span>Password</span></label>
+        <div class="control">
+          <input type="password" name="password" id="password" title="Password" class="input-text" data-validate="{required:true, 'validate-password':true}" autocomplete="off">
+        </div>
+      </div>
+      <div class="field confirmation required">
+        <label for="password-confirmation" class="label"><span>Confirm Password</span></label>
+        <div class="control">
+          <input type="password" name="password_confirmation" title="Confirm Password" id="password-confirmation" class="input-text" data-validate="{required:true, equalTo:'#password'}" autocomplete="off">
+        </div>
+      </div>
+    </fieldset>
+    <div class="actions-toolbar">
+      <div class="primary">
+        <button type="submit" class="action submit primary" title="Create an Account"><span>Create an Account</span></button>
+      </div>
+      <div class="secondary">
+        <button class="action register-switcher">
+          Back            </button>
+      </div>
+    </div>
+  </form>
+  <script>
+    require([
+      'jquery',
+      'mage/mage'
+    ], function($){
+
+      var dataForm = $('#form-validate');
+      var ignore = null;
+
+      dataForm.mage('validation', {
+        ignore: ignore ? ':hidden:not(' + ignore + ')' : ':hidden'
+      }).find('input:text').attr('autocomplete', 'off');
+
+    });
+  </script>
+</div></div><div class="side-navbar-box side-navbar-options"><button class="side-navbar-btn">
+  <span></span>
+</button><div class="side-navbar-popup"><button class="side-navbar-close">
+  <span></span>
+</button><div class="header-switchers">
+  <div class="switcher language switcher-language" data-ui-id="language-switcher" id="switcher-language">
+    <strong class="label switcher-label"><span>Language</span></strong>
+    <div class="actions dropdown options switcher-options" disabled>
+      <div class="action toggle switcher-trigger" id="switcher-language-trigger">
+        <strong class="view-english">
+          <span>English</span>
+        </strong>
+      </div>
+      <ul class="dropdown switcher-dropdown"
+          data-mage-init='{"dropdownDialog":{
+                "appendTo":"#switcher-language > .options",
+                "triggerTarget":"#switcher-language-trigger",
+                "closeOnMouseLeave": false,
+                "triggerClass":"active",
+                "parentClass":"active",
+                "buttons":null}}'>
+        <li class="view-german switcher-option">
+          <a href="#" data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/stores\/store\/switch\/","data":{"___store":"german","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'>
+            German</a>
+        </li>
+        <li class="view-spanish switcher-option">
+          <a href="#" data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/stores\/store\/switch\/","data":{"___store":"spanish","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'>
+            Spanish</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div></div></div></div><header class="page-header"><div class="rd-navbar"><div class="rd-navbar-panel"><div class="panel page-header__panel"><div class="container"><div class="rd-navbar-collapse-container">
+  <button class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></button>
+</div></div></div><div class="page-header__content"><div class="logo-container"><div class="logo-light">    <strong class="logo">
+  <img src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/logo_light.png"
+       alt="Magento Commerce"
+       width="100"             height="75"        />
+</strong>
+</div><div class="logo-dark">    <strong class="logo">
+  <img src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/logo.png"
+       alt="Magento Commerce"
+       width="100"             height="75"        />
+</strong>
+</div></div>        <div class="greet welcome" data-bind="scope: 'customer'">
+  <span data-bind="text: customer().fullname ? $t('Welcome, %1!').replace('%1', customer().fullname) : 'Welcome to our online store!'"></span>
+</div>
+  <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "customer": {
+                            "component": "Magento_Customer/js/view/customer"
+                        }
+                    }
+                }
+            }
+        }
+        </script>
+  <div class="header-switchers--device">
+    <div class="switcher language switcher-language" data-ui-id="mobile-language-switcher" id="mobile-switcher-language">
+      <strong class="label switcher-label"><span>Language</span></strong>
+      <div class="actions dropdown options switcher-options" disabled>
+        <div class="action toggle switcher-trigger" id="mobile-switcher-language-trigger">
+          <strong class="view-english">
+            <span>English</span>
+          </strong>
+        </div>
+        <ul class="dropdown switcher-dropdown"
+            data-mage-init='{"dropdownDialog":{
+                "appendTo":"#mobile-switcher-language > .options",
+                "triggerTarget":"#mobile-switcher-language-trigger",
+                "closeOnMouseLeave": false,
+                "triggerClass":"active",
+                "parentClass":"active",
+                "buttons":null}}'>
+          <li class="view-german switcher-option">
+            <a href="#" data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/stores\/store\/switch\/","data":{"___store":"german","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'>
+              German</a>
+          </li>
+          <li class="view-spanish switcher-option">
+            <a href="#" data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/stores\/store\/switch\/","data":{"___store":"spanish","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'>
+              Spanish</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div></div></div><div class="rd-navbar-panel-canvas"></div>
+
+
+  <nav class="navigation" role="navigation">
+    <div class="container">
+      <!-- RD Navbar Toggle -->
+      <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+      <!-- END RD Navbar Toggle -->
+      <div class="rd-navbar-nav-wrap">
+        <ul class="rd-navbar-nav">
+          <li  class="level0 nav-1 first level-top "><a href="http://ld-magento.template-help.com/magento_58948/men.html"  class="level-top " ><span>Men</span></a></li><li  class="level0 nav-2 level-top "><a href="http://ld-magento.template-help.com/magento_58948/women.html"  class="level-top " ><span>Women</span></a></li><li  class="level0 nav-3 level-top "><a href="http://ld-magento.template-help.com/magento_58948/children.html"  class="level-top " ><span>Children</span></a></li><li  class="level0 nav-4 last level-top  parent"><a href="http://ld-magento.template-help.com/magento_58948/sportswear.html"  class="level-top " ><strong class="mm-label">Sale</strong><span>Sportswear</span></a>
+          <!-- For sidebar menu: add class "in-sidebar" to "tm-megamenu" div -->
+
+          <div class="tm-megamenu megamenu-wrapper submenu  rd-navbar-megamenu">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 ">
+                  <ul class="mm-submenu level1">
+                    <li>
+                      <a href="http://ld-magento.template-help.com/magento_58948/sportswear/clothes.html">
+                        Clothes        </a>
+                      <ul class="mm-submenu level2">
+                        <li>
+                          <a href="http://ld-magento.template-help.com/magento_58948/sportswear/clothes/dresses.html">Dresses</a>
+                        </li>
+                        <li>
+                          <a href="http://ld-magento.template-help.com/magento_58948/sportswear/clothes/t-shirts.html">T-shirts</a>
+                        </li>
+                        <li>
+                          <a href="http://ld-magento.template-help.com/magento_58948/sportswear/clothes/blouses.html">Blouses</a>
+                        </li>
+                        <li>
+                          <a href="http://ld-magento.template-help.com/magento_58948/sportswear/clothes/sweaters.html">Sweaters</a>
+                        </li>
+                        <li>
+                          <a href="http://ld-magento.template-help.com/magento_58948/sportswear/clothes/outerwear.html">Outerwear</a>
+                        </li>
+                        <li>
+                          <a href="http://ld-magento.template-help.com/magento_58948/sportswear/clothes/jackets.html">Jackets</a>
+                        </li>
+                        <li>
+                          <a href="http://ld-magento.template-help.com/magento_58948/sportswear/clothes/jeans.html">Jeans</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul></div><div class="col-sm-3 ">
+                <ul class="mm-submenu level1">
+                  <li>
+                    <a href="http://ld-magento.template-help.com/magento_58948/sportswear/accessories.html">
+                      Accessories        </a>
+                    <ul class="mm-submenu level2">
+                      <li>
+                        <a href="http://ld-magento.template-help.com/magento_58948/sportswear/accessories/bags.html">Bags</a>
+                      </li>
+                      <li>
+                        <a href="http://ld-magento.template-help.com/magento_58948/sportswear/accessories/shoes.html">Shoes</a>
+                      </li>
+                      <li>
+                        <a href="http://ld-magento.template-help.com/magento_58948/sportswear/accessories/hats.html">Hats</a>
+                      </li>
+                      <li>
+                        <a href="http://ld-magento.template-help.com/magento_58948/sportswear/accessories/scarves.html">Scarves</a>
+                      </li>
+                      <li>
+                        <a href="http://ld-magento.template-help.com/magento_58948/sportswear/accessories/belts.html">Belts</a>
+                      </li>
+                      <li>
+                        <a href="http://ld-magento.template-help.com/magento_58948/sportswear/accessories/sunglasses.html">Sunglasses</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul></div><div class="col-sm-6 ">
+                <div class="static-block">
+                  <div class="megamenu">
+                    <a href="http://ld-magento.template-help.com/magento_58948/sportswear.html/">
+                      <img src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/megamenu.jpg" alt="menu">
+                    </a>
+                  </div></div></div></div>    </div>
+          </div></li>                </ul>
+      </div>
+    </div>
+  </nav>
+
+</div>
+  <div style="slider-pro-wrapper" class="slider-pro-wrapper">
+    <div class="slider-pro-container" style="padding-bottom: 50%; height: autopx;">
+      <div class="loading-mask for-slider">
+        <div class="loader">
+          <img src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/TemplateMonster_FilmSlider/images/loader-2.gif"
+               alt="Loading...">
+        </div>
+      </div>
+      <div id="example1" class="slider-pro abs" data-mage-init='{"FilmSlider": {"slider_id":"1","width":"100%","height":"500","aspectRatio":"2","imageScaleMode":"cover","allowScaleUp":"true","autoHeight":"false","centerImage":"true","orientation":"horizontal","forceSize":"none","slideAnimationDuration":"1500","heightAnimationDuration":"1500","visibleSize":"auto","startSlide":"0","shuffle":"false","loop":"true","fade":"true","fadeOutPreviousSlide":"true","fadeDuration":"300","autoplay":"true","autoplayDelay":"5000","autoplayDirection":"normal","autoplayOnHover":"pause","arrows":"false","fadeArrows":"true","buttons":"true","keyboard":"true","fullScreen":"false","fadeFullScreen":"true","responsive":"true","touchSwipe":"true","touchSwipeThreshold":"50","smallSize":"480","mediumSize":"768","largeSize":"1024","fadeCaption":"true","captionFadeDuration":"5000","waitForLayers":"false","autoScaleLayers":"true","autoScaleReference":"1990","limit":"20","page":"1","title":""}}'>
+        <div class="sp-slides">
+          <div class="sp-slide">
+            <img class="sp-image" src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/TemplateMonster_FilmSlider/images/blank.gif" data-src="http://ld-magento.template-help.com/magento_58948/pub/media/wysiwyg/Slider/slide1.jpg"/>
+            <div class="sp-layer slider-text_wrapper slide-1-text-1"
+                 data-position="topCenter"                                                                 data-vertical="32%"                                 data-show-transition="down"                                                                                                                                 data-show-duration="1000"                                                                 data-show-offset="300"                                                                  >
+
+              <div style="                                                                                                            color: #ffffff;                                    font-family: Arizonia;                                    font-size: 120px;                                                                                                            font-weight: 400;                                                                            ">
+                <span class="slider-text">2016</span>                                    </div>
+            </div>
+            <div class="sp-layer slider-text_wrapper slide-1-text-2"
+                 data-position="topCenter"                                                                 data-vertical="43%"                                 data-show-transition="down"                                                                                                                                 data-show-duration="1000"                                                                 data-show-offset="250"                                                                  >
+
+              <div style="                                                                                                            color: #ffffff;                                                                        font-size: 20px;                                                                                                                                                                                        ">
+                <span class="slider-text">COLLECTION</span>                                    </div>
+            </div>
+            <div class="sp-layer slider-btn_wrapper"
+                 data-position="topCenter"                                                                 data-vertical="62%"                                 data-show-transition="up"                                                                 data-show-delay="1100"                                                                 data-show-duration="300"                                                                 data-show-offset="0"                                                                  >
+
+              <div style="                                                                                                                                                                                                                                                                                                                                                                            ">
+                <a href="men.html" class="slider-btn-1">SHOP NOW!</a>                                    </div>
+            </div>
+            <div class="sp-layer slider-text_wrapper slide-1-text-3"
+                 data-position="topCenter"                                                                 data-vertical="50%"                                 data-show-transition="up"                                                                                                                                 data-show-duration="1000"                                                                 data-show-offset="250"                                                                  >
+
+              <div style="                                                                                                            color: #ffffff;                                    font-family: Montserrat;                                    font-size: 60px;                                    line-height: 50px;                                                                        font-weight: 700;                                                                            ">
+                <span class="slider-text">BEST SELLING PRODUCTS</span>                                    </div>
+            </div>
+          </div>
+          <div class="sp-slide">
+            <img class="sp-image" src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/TemplateMonster_FilmSlider/images/blank.gif" data-src="http://ld-magento.template-help.com/magento_58948/pub/media/wysiwyg/Slider/slide2.jpg"/>
+            <div class="sp-layer slider-text_wrapper slide-2-text-1"
+                 data-position="topCenter"                                                                 data-vertical="26%"                                 data-show-transition="down"                                                                                                                                 data-show-duration="1000"                                                                 data-show-offset="300"                                                                  >
+
+              <div style="                                                                                                            color: #cda379;                                    font-family: Arizonia;                                    font-size: 60px;                                                                                                                                                                                        ">
+                <span class="slider-text">Season sale!</span>                                    </div>
+            </div>
+            <div class="sp-layer slider-text_wrapper slide-2-text-2"
+                 data-position="topCenter"                                                                 data-vertical="31%"                                 data-show-transition="up"                                                                                                                                 data-show-duration="1000"                                                                 data-show-offset="250"                                                                  >
+
+              <div style="                                                                                                            color: #ffffff;                                    font-family: Montserrat;                                    font-size: 220px;                                                                                                            font-weight: 700;                                                                            ">
+                <span class="slider-text">JEANS</span>                                    </div>
+            </div>
+            <div class="sp-layer slider-text_wrapper slide-2-text-3"
+                 data-position="topCenter"                                                                 data-vertical="52%"                                 data-show-transition="up"                                                                                                                                 data-show-duration="1000"                                                                 data-show-offset="300"                                                                  >
+
+              <div style="                                                                                                            color: #ffffff;                                                                        font-size: 120px;                                                                                                            font-weight: 300;                                                                            ">
+                <span class="slider-text">20% OFF</span>                                    </div>
+            </div>
+            <div class="sp-layer slider-btn_wrapper"
+                 data-position="topCenter"                                                                 data-vertical="70%"                                 data-show-transition="up"                                                                 data-show-delay="1100"                                                                 data-show-duration="300"                                                                 data-show-offset="0"                                                                  >
+
+              <div style="                                                                                                                                                                                                                                                                                                                                                                            ">
+                <a href="children.html" class="slider-btn-1 slider-btn-2">SHOP NOW!</a>                                    </div>
+            </div>
+          </div>
+          <div class="sp-slide">
+            <img class="sp-image" src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/TemplateMonster_FilmSlider/images/blank.gif" data-src="http://ld-magento.template-help.com/magento_58948/pub/media/wysiwyg/Slider/slide3.jpg"/>
+            <div class="sp-layer slider-text_wrapper slide-3-text-1"
+                 data-position="topCenter"                                                                 data-vertical="30%"                                 data-show-transition="down"                                                                                                                                 data-show-duration="1000"                                                                 data-show-offset="300"                                                                  >
+
+              <div style="                                                                                                            color: #ffffff;                                                                        font-size: 30px;                                                                                                            font-weight: 300;                                                                            ">
+                <span class="slider-text">SPRING - SUMMER</span>                                    </div>
+            </div>
+            <div class="sp-layer slider-text_wrapper slide-3-text-2"
+                 data-position="topCenter"                                                                 data-vertical="35%"                                 data-show-transition="down"                                                                                                                                 data-show-duration="1000"                                                                 data-show-offset="250"                                                                  >
+
+              <div style="                                                                                                            color: #ffffff;                                    font-family: Montserrat;                                    font-size: 160px;                                                                                                            font-weight: 700;                                                                            ">
+                <span class="slider-text">BIG SALE</span>                                    </div>
+            </div>
+            <div class="sp-layer slider-text_wrapper slide-3-text-3"
+                 data-position="topCenter"                                                                 data-vertical="53%"                                 data-show-transition="up"                                                                                                                                 data-show-duration="1000"                                                                 data-show-offset="300"                                                                  >
+
+              <div style="                                                                                                            color: #ffffff;                                    font-family: Montserrat;                                    font-size: 90px;                                                                                                                                                                                        ">
+                <span class="slider-text">50% OFF</span>                                    </div>
+            </div>
+            <div class="sp-layer slider-btn_wrapper"
+                 data-position="topCenter"                                                                 data-vertical="66%"                                 data-show-transition="up"                                                                 data-show-delay="1100"                                                                 data-show-duration="300"                                                                 data-show-offset="0"                                                                  >
+
+              <div style="                                                                                                                                                                                                                                                                                                                                                                            ">
+                <a href="women.html" class="slider-btn-1">SHOP NOW!</a>                                    </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="widget block block-static-block">
+    <div class="showcases">
+      <ul>
+        <li><a href="http://ld-magento.template-help.com/magento_58948/men.html/">
+          <img src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/media/showcase1.jpg" alt="showcases-img">
+          <div class="showcases--text"><span>JEANS</span></div>
+        </a></li>
+        <li><a href="http://ld-magento.template-help.com/magento_58948/women.html/">
+          <img src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/media/showcase2.jpg" alt="showcases-img">
+          <div class="showcases--text"><span>SHIRTS</span></div>
+        </a></li>
+        <li><a href="http://ld-magento.template-help.com/magento_58948/children.html/">
+          <img src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/media/showcase3.jpg" alt="showcases-img">
+          <div class="showcases--text"><span>ACCESSORIES</span></div>
+        </a></li>
+        <li><a href="http://ld-magento.template-help.com/magento_58948/men.html/">
+          <img src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/media/showcase4.jpg" alt="showcases-img">
+          <div class="showcases--text"><span>SHOES</span></div>
+        </a></li>
+      </ul>
+    </div></div>
+</header><main id="maincontent" class="page-main"><a id="contentarea" name="contentarea" tabindex="-1"></a>
+  <div class="page-messages messages"><div class="container"><div data-placeholder="messages"></div><div data-bind="scope: 'messages'">
+    <div data-bind="foreach: { data: messages().messages, as: 'message' }" class="messages">
+      <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+        <div data-bind="html: message.text"></div>
+      </div>
+    </div>
+  </div>
+    <script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                        "messages": {
+                            "component": "Magento_Theme/js/view/messages"
+                        }
+                    }
+                }
+            }
+    }
+</script>
+  </div></div><div class="columns"><div class="column main"><input name="form_key" type="hidden" value="pwcX741dvtlc8oAR" /><div id="authenticationPopup" data-bind="scope:'authenticationPopup'" style="display: none;">
+  <script>
+    window.authenticationPopup = {"customerRegisterUrl":"http:\/\/ld-magento.template-help.com\/magento_58948\/customer\/account\/create\/","customerForgotPasswordUrl":"http:\/\/ld-magento.template-help.com\/magento_58948\/customer\/account\/forgotpassword\/","baseUrl":"http:\/\/ld-magento.template-help.com\/magento_58948\/"};
+  </script>
+  <!-- ko template: getTemplate() --><!-- /ko -->
+  <script type="text/x-magento-init">
+        {
+            "#authenticationPopup": {
+                "Magento_Ui/js/core/app": {"components":{"authenticationPopup":{"component":"Magento_Customer\/js\/view\/authentication-popup","children":{"messages":{"component":"Magento_Ui\/js\/view\/messages","displayArea":"messages"},"captcha":{"component":"Magento_Captcha\/js\/view\/checkout\/loginCaptcha","displayArea":"additional-login-form-fields","formId":"user_login","configSource":"checkout"}}}}}            },
+            "*": {
+                "Magento_Ui/js/block-loader": "http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/loader-1.gif"
+            }
+        }
+    </script>
+</div>
+  <script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/section-config":{"sections":{"stores\/store\/switch":"*","directory\/currency\/switch":"*","*":["messages"],"customer\/account\/logout":"*","customer\/account\/loginpost":"*","customer\/account\/createpost":"*","customer\/ajax\/login":["checkout-data","cart"],"catalog\/product_compare\/add":["compare-products"],"catalog\/product_compare\/remove":["compare-products"],"catalog\/product_compare\/clear":["compare-products"],"sales\/guest\/reorder":["cart"],"sales\/order\/reorder":["cart"],"checkout\/cart\/add":["cart"],"checkout\/cart\/delete":["cart"],"checkout\/cart\/updatepost":["cart"],"checkout\/cart\/updateitemoptions":["cart"],"checkout\/cart\/couponpost":["cart"],"checkout\/cart\/estimatepost":["cart"],"checkout\/cart\/estimateupdatepost":["cart"],"checkout\/onepage\/saveorder":["cart","checkout-data","last-ordered-items"],"checkout\/sidebar\/removeitem":["cart"],"checkout\/sidebar\/updateitemqty":["cart"],"rest\/*\/v1\/carts\/*\/payment-information":["cart","checkout-data"],"rest\/*\/v1\/guest-carts\/*\/payment-information":["cart","checkout-data"],"rest\/*\/v1\/guest-carts\/*\/selected-payment-method":["cart","checkout-data"],"rest\/*\/v1\/carts\/*\/selected-payment-method":["cart","checkout-data"],"multishipping\/checkout\/overviewpost":["cart"],"paypal\/express\/placeorder":["cart","checkout-data"],"paypal\/payflowexpress\/placeorder":["cart","checkout-data"],"authorizenet\/directpost_payment\/place":["cart","checkout-data"],"review\/product\/post":["review"],"braintree\/paypal\/placeorder":["cart","checkout-data"],"wishlist\/index\/add":["wishlist"],"wishlist\/index\/remove":["wishlist"],"wishlist\/index\/updateitemoptions":["wishlist"],"wishlist\/index\/update":["wishlist"],"wishlist\/index\/cart":["wishlist","cart"],"wishlist\/index\/fromcart":["wishlist","cart"],"wishlist\/index\/allcart":["wishlist","cart"],"wishlist\/shared\/allcart":["wishlist","cart"],"wishlist\/shared\/cart":["cart"]},"clientSideSections":["checkout-data"],"baseUrls":["http:\/\/ld-magento.template-help.com\/magento_58948\/"]}}}</script>
+  <script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/customer-data":{"sectionLoadUrl":"http:\/\/ld-magento.template-help.com\/magento_58948\/customer\/section\/load\/","cookieLifeTime":"3600"}}}</script>
+  <script type="text/x-magento-init">
+    {
+        "body": {
+            "pageCache": {"url":"http:\/\/ld-magento.template-help.com\/magento_58948\/page_cache\/block\/render\/","handles":["default","cms_index_index","cms_page_view","cms_index_index_id_home"],"originalRequest":{"route":"cms","controller":"index","action":"index","uri":"\/magento_58948\/"},"versionCookieName":"private_content_version"}        }
+    }
+</script>
+  <div class="block widget block-new-products grid">
+    <div class="container">
+      <div class="block-title">
+        <strong role="heading" aria-level="2">New Products</strong>
+      </div>
+      <div class="block-content">
+        <!-- new_products_content_widget_grid-->                <div class="products-grid grid">
+        <ol class="product-items widget-new-grid">
+          <li class="product-item">                            <div class="product-item-info">
+            <a href="http://ld-magento.template-help.com/magento_58948/anne-klein-women-s-cap-sleeve-asymmetrical-neck-ruffle-dress.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/a/n/anne-klein-women_s-cap-sleeve-asymmetrical-neck-ruffle-dress_01.png"
+             width="500"
+             height="500"
+             alt="Anne Klein Women's Cap Sleeve Asymmetrical Neck Ruffle Dress"/></span>
+</span>
+            </a>
+            <div class="product-item-details">
+              <strong class="product-item-name">
+                <a title="Anne Klein Women's Cap Sleeve Asymmetrical Neck Ruffle Dress"
+                   href="http://ld-magento.template-help.com/magento_58948/anne-klein-women-s-cap-sleeve-asymmetrical-neck-ruffle-dress.html"
+                   class="product-item-link">
+                  Anne Klein Women's Cap Sleeve Asymmetrical Neck Ruffle Dress                                        </a>
+              </strong>
+              <div class="price-box price-final_price" data-role="priceBox" data-product-id="1">
+
+
+<span class="price-container price-final_price tax weee"
+>
+        <span  id="old-price-1-widget-new-grid"                data-price-amount="68"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$68.00</span>    </span>
+        </span>
+
+              </div>
+              <div class="product-reviews-summary" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                <div class="rating-summary">
+                  <span class="label"><span>Rating:</span></span>
+                  <div class="rating-result" title="93%">
+
+                    <div class="rating-result__stars">
+                      <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>             </div>
+
+                    <div class="rating-result__text">
+                      <span itemprop="ratingValue">93</span>% of <span itemprop="bestRating">100</span></span></span>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="reviews-actions">
+                  <a class="action view" href="http://ld-magento.template-help.com/magento_58948/anne-klein-women-s-cap-sleeve-asymmetrical-neck-ruffle-dress.html#reviews"><span itemprop="reviewCount">1</span>&nbsp;<span>Review</span></a>
+                  <a class="action add" href="http://ld-magento.template-help.com/magento_58948/anne-klein-women-s-cap-sleeve-asymmetrical-neck-ruffle-dress.html#review-form">Add Your Review</a>
+                </div>
+              </div>
+
+              <div class="product-item-actions">
+                <div class="actions-primary">
+                  <button class="action tocart primary"
+                          data-mage-init='{"redirectUrl":{"url":"http://ld-magento.template-help.com/magento_58948/anne-klein-women-s-cap-sleeve-asymmetrical-neck-ruffle-dress.html?options=cart"}}'
+                          type="button" title="Add to Cart">
+                    <span>+ Add to Cart</span>
+                  </button>
+                </div>
+                <div class="actions-secondary" data-role="add-to-links">
+                  <a href="#"
+                     data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"1","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                     class="action towishlist" data-action="add-to-wishlist"
+                     title="Add to Wish List">
+                    <span>Add to Wish List</span>
+                  </a>
+                  <a href="#" class="action tocompare"
+                     data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"1","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                     title="Add to Compare">
+                    <span>Add to Compare</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          </li><li class="product-item">                            <div class="product-item-info">
+          <a href="http://ld-magento.template-help.com/magento_58948/replay-women-s-vicki-straight-jeans-blue-blue-denim-9-w25-l30-manufacturer-size-25.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/r/e/replay-women_s-vicki-straight-jeans_-blue-_blue-denim-9_-w25-l30-_manufacturer-size-25__01.png"
+             width="500"
+             height="500"
+             alt="Replay Women's Vicki Straight Jeans, Blue (Blue Denim 9), W25 L30 (Manufacturer-size-25)"/></span>
+</span>
+          </a>
+          <div class="product-item-details">
+            <strong class="product-item-name">
+              <a title="Replay Women's Vicki Straight Jeans, Blue (Blue Denim 9), W25 L30 (Manufacturer-size-25)"
+                 href="http://ld-magento.template-help.com/magento_58948/replay-women-s-vicki-straight-jeans-blue-blue-denim-9-w25-l30-manufacturer-size-25.html"
+                 class="product-item-link">
+                Replay Women's Vicki Straight Jeans, Blue (Blue Denim 9), W25 L30 (Manufacturer-size-25)                                        </a>
+            </strong>
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="21">
+    <span class="special-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Special Price</span>
+        <span  id="old-price-21-widget-new-grid"                data-price-amount="18.99"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$18.99</span>    </span>
+        </span>
+    </span>
+    <span class="old-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Regular Price</span>
+        <span  id="old-price-21-widget-new-grid"                data-price-amount="29"
+               data-price-type="oldPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$29.00</span>    </span>
+        </span>
+    </span>
+
+            </div>
+            <div class="product-reviews-summary empty">
+              <div class="reviews-actions">
+                <a class="action add" href="http://ld-magento.template-help.com/magento_58948/replay-women-s-vicki-straight-jeans-blue-blue-denim-9-w25-l30-manufacturer-size-25.html#review-form">
+                  Be the first to review this product        </a>
+              </div>
+            </div>
+
+            <div class="product-item-actions">
+              <div class="actions-primary">
+                <button class="action tocart primary"
+                        data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/21\/","data":{"product":"21","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                        type="button" title="Add to Cart">
+                  <span>+ Add to Cart</span>
+                </button>
+              </div>
+              <div class="actions-secondary" data-role="add-to-links">
+                <a href="#"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"21","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   class="action towishlist" data-action="add-to-wishlist"
+                   title="Add to Wish List">
+                  <span>Add to Wish List</span>
+                </a>
+                <a href="#" class="action tocompare"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"21","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   title="Add to Compare">
+                  <span>Add to Compare</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </li><li class="product-item">                            <div class="product-item-info">
+          <a href="http://ld-magento.template-help.com/magento_58948/michael-stars-women-s-short-sleeve-off-shoulder-dolman-shirt.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/m/i/michael-stars-women_s-short-sleeve-off-shoulder-dolman-shirt_01.png"
+             width="500"
+             height="500"
+             alt="Michael Stars Women's Short Sleeve Off Shoulder Dolman Shirt"/></span>
+</span>
+          </a>
+          <div class="product-item-details">
+            <strong class="product-item-name">
+              <a title="Michael Stars Women's Short Sleeve Off Shoulder Dolman Shirt"
+                 href="http://ld-magento.template-help.com/magento_58948/michael-stars-women-s-short-sleeve-off-shoulder-dolman-shirt.html"
+                 class="product-item-link">
+                Michael Stars Women's Short Sleeve Off Shoulder Dolman Shirt                                        </a>
+            </strong>
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="10">
+    <span class="special-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Special Price</span>
+        <span  id="old-price-10-widget-new-grid"                data-price-amount="15"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$15.00</span>    </span>
+        </span>
+    </span>
+    <span class="old-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Regular Price</span>
+        <span  id="old-price-10-widget-new-grid"                data-price-amount="21"
+               data-price-type="oldPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$21.00</span>    </span>
+        </span>
+    </span>
+
+            </div>
+            <div class="product-reviews-summary empty">
+              <div class="reviews-actions">
+                <a class="action add" href="http://ld-magento.template-help.com/magento_58948/michael-stars-women-s-short-sleeve-off-shoulder-dolman-shirt.html#review-form">
+                  Be the first to review this product        </a>
+              </div>
+            </div>
+
+            <div class="product-item-actions">
+              <div class="actions-primary">
+                <button class="action tocart primary"
+                        data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/10\/","data":{"product":"10","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                        type="button" title="Add to Cart">
+                  <span>+ Add to Cart</span>
+                </button>
+              </div>
+              <div class="actions-secondary" data-role="add-to-links">
+                <a href="#"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"10","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   class="action towishlist" data-action="add-to-wishlist"
+                   title="Add to Wish List">
+                  <span>Add to Wish List</span>
+                </a>
+                <a href="#" class="action tocompare"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"10","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   title="Add to Compare">
+                  <span>Add to Compare</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </li><li class="product-item">                            <div class="product-item-info">
+          <a href="http://ld-magento.template-help.com/magento_58948/women-s-skinny-jeans-candy-20colour.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/w/o/women_s-skinny-jeans-candy-20colour_01.png"
+             width="500"
+             height="500"
+             alt="Women's Skinny Jeans Candy 20Colour"/></span>
+</span>
+          </a>
+          <div class="product-item-details">
+            <strong class="product-item-name">
+              <a title="Women's Skinny Jeans Candy 20Colour"
+                 href="http://ld-magento.template-help.com/magento_58948/women-s-skinny-jeans-candy-20colour.html"
+                 class="product-item-link">
+                Women's Skinny Jeans Candy 20Colour                                        </a>
+            </strong>
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="41">
+
+
+<span class="price-container price-final_price tax weee"
+>
+        <span  id="old-price-41-widget-new-grid"                data-price-amount="63"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$63.00</span>    </span>
+        </span>
+
+            </div>
+            <div class="product-reviews-summary empty">
+              <div class="reviews-actions">
+                <a class="action add" href="http://ld-magento.template-help.com/magento_58948/women-s-skinny-jeans-candy-20colour.html#review-form">
+                  Be the first to review this product        </a>
+              </div>
+            </div>
+
+            <div class="product-item-actions">
+              <div class="actions-primary">
+                <button class="action tocart primary"
+                        data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/41\/","data":{"product":"41","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                        type="button" title="Add to Cart">
+                  <span>+ Add to Cart</span>
+                </button>
+              </div>
+              <div class="actions-secondary" data-role="add-to-links">
+                <a href="#"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"41","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   class="action towishlist" data-action="add-to-wishlist"
+                   title="Add to Wish List">
+                  <span>Add to Wish List</span>
+                </a>
+                <a href="#" class="action tocompare"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"41","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   title="Add to Compare">
+                  <span>Add to Compare</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </li><li class="product-item">                            <div class="product-item-info">
+          <a href="http://ld-magento.template-help.com/magento_58948/fashion-womens-boyfriend-jeans-free-suspenders-light-blue-denim-pants.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/f/a/fashion-womens-boyfriend-jeans-free-suspenders-light-blue-denim-pants_01.png"
+             width="500"
+             height="500"
+             alt="Fashion Women's Boyfriend Jeans Free Suspenders Light Blue Denim Pants"/></span>
+</span>
+          </a>
+          <div class="product-item-details">
+            <strong class="product-item-name">
+              <a title="Fashion Women's Boyfriend Jeans Free Suspenders Light Blue Denim Pants"
+                 href="http://ld-magento.template-help.com/magento_58948/fashion-womens-boyfriend-jeans-free-suspenders-light-blue-denim-pants.html"
+                 class="product-item-link">
+                Fashion Women's Boyfriend Jeans Free Suspenders Light Blue Denim Pants                                        </a>
+            </strong>
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="4">
+    <span class="special-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Special Price</span>
+        <span  id="old-price-4-widget-new-grid"                data-price-amount="64"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$64.00</span>    </span>
+        </span>
+    </span>
+    <span class="old-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Regular Price</span>
+        <span  id="old-price-4-widget-new-grid"                data-price-amount="76"
+               data-price-type="oldPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$76.00</span>    </span>
+        </span>
+    </span>
+
+            </div>
+            <div class="product-reviews-summary empty">
+              <div class="reviews-actions">
+                <a class="action add" href="http://ld-magento.template-help.com/magento_58948/fashion-womens-boyfriend-jeans-free-suspenders-light-blue-denim-pants.html#review-form">
+                  Be the first to review this product        </a>
+              </div>
+            </div>
+
+            <div class="product-item-actions">
+              <div class="actions-primary">
+                <button class="action tocart primary"
+                        data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/4\/","data":{"product":"4","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                        type="button" title="Add to Cart">
+                  <span>+ Add to Cart</span>
+                </button>
+              </div>
+              <div class="actions-secondary" data-role="add-to-links">
+                <a href="#"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"4","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   class="action towishlist" data-action="add-to-wishlist"
+                   title="Add to Wish List">
+                  <span>Add to Wish List</span>
+                </a>
+                <a href="#" class="action tocompare"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"4","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   title="Add to Compare">
+                  <span>Add to Compare</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </li><li class="product-item">                            <div class="product-item-info">
+          <a href="http://ld-magento.template-help.com/magento_58948/star-vixen-women-s-faux-wrap-dress.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/s/t/star-vixen-women_s-faux-wrap-dress_01.png"
+             width="500"
+             height="500"
+             alt="Star Vixen Women's Faux Wrap Dress"/></span>
+</span>
+          </a>
+          <div class="product-item-details">
+            <strong class="product-item-name">
+              <a title="Star Vixen Women's Faux Wrap Dress"
+                 href="http://ld-magento.template-help.com/magento_58948/star-vixen-women-s-faux-wrap-dress.html"
+                 class="product-item-link">
+                Star Vixen Women's Faux Wrap Dress                                        </a>
+            </strong>
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="25">
+    <span class="special-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Special Price</span>
+        <span  id="old-price-25-widget-new-grid"                data-price-amount="99.99"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$99.99</span>    </span>
+        </span>
+    </span>
+    <span class="old-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Regular Price</span>
+        <span  id="old-price-25-widget-new-grid"                data-price-amount="105"
+               data-price-type="oldPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$105.00</span>    </span>
+        </span>
+    </span>
+
+            </div>
+            <div class="product-reviews-summary empty">
+              <div class="reviews-actions">
+                <a class="action add" href="http://ld-magento.template-help.com/magento_58948/star-vixen-women-s-faux-wrap-dress.html#review-form">
+                  Be the first to review this product        </a>
+              </div>
+            </div>
+
+            <div class="product-item-actions">
+              <div class="actions-primary">
+                <button class="action tocart primary"
+                        data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/25\/","data":{"product":"25","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                        type="button" title="Add to Cart">
+                  <span>+ Add to Cart</span>
+                </button>
+              </div>
+              <div class="actions-secondary" data-role="add-to-links">
+                <a href="#"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"25","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   class="action towishlist" data-action="add-to-wishlist"
+                   title="Add to Wish List">
+                  <span>Add to Wish List</span>
+                </a>
+                <a href="#" class="action tocompare"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"25","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   title="Add to Compare">
+                  <span>Add to Compare</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </li><li class="product-item">                            <div class="product-item-info">
+          <a href="http://ld-magento.template-help.com/magento_58948/edc-by-esprit-women-s-crew-neck-short-sleeve-t-shirt.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/e/d/edc-by-esprit-women_s-crew-neck-short-sleeve-t-shirt_01.png"
+             width="500"
+             height="500"
+             alt="Edc by ESPRIT Women's Crew Neck Short Sleeve T-Shirt"/></span>
+</span>
+          </a>
+          <div class="product-item-details">
+            <strong class="product-item-name">
+              <a title="Edc by ESPRIT Women's Crew Neck Short Sleeve T-Shirt"
+                 href="http://ld-magento.template-help.com/magento_58948/edc-by-esprit-women-s-crew-neck-short-sleeve-t-shirt.html"
+                 class="product-item-link">
+                Edc by ESPRIT Women's Crew Neck Short Sleeve T-Shirt                                        </a>
+            </strong>
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="2">
+    <span class="special-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Special Price</span>
+        <span  id="old-price-2-widget-new-grid"                data-price-amount="19.99"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$19.99</span>    </span>
+        </span>
+    </span>
+    <span class="old-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Regular Price</span>
+        <span  id="old-price-2-widget-new-grid"                data-price-amount="24"
+               data-price-type="oldPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$24.00</span>    </span>
+        </span>
+    </span>
+
+            </div>
+            <div class="product-reviews-summary empty">
+              <div class="reviews-actions">
+                <a class="action add" href="http://ld-magento.template-help.com/magento_58948/edc-by-esprit-women-s-crew-neck-short-sleeve-t-shirt.html#review-form">
+                  Be the first to review this product        </a>
+              </div>
+            </div>
+
+            <div class="product-item-actions">
+              <div class="actions-primary">
+                <button class="action tocart primary"
+                        data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/2\/","data":{"product":"2","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                        type="button" title="Add to Cart">
+                  <span>+ Add to Cart</span>
+                </button>
+              </div>
+              <div class="actions-secondary" data-role="add-to-links">
+                <a href="#"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"2","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   class="action towishlist" data-action="add-to-wishlist"
+                   title="Add to Wish List">
+                  <span>Add to Wish List</span>
+                </a>
+                <a href="#" class="action tocompare"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"2","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   title="Add to Compare">
+                  <span>Add to Compare</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </li><li class="product-item">                            <div class="product-item-info">
+          <a href="http://ld-magento.template-help.com/magento_58948/replay-women-s-vicki-straight-jeans-blue-blue-denim-10-w25-l30-manufacturer-size-25.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/r/e/replay-women_s-vicki-straight-jeans_-blue-_blue-denim-10_-w25-l30-_manufacturer-size-25__01.png"
+             width="500"
+             height="500"
+             alt="Replay Women's Vicki Straight Jeans, Blue (Blue Denim 10), W25 L30 (Manufacturer size 25)"/></span>
+</span>
+          </a>
+          <div class="product-item-details">
+            <strong class="product-item-name">
+              <a title="Replay Women's Vicki Straight Jeans, Blue (Blue Denim 10), W25 L30 (Manufacturer size 25)"
+                 href="http://ld-magento.template-help.com/magento_58948/replay-women-s-vicki-straight-jeans-blue-blue-denim-10-w25-l30-manufacturer-size-25.html"
+                 class="product-item-link">
+                Replay Women's Vicki Straight Jeans, Blue (Blue Denim 10), W25 L30 (Manufacturer size 25)                                        </a>
+            </strong>
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="22">
+
+
+<span class="price-container price-final_price tax weee"
+>
+        <span  id="old-price-22-widget-new-grid"                data-price-amount="96"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$96.00</span>    </span>
+        </span>
+
+            </div>
+            <div class="product-reviews-summary empty">
+              <div class="reviews-actions">
+                <a class="action add" href="http://ld-magento.template-help.com/magento_58948/replay-women-s-vicki-straight-jeans-blue-blue-denim-10-w25-l30-manufacturer-size-25.html#review-form">
+                  Be the first to review this product        </a>
+              </div>
+            </div>
+
+            <div class="product-item-actions">
+              <div class="actions-primary">
+                <button class="action tocart primary"
+                        data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/22\/","data":{"product":"22","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                        type="button" title="Add to Cart">
+                  <span>+ Add to Cart</span>
+                </button>
+              </div>
+              <div class="actions-secondary" data-role="add-to-links">
+                <a href="#"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"22","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   class="action towishlist" data-action="add-to-wishlist"
+                   title="Add to Wish List">
+                  <span>Add to Wish List</span>
+                </a>
+                <a href="#" class="action tocompare"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"22","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   title="Add to Compare">
+                  <span>Add to Compare</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </li><li class="product-item">                            <div class="product-item-info">
+          <a href="http://ld-magento.template-help.com/magento_58948/only-sons-men-s-long-sleeve-coat.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/o/n/only-_-sons-men_s-long-sleeve-coat_01.png"
+             width="500"
+             height="500"
+             alt="ONLY &amp; SONS Men's Long Sleeve Coat"/></span>
+</span>
+          </a>
+          <div class="product-item-details">
+            <strong class="product-item-name">
+              <a title="ONLY &amp; SONS Men's Long Sleeve Coat"
+                 href="http://ld-magento.template-help.com/magento_58948/only-sons-men-s-long-sleeve-coat.html"
+                 class="product-item-link">
+                ONLY &amp; SONS Men's Long Sleeve Coat                                        </a>
+            </strong>
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="11">
+
+
+<span class="price-container price-final_price tax weee"
+>
+        <span  id="old-price-11-widget-new-grid"                data-price-amount="72"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$72.00</span>    </span>
+        </span>
+
+            </div>
+            <div class="product-reviews-summary empty">
+              <div class="reviews-actions">
+                <a class="action add" href="http://ld-magento.template-help.com/magento_58948/only-sons-men-s-long-sleeve-coat.html#review-form">
+                  Be the first to review this product        </a>
+              </div>
+            </div>
+
+            <div class="product-item-actions">
+              <div class="actions-primary">
+                <button class="action tocart primary"
+                        data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/11\/","data":{"product":"11","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                        type="button" title="Add to Cart">
+                  <span>+ Add to Cart</span>
+                </button>
+              </div>
+              <div class="actions-secondary" data-role="add-to-links">
+                <a href="#"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"11","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   class="action towishlist" data-action="add-to-wishlist"
+                   title="Add to Wish List">
+                  <span>Add to Wish List</span>
+                </a>
+                <a href="#" class="action tocompare"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"11","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   title="Add to Compare">
+                  <span>Add to Compare</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </li><li class="product-item">                            <div class="product-item-info">
+          <a href="http://ld-magento.template-help.com/magento_58948/jack-and-jones-men-s-jjorcall-short-parka-coat.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/j/a/jack-and-jones-men_s-jjorcall-short-parka-coat_01.png"
+             width="500"
+             height="500"
+             alt="Jack and Jones Men's JJORCALL Short Parka Coat"/></span>
+</span>
+          </a>
+          <div class="product-item-details">
+            <strong class="product-item-name">
+              <a title="Jack and Jones Men's JJORCALL Short Parka Coat"
+                 href="http://ld-magento.template-help.com/magento_58948/jack-and-jones-men-s-jjorcall-short-parka-coat.html"
+                 class="product-item-link">
+                Jack and Jones Men's JJORCALL Short Parka Coat                                        </a>
+            </strong>
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="5">
+    <span class="special-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Special Price</span>
+        <span  id="old-price-5-widget-new-grid"                data-price-amount="99.99"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$99.99</span>    </span>
+        </span>
+    </span>
+    <span class="old-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Regular Price</span>
+        <span  id="old-price-5-widget-new-grid"                data-price-amount="115"
+               data-price-type="oldPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$115.00</span>    </span>
+        </span>
+    </span>
+
+            </div>
+            <div class="product-reviews-summary empty">
+              <div class="reviews-actions">
+                <a class="action add" href="http://ld-magento.template-help.com/magento_58948/jack-and-jones-men-s-jjorcall-short-parka-coat.html#review-form">
+                  Be the first to review this product        </a>
+              </div>
+            </div>
+
+            <div class="product-item-actions">
+              <div class="actions-primary">
+                <button class="action tocart primary"
+                        data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/5\/","data":{"product":"5","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                        type="button" title="Add to Cart">
+                  <span>+ Add to Cart</span>
+                </button>
+              </div>
+              <div class="actions-secondary" data-role="add-to-links">
+                <a href="#"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"5","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   class="action towishlist" data-action="add-to-wishlist"
+                   title="Add to Wish List">
+                  <span>Add to Wish List</span>
+                </a>
+                <a href="#" class="action tocompare"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"5","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   title="Add to Compare">
+                  <span>Add to Compare</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </li>                                            </ol>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="widget block block-static-block">
+    <div class="block-1">
+      <ul>
+        <li>
+          <img src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/media/box-1.jpg" alt="block-1-img">
+          <div class="block-1--text">
+            <span class="block-1--text-1">new arrivals</span>
+            <button class="block-1--btn"><a href="http://ld-magento.template-help.com/magento_58948/men.html/">Shop now!</a></button>
+          </div>
+        </li>
+        <li>
+          <img src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/media/box-2.jpg" alt="block-1-img">
+          <div class="block-1--text">
+            <span class="block-1--text-2">Sale</span>
+            <span class="block-1--text-3">-50%</span>
+            <button class="block-1--btn"><a href="http://ld-magento.template-help.com/magento_58948/women.html/">Shop now!</a></button>
+          </div>
+        </li>
+      </ul>
+    </div></div>
+  <div class="block widget block-products-list grid">
+    <div class="container">                <div class="block-title">
+      <strong>Special products</strong>
+    </div>
+      <div class="block-content">
+        <!-- special_products_content_widget_grid-->                <div class="products products-grid grid">
+        <ol class="product-items widget-product-grid">
+          <li class="product-item product">                            <div class="product-item-info">
+            <a href="http://ld-magento.template-help.com/magento_58948/edc-by-esprit-women-s-crew-neck-short-sleeve-t-shirt.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/e/d/edc-by-esprit-women_s-crew-neck-short-sleeve-t-shirt_01.png"
+             width="500"
+             height="500"
+             alt="Edc by ESPRIT Women's Crew Neck Short Sleeve T-Shirt"/></span>
+</span>
+            </a>
+            <div class="product-item-details">
+              <strong class="product-item-name">
+                <a title="Edc by ESPRIT Women's Crew Neck Short Sleeve T-Shirt"
+                   href="http://ld-magento.template-help.com/magento_58948/edc-by-esprit-women-s-crew-neck-short-sleeve-t-shirt.html"
+                   class="product-item-link">
+                  Edc by ESPRIT Women's Crew Neck…                                         </a>
+              </strong>
+
+              <!--                                    --><!--                                        --><!--                                    -->
+              <div class="price-box price-final_price" data-role="priceBox" data-product-id="2">
+    <span class="special-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Special Price</span>
+        <span  id="old-price-2-widget-product-grid"                data-price-amount="19.99"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$19.99</span>    </span>
+        </span>
+    </span>
+    <span class="old-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Regular Price</span>
+        <span  id="old-price-2-widget-product-grid"                data-price-amount="24"
+               data-price-type="oldPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$24.00</span>    </span>
+        </span>
+    </span>
+
+              </div>
+              <div class="product-item-actions">
+                <div class="actions-primary">
+                  <button class="action tocart primary"
+                          data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/2\/","data":{"product":"2","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                          type="button" title="Add to Cart">
+                    <span>+ Add to Cart</span>
+                  </button>
+                </div>
+                <div class="actions-secondary" data-role="add-to-links">
+                  <a href="#"
+                     data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"2","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                     class="action towishlist" data-action="add-to-wishlist"
+                     title="Add to Wish List">
+                    <span>Add to Wish List</span>
+                  </a>
+                  <a href="#" class="action tocompare"
+                     data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"2","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                     title="Add to Compare">
+                    <span>Add to Compare</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          </li><li class="product-item product">                            <div class="product-item-info">
+          <a href="http://ld-magento.template-help.com/magento_58948/esprit-men-s-long-sleeve-jacket.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/e/s/esprit-men_s-long-sleeve-jacket_01.png"
+             width="500"
+             height="500"
+             alt="ESPRIT Men's Long Sleeve Jacket"/></span>
+</span>
+          </a>
+          <div class="product-item-details">
+            <strong class="product-item-name">
+              <a title="ESPRIT Men's Long Sleeve Jacket"
+                 href="http://ld-magento.template-help.com/magento_58948/esprit-men-s-long-sleeve-jacket.html"
+                 class="product-item-link">
+                ESPRIT Men's Long Sleeve Jacket                                        </a>
+            </strong>
+
+            <!--                                    --><!--                                        --><!--                                    -->
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="3">
+    <span class="special-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Special Price</span>
+        <span  id="old-price-3-widget-product-grid"                data-price-amount="55"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$55.00</span>    </span>
+        </span>
+    </span>
+    <span class="old-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Regular Price</span>
+        <span  id="old-price-3-widget-product-grid"                data-price-amount="68"
+               data-price-type="oldPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$68.00</span>    </span>
+        </span>
+    </span>
+
+            </div>
+            <div class="product-item-actions">
+              <div class="actions-primary">
+                <button class="action tocart primary"
+                        data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/3\/","data":{"product":"3","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                        type="button" title="Add to Cart">
+                  <span>+ Add to Cart</span>
+                </button>
+              </div>
+              <div class="actions-secondary" data-role="add-to-links">
+                <a href="#"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"3","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   class="action towishlist" data-action="add-to-wishlist"
+                   title="Add to Wish List">
+                  <span>Add to Wish List</span>
+                </a>
+                <a href="#" class="action tocompare"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"3","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   title="Add to Compare">
+                  <span>Add to Compare</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </li><li class="product-item product">                            <div class="product-item-info">
+          <a href="http://ld-magento.template-help.com/magento_58948/fashion-womens-boyfriend-jeans-free-suspenders-light-blue-denim-pants.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/f/a/fashion-womens-boyfriend-jeans-free-suspenders-light-blue-denim-pants_01.png"
+             width="500"
+             height="500"
+             alt="Fashion Women's Boyfriend Jeans Free Suspenders Light Blue Denim Pants"/></span>
+</span>
+          </a>
+          <div class="product-item-details">
+            <strong class="product-item-name">
+              <a title="Fashion Women's Boyfriend Jeans Free Suspenders Light Blue Denim Pants"
+                 href="http://ld-magento.template-help.com/magento_58948/fashion-womens-boyfriend-jeans-free-suspenders-light-blue-denim-pants.html"
+                 class="product-item-link">
+                Fashion Women's Boyfriend Jeans…                                         </a>
+            </strong>
+
+            <!--                                    --><!--                                        --><!--                                    -->
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="4">
+    <span class="special-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Special Price</span>
+        <span  id="old-price-4-widget-product-grid"                data-price-amount="64"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$64.00</span>    </span>
+        </span>
+    </span>
+    <span class="old-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Regular Price</span>
+        <span  id="old-price-4-widget-product-grid"                data-price-amount="76"
+               data-price-type="oldPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$76.00</span>    </span>
+        </span>
+    </span>
+
+            </div>
+            <div class="product-item-actions">
+              <div class="actions-primary">
+                <button class="action tocart primary"
+                        data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/4\/","data":{"product":"4","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                        type="button" title="Add to Cart">
+                  <span>+ Add to Cart</span>
+                </button>
+              </div>
+              <div class="actions-secondary" data-role="add-to-links">
+                <a href="#"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"4","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   class="action towishlist" data-action="add-to-wishlist"
+                   title="Add to Wish List">
+                  <span>Add to Wish List</span>
+                </a>
+                <a href="#" class="action tocompare"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"4","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   title="Add to Compare">
+                  <span>Add to Compare</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </li><li class="product-item product">                            <div class="product-item-info">
+          <a href="http://ld-magento.template-help.com/magento_58948/jack-and-jones-men-s-jjorcall-short-parka-coat.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/j/a/jack-and-jones-men_s-jjorcall-short-parka-coat_01.png"
+             width="500"
+             height="500"
+             alt="Jack and Jones Men's JJORCALL Short Parka Coat"/></span>
+</span>
+          </a>
+          <div class="product-item-details">
+            <strong class="product-item-name">
+              <a title="Jack and Jones Men's JJORCALL Short Parka Coat"
+                 href="http://ld-magento.template-help.com/magento_58948/jack-and-jones-men-s-jjorcall-short-parka-coat.html"
+                 class="product-item-link">
+                Jack and Jones Men's JJORCALL S…                                         </a>
+            </strong>
+
+            <!--                                    --><!--                                        --><!--                                    -->
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="5">
+    <span class="special-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Special Price</span>
+        <span  id="old-price-5-widget-product-grid"                data-price-amount="99.99"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$99.99</span>    </span>
+        </span>
+    </span>
+    <span class="old-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Regular Price</span>
+        <span  id="old-price-5-widget-product-grid"                data-price-amount="115"
+               data-price-type="oldPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$115.00</span>    </span>
+        </span>
+    </span>
+
+            </div>
+            <div class="product-item-actions">
+              <div class="actions-primary">
+                <button class="action tocart primary"
+                        data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/5\/","data":{"product":"5","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                        type="button" title="Add to Cart">
+                  <span>+ Add to Cart</span>
+                </button>
+              </div>
+              <div class="actions-secondary" data-role="add-to-links">
+                <a href="#"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"5","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   class="action towishlist" data-action="add-to-wishlist"
+                   title="Add to Wish List">
+                  <span>Add to Wish List</span>
+                </a>
+                <a href="#" class="action tocompare"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"5","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   title="Add to Compare">
+                  <span>Add to Compare</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </li><li class="product-item product">                            <div class="product-item-info">
+          <a href="http://ld-magento.template-help.com/magento_58948/michael-stars-women-s-short-sleeve-off-shoulder-dolman-shirt.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/m/i/michael-stars-women_s-short-sleeve-off-shoulder-dolman-shirt_01.png"
+             width="500"
+             height="500"
+             alt="Michael Stars Women's Short Sleeve Off Shoulder Dolman Shirt"/></span>
+</span>
+          </a>
+          <div class="product-item-details">
+            <strong class="product-item-name">
+              <a title="Michael Stars Women's Short Sleeve Off Shoulder Dolman Shirt"
+                 href="http://ld-magento.template-help.com/magento_58948/michael-stars-women-s-short-sleeve-off-shoulder-dolman-shirt.html"
+                 class="product-item-link">
+                Michael Stars Women's Short Sle…                                         </a>
+            </strong>
+
+            <!--                                    --><!--                                        --><!--                                    -->
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="10">
+    <span class="special-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Special Price</span>
+        <span  id="old-price-10-widget-product-grid"                data-price-amount="15"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$15.00</span>    </span>
+        </span>
+    </span>
+    <span class="old-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Regular Price</span>
+        <span  id="old-price-10-widget-product-grid"                data-price-amount="21"
+               data-price-type="oldPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$21.00</span>    </span>
+        </span>
+    </span>
+
+            </div>
+            <div class="product-item-actions">
+              <div class="actions-primary">
+                <button class="action tocart primary"
+                        data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/10\/","data":{"product":"10","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                        type="button" title="Add to Cart">
+                  <span>+ Add to Cart</span>
+                </button>
+              </div>
+              <div class="actions-secondary" data-role="add-to-links">
+                <a href="#"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"10","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   class="action towishlist" data-action="add-to-wishlist"
+                   title="Add to Wish List">
+                  <span>Add to Wish List</span>
+                </a>
+                <a href="#" class="action tocompare"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"10","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   title="Add to Compare">
+                  <span>Add to Compare</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </li><li class="product-item product">                            <div class="product-item-info">
+          <a href="http://ld-magento.template-help.com/magento_58948/replay-women-s-vicki-straight-jeans-blue-blue-denim-9-w25-l30-manufacturer-size-25.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/r/e/replay-women_s-vicki-straight-jeans_-blue-_blue-denim-9_-w25-l30-_manufacturer-size-25__01.png"
+             width="500"
+             height="500"
+             alt="Replay Women's Vicki Straight Jeans, Blue (Blue Denim 9), W25 L30 (Manufacturer-size-25)"/></span>
+</span>
+          </a>
+          <div class="product-item-details">
+            <strong class="product-item-name">
+              <a title="Replay Women's Vicki Straight Jeans, Blue (Blue Denim 9), W25 L30 (Manufacturer-size-25)"
+                 href="http://ld-magento.template-help.com/magento_58948/replay-women-s-vicki-straight-jeans-blue-blue-denim-9-w25-l30-manufacturer-size-25.html"
+                 class="product-item-link">
+                Replay Women's Vicki Straight J…                                         </a>
+            </strong>
+
+            <!--                                    --><!--                                        --><!--                                    -->
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="21">
+    <span class="special-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Special Price</span>
+        <span  id="old-price-21-widget-product-grid"                data-price-amount="18.99"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$18.99</span>    </span>
+        </span>
+    </span>
+    <span class="old-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Regular Price</span>
+        <span  id="old-price-21-widget-product-grid"                data-price-amount="29"
+               data-price-type="oldPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$29.00</span>    </span>
+        </span>
+    </span>
+
+            </div>
+            <div class="product-item-actions">
+              <div class="actions-primary">
+                <button class="action tocart primary"
+                        data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/21\/","data":{"product":"21","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                        type="button" title="Add to Cart">
+                  <span>+ Add to Cart</span>
+                </button>
+              </div>
+              <div class="actions-secondary" data-role="add-to-links">
+                <a href="#"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"21","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   class="action towishlist" data-action="add-to-wishlist"
+                   title="Add to Wish List">
+                  <span>Add to Wish List</span>
+                </a>
+                <a href="#" class="action tocompare"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"21","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   title="Add to Compare">
+                  <span>Add to Compare</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </li><li class="product-item product">                            <div class="product-item-info">
+          <a href="http://ld-magento.template-help.com/magento_58948/sanctuary-clothing-women-s-city-mix-tee.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/s/a/sanctuary-clothing-women_s-city-mix-tee_01.png"
+             width="500"
+             height="500"
+             alt="Sanctuary Clothing Women's City Mix Tee"/></span>
+</span>
+          </a>
+          <div class="product-item-details">
+            <strong class="product-item-name">
+              <a title="Sanctuary Clothing Women's City Mix Tee"
+                 href="http://ld-magento.template-help.com/magento_58948/sanctuary-clothing-women-s-city-mix-tee.html"
+                 class="product-item-link">
+                Sanctuary Clothing Women's City…                                         </a>
+            </strong>
+
+            <!--                                    --><!--                                        --><!--                                    -->
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="23">
+    <span class="special-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Special Price</span>
+        <span  id="old-price-23-widget-product-grid"                data-price-amount="25.99"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$25.99</span>    </span>
+        </span>
+    </span>
+    <span class="old-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Regular Price</span>
+        <span  id="old-price-23-widget-product-grid"                data-price-amount="30"
+               data-price-type="oldPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$30.00</span>    </span>
+        </span>
+    </span>
+
+            </div>
+            <div class="product-item-actions">
+              <div class="actions-primary">
+                <button class="action tocart primary"
+                        data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/23\/","data":{"product":"23","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                        type="button" title="Add to Cart">
+                  <span>+ Add to Cart</span>
+                </button>
+              </div>
+              <div class="actions-secondary" data-role="add-to-links">
+                <a href="#"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"23","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   class="action towishlist" data-action="add-to-wishlist"
+                   title="Add to Wish List">
+                  <span>Add to Wish List</span>
+                </a>
+                <a href="#" class="action tocompare"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"23","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   title="Add to Compare">
+                  <span>Add to Compare</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </li><li class="product-item product">                            <div class="product-item-info">
+          <a href="http://ld-magento.template-help.com/magento_58948/star-vixen-women-s-faux-wrap-dress.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/s/t/star-vixen-women_s-faux-wrap-dress_01.png"
+             width="500"
+             height="500"
+             alt="Star Vixen Women's Faux Wrap Dress"/></span>
+</span>
+          </a>
+          <div class="product-item-details">
+            <strong class="product-item-name">
+              <a title="Star Vixen Women's Faux Wrap Dress"
+                 href="http://ld-magento.template-help.com/magento_58948/star-vixen-women-s-faux-wrap-dress.html"
+                 class="product-item-link">
+                Star Vixen Women's Faux Wrap…                                         </a>
+            </strong>
+
+            <!--                                    --><!--                                        --><!--                                    -->
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="25">
+    <span class="special-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Special Price</span>
+        <span  id="old-price-25-widget-product-grid"                data-price-amount="99.99"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$99.99</span>    </span>
+        </span>
+    </span>
+    <span class="old-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Regular Price</span>
+        <span  id="old-price-25-widget-product-grid"                data-price-amount="105"
+               data-price-type="oldPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$105.00</span>    </span>
+        </span>
+    </span>
+
+            </div>
+            <div class="product-item-actions">
+              <div class="actions-primary">
+                <button class="action tocart primary"
+                        data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/25\/","data":{"product":"25","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                        type="button" title="Add to Cart">
+                  <span>+ Add to Cart</span>
+                </button>
+              </div>
+              <div class="actions-secondary" data-role="add-to-links">
+                <a href="#"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"25","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   class="action towishlist" data-action="add-to-wishlist"
+                   title="Add to Wish List">
+                  <span>Add to Wish List</span>
+                </a>
+                <a href="#" class="action tocompare"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"25","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   title="Add to Compare">
+                  <span>Add to Compare</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </li><li class="product-item product">                            <div class="product-item-info">
+          <a href="http://ld-magento.template-help.com/magento_58948/three-dots-women-s-3i4-sleeve-v-neck.html" class="product-item-photo">
+
+<span class="product-image-container"
+      style="width:500px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 100%;">
+        <img class="product-image-photo"
+             src="http://ld-magento.template-help.com/magento_58948/pub/media/catalog/product/cache/1/small_image/500x500/beff4985b56e3afdbeabfc89641a4582/t/h/three-dots-women_s-3i4-sleeve-v-neck_01.png"
+             width="500"
+             height="500"
+             alt="Three Dots Women's 3I4 Sleeve V Neck"/></span>
+</span>
+          </a>
+          <div class="product-item-details">
+            <strong class="product-item-name">
+              <a title="Three Dots Women's 3I4 Sleeve V Neck"
+                 href="http://ld-magento.template-help.com/magento_58948/three-dots-women-s-3i4-sleeve-v-neck.html"
+                 class="product-item-link">
+                Three Dots Women's 3I4 Sleeve V…                                         </a>
+            </strong>
+
+            <!--                                    --><!--                                        --><!--                                    -->
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="27">
+    <span class="special-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Special Price</span>
+        <span  id="old-price-27-widget-product-grid"                data-price-amount="23"
+               data-price-type="finalPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$23.00</span>    </span>
+        </span>
+    </span>
+    <span class="old-price">
+
+
+<span class="price-container price-final_price tax weee"
+>
+            <span class="price-label">Regular Price</span>
+        <span  id="old-price-27-widget-product-grid"                data-price-amount="26"
+               data-price-type="oldPrice"
+               class="price-wrapper "
+        >
+        <span class="price">$26.00</span>    </span>
+        </span>
+    </span>
+
+            </div>
+            <div class="product-item-actions">
+              <div class="actions-primary">
+                <button class="action tocart primary"
+                        data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/checkout\/cart\/add\/uenc\/aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,\/product\/27\/","data":{"product":"27","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                        type="button" title="Add to Cart">
+                  <span>+ Add to Cart</span>
+                </button>
+              </div>
+              <div class="actions-secondary" data-role="add-to-links">
+                <a href="#"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/wishlist\/index\/add\/","data":{"product":"27","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   class="action towishlist" data-action="add-to-wishlist"
+                   title="Add to Wish List">
+                  <span>Add to Wish List</span>
+                </a>
+                <a href="#" class="action tocompare"
+                   data-post='{"action":"http:\/\/ld-magento.template-help.com\/magento_58948\/catalog\/product_compare\/add\/","data":{"product":"27","uenc":"aHR0cDovL2xkLW1hZ2VudG8udGVtcGxhdGUtaGVscC5jb20vbWFnZW50b181ODk0OC8,"}}'
+                   title="Add to Compare">
+                  <span>Add to Compare</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </li>                                            </ol>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="widget block block-static-block">
+    <div class="add-info">
+      <ul>
+        <li>
+          <img src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/media/add-info-1.jpg" alt="add-info-img">
+          <div class="add-info--content">
+            <span class="add-info--title">Establishing Your Brand</span>
+            <span class="add-info--text">Many students are cash-strapped, nowadays. Nevertheless, their purchasing power is very high. Research reveals that 20 million students in the US have a combined disposable income of $417 billion. Moreover, another survey of students' parents reveals that students now make 70 percent of their purchases themselves.</span>
+            <a href="http://ld-magento.template-help.com/magento_58948/men.html/" class="add-info--link">read more</a>
+          </div>
+        </li>
+        <li>
+          <img src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/media/add-info-2.jpg" alt="add-info-img">
+          <div class="add-info--content">
+            <span class="add-info--title">Believe in the Business</span>
+            <span class="add-info--text">If you have not yet considered this demographic, it is time to reach out to them now! Social media is a popular method for socialization and communication between many young people. Students are the majority users of social networking sites like Facebook and Twitter. These are the right places to introduce brands to young people.</span>
+            <a href="http://ld-magento.template-help.com/magento_58948/women.html/" class="add-info--link">read more</a>
+          </div>
+        </li>
+        <li>
+          <img src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/media/add-info-3.jpg" alt="add-info-img">
+          <div class="add-info--content">
+            <span class="add-info--title">Impact - The Heart</span>
+            <span class="add-info--text"> The problem starts when you stop there instead of setting realizable immediate targets. Success cannot come from one day to the next. So you need to build your dream business bit by bit. When your dreams begin to be transformed into reality thanks to your actions, you become aware of the power you possess for catalyzing success.</span>
+            <a href="http://ld-magento.template-help.com/magento_58948/children.html/" class="add-info--link">read more</a>
+          </div>
+        </li>
+        <li>
+          <img src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/media/add-info-4.jpg" alt="add-info-img">
+          <div class="add-info--content">
+            <span class="add-info--title">The success of business</span>
+            <span class="add-info--text">Many students are cash-strapped, nowadays. Nevertheless, their purchasing power is very high. Research reveals that 20 million students in the US have a combined disposable income of $417 billion. Moreover, another survey of students' parents reveals that students now make 70 percent of their purchases themselves.</span>
+            <a href="http://ld-magento.template-help.com/magento_58948/men.html/" class="add-info--link">read more</a>
+          </div>
+        </li>
+      </ul>
+    </div></div>
+  <div></div></div><div class="homepage-newsletter-2"><div class="newsletter-text">
+  <span class="newsletter-text--title">Newsletter</span>
+  <span class="newsletter-text--txt">Subscribe to the f2 mailing list to receive updates on new arrivals, special offers and other discount information.</span>
+</div><div class="block newsletter">
+  <div class="content">
+    <form class="form subscribe"
+          novalidate
+          action="http://ld-magento.template-help.com/magento_58948/newsletter/subscriber/new/"
+          method="post"
+          data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+          id="newsletter-validate-detail">
+      <div class="field newsletter">
+        <div class="control">
+          <input name="email" type="email" id="newsletter"
+                 placeholder="Enter your e-mail"
+                 data-validate="{required:true, 'validate-email':true}"/>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="action subscribe primary" title="Subscribe" type="submit">
+          <span>Subscribe</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+</div></div></main>    <script>
+  require.config({
+    deps: [
+      'jquery',
+      'mage/translate',
+      'jquery/jquery-storageapi'
+    ],
+    callback: function ($) {
+      'use strict';
+
+      var dependencies = [],
+          versionObj;
+
+      $.initNamespaceStorage('mage-translation-storage');
+      $.initNamespaceStorage('mage-translation-file-version');
+      versionObj = $.localStorage.get('mage-translation-file-version');
+
+      if (versionObj.version !== 'e36ad6d707efe4f518b7955e1939eaf70ec0f4cd') {
+        dependencies.push(
+            'text!js-translation.json'
+        );
+
+      }
+
+      require.config({
+        deps: dependencies,
+        callback: function (string) {
+          if (typeof string === 'string') {
+            $.mage.translate.add(JSON.parse(string));
+            $.localStorage.set('mage-translation-storage', string);
+            $.localStorage.set(
+                'mage-translation-file-version',
+                {
+                  version: 'e36ad6d707efe4f518b7955e1939eaf70ec0f4cd'
+                }
+            );
+          } else {
+            $.mage.translate.add($.localStorage.get('mage-translation-storage'));
+          }
+        }
+      });
+    }
+  });
+</script>
+
+  <script type="text/x-magento-init">
+    {
+        "*": {
+            "mage/cookies": {
+                "expires": null,
+                "path": "/magento_58948",
+                "domain": ".ld-magento.template-help.com",
+                "secure": false,
+                "lifetime": "3600"
+            }
+        }
+    }
+</script>
+  <noscript>
+    <div class="message global noscript">
+      <div class="content">
+        <p>
+          <strong>JavaScript seems to be disabled in your browser.</strong>
+          <span>For the best experience on our site, be sure to turn on Javascript in your browser.</span>
+        </p>
+      </div>
+    </div>
+  </noscript>
+  <script type="text/x-magento-init">
+    {
+        "body": {
+            "ajaxWishlist": {"isShowSpinner":true,"isShowSuccessMessage":true,"successMessageText":"Product {product.name} has been added to your wishlist.","customerLoginUrl":"http:\/\/ld-magento.template-help.com\/magento_58948\/customer\/account\/login\/"}        }
+    }
+</script><script type="text/x-magento-init">
+    {
+        "#newsletter-popup": {
+            "newsletterPopup": {"customClass":null,"timeout":0,"isShowOnStartup":true,"isShowOnFooter":false,"socialLinks":[]}        }
+    }
+</script><style>
+  .modal-popup.newsletter-popup .block.newsletter {
+    width: 100%;
+  }
+  .modal-popup.newsletter-popup .actions {
+    display: none;
+  }
+  .modal-popup.newsletter-popup .modal-inner-wrap {
+    width: 848px;
+  }
+  .modal-popup.newsletter-popup .buttons-container button {
+    box-shadow: none;
+  }
+  .modal-popup.newsletter-popup .buttons-container button.subscribe {
+    color: #fff;
+    background-color: #cda379;
+    border-color: #cda379;
+  }
+  .modal-popup.newsletter-popup .buttons-container button.subscribe:hover {
+    background-color: #006bb4;
+    border-color: #006bb4;
+  }
+  .modal-popup.newsletter-popup .buttons-container button:not(.subscribe) {
+    color: #cda379;
+    background: none;
+    border-color:  rgba(205, 163, 121, 0.4);;
+  }
+  .modal-popup.newsletter-popup .buttons-container button:not(.subscribe):hover {
+    color: #fff;
+    background-color: #1979c3;
+    border-color: #1979c3;
+  }
+  .modal-popup .modal-social {
+    font-size: 1.75em;
+  }
+  .modal-popup .modal-social .fa {
+    padding: 7px 5px;
+  }
+  .modal-popup .modal-social :link,
+  .modal-popup .modal-social :hover {
+    text-decoration: none;
+  }
+</style><div id="newsletter-popup" style="display:none;">
+  <div class="block newsletter">
+    <div class="content">
+      <form class="form subscribe"
+            novalidate
+            action="http://ld-magento.template-help.com/magento_58948/newsletter/subscriber/new/"
+            method="post"
+            data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+            id="newsletter-validate-detail">
+        <div class="field newsletter">
+          <div class="control">
+            <input name="email" type="email" id="newsletter"
+                   placeholder="Enter your e-mail"
+                   data-validate="{required:true, 'validate-email':true}"/>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="action subscribe primary" title="Subscribe" type="submit">
+            <span>Subscribe</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div></div><footer class="page-footer"><div class="widget block block-static-block">
+  <div class="block-2">
+    <ul>
+      <li>
+        <a href="http://ld-magento.template-help.com/magento_58948/men.html/"><img src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/media/box-3.jpg" alt="block-1-img">
+          <div class="block-2--text">
+            <span class="block-2--text-1">SAVE 20%</span>
+            <span class="block-2--text-2">WHEN YOU USE CREDIT CARD</span>
+          </div></a>
+      </li>
+      <li>
+        <a href="http://ld-magento.template-help.com/magento_58948/children.html/"><img src="http://ld-magento.template-help.com/magento_58948/pub/static/frontend/TemplateMonster/theme762/en_US/images/media/box-4.jpg" alt="block-1-img">
+          <div class="block-2--text">
+            <span class="block-2--text-1">FREE SHIPPING</span>
+            <span class="block-2--text-2">ON ORDERS OVER $99</span>
+          </div></a>
+      </li>
+    </ul>
+  </div></div>
+</footer><div class="page-footer__content"><div class="container"><div id="footer-col-wrapper" class="row"><div class="col-sm-3"><div class="footer-col"><h4>Information</h4><div class="footer-col-content"><ul class="footer links"><li class="nav item"><a href="http://ld-magento.template-help.com/magento_58948/privacy-policy-cookie-restriction-mode/">Privacy and Cookie Policy</a></li><li class="nav item"><a href="http://ld-magento.template-help.com/magento_58948/search/term/popular/">Search Terms</a></li><li class="nav item"><a href="http://ld-magento.template-help.com/magento_58948/contact/">Contact Us</a></li><li class="nav item"><a href="http://ld-magento.template-help.com/magento_58948/sales/guest/form/">Orders and Returns</a></li><li class="nav item"><a href="http://ld-magento.template-help.com/magento_58948/catalogsearch/advanced/" data-action="advanced-search">Advanced Search</a></li><li class="nav item"><a href="http://ld-magento.template-help.com/magento_58948/newsletter/manage/index/" class="newsletter-popup-link">Newsletter Subscription</a></li></ul><ul>
+  <li><a href="http://ld-magento.template-help.com/magento_58948/about-us">About Us</a></li>
+  <li><a href="http://ld-magento.template-help.com/magento_58948/customer-service">Customer Service</a></li>
+  <li><a href="http://ld-magento.template-help.com/magento_58948/template-settings">Template Settings</a></li>
+</ul></div></div></div><div class="col-sm-3"><div class="footer-col">
+  <h4>Why buy from us</h4>
+  <div class="footer-col-content">
+    <ul>
+      <li><a href="#">Shipping & Returns</a></li>
+      <li><a href="#">Secure Shopping</a></li>
+      <li><a href="#">International Shipping</a></li>
+      <li><a href="#">Affiliates</a></li>
+      <li><a href="#">Group Sales</a></li>
+    </ul>
+  </div>
+</div></div><div class="col-sm-3"><div class="footer-col">
+  <h4>My account</h4>
+  <div class="footer-col-content">
+    <ul>
+      <li><a href="http://ld-magento.template-help.com/magento_58948/customer/account/login/">Sign In</a></li>
+      <li><a href="http://ld-magento.template-help.com/magento_58948/checkout/cart/">View Cart</a></li>
+      <li><a href="http://ld-magento.template-help.com/magento_58948/wishlist/">My Wishlist</a></li>
+      <li><a href="#">Track My Order</a></li>
+      <li><a href="#">Help</a></li>
+    </ul>
+  </div>
+</div></div><div class="col-sm-3"><div class="footer-col">
+  <h4>Contacts</h4>
+  <div class="footer-col-content footer-contacts">
+    <address>My Company Glasgow D04 89GR</address>
+    <span class="foooter-contacts--tel">Tel: <a href="tel:+6494461709">800-2345-6789</a></span>
+    <a href="mailto:info@demolink.org" class="footer-contacts--mail">info@demolink.org</a>
+    <span>7 Days a week from 9:00 am to 7:00 pm</span>
+  </div>
+</div></div></div><small class="copyright">
+  <span>&copy; <script type="text/javascript">var mdate = new Date(); document.write(mdate.getFullYear());</script> Magento Demo Store. All Rights Reserved.</span>
+</small>
+</div></div>    </body>
+</html>
