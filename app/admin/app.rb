@@ -221,6 +221,66 @@ module Honeybadger
     end
 
 
+    get "/user_input" do
+      @user = User.all
+      render "user_input"
+    end
+
+    post "/user_save" do
+      user = User.new(params)
+      user.save
+      redirect "/user_input"
+    end
+
+    get "/login" do
+      render "login"
+    end
+
+    post "/login" do
+      data = User.where(:username => params[:username]).first
+      session[:user_id] = data[:id]
+      redirect "/login"
+    end
+
+    get "/logout" do
+      session.clear
+      redirect "/login"
+    end
+
+    get "/comment" do
+      @spec_data = Comment.where(:child_of => "false").all
+      @username = User.all
+      render "comment"
+    end
+
+    post "/comment_save" do
+      comm = Comment.new(params)
+      comm.save
+      redirect "/comment"
+    end
+
+    post "/comment_reply" do
+      sav_data = Comment.new
+      sav_data[:user_id] = session[:user_id]
+      sav_data[:content] = params[:content]
+      sav_data[:child_of] = params[:id]
+      sav_data[:date] = params[:date]
+      sav_data.save
+      redirect "/comment"
+    end
+
+    get "/identity_input" do
+      render "identity_input"
+    end
+
+    post "/identity_save" do
+
+    end
+
+    get "/profile_input" do
+      render "profile_input"
+    end
+
 
   end # end class
 

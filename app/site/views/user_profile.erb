@@ -1,0 +1,110 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <table>
+        <tr>
+          <td>
+            <p>Username:</p>
+          </td>
+          <td>
+            <p><%= @user[:username] %></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Age:</p>
+          </td>
+          <td>
+            <% age1 = @user[:birth_year]
+               age = Date.today().to_s.split('-')[0].to_i - age1.to_i
+
+            %>
+            <p><%= age %></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Gender:</p>
+          </td>
+          <td>
+            <p><%= @user[:gender] %></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Occupation:</p>
+          </td>
+          <td>
+            <p><%= @user[:occupation] %></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Immigration:</p>
+          </td>
+          <td>
+            <p><%= @user[:immigration] %></p>
+          </td>
+        </tr>
+
+
+
+      </table>
+
+    </div>
+    <div class="col-md-7">
+      <div class="w3-content" style="max-height:500px; margin-left: auto; margin-right: auto; position:relative">
+        <% @pictures = Picture.where(:user_id => @user[:id]).all %>
+        <% @pictures.each do |f| %>
+            <% if f[:main_pic] == "true" %>
+                <img class="mySlides" name="main_pic" src="<%= f[:image_url] %>" id="<%= f[:id] %>" style="width:100%">
+            <% else %>
+                <img class="mySlides" src="<%= f[:image_url] %>" id="<%= f[:id] %>" style="width:100%">
+            <% end %>
+
+
+        <% end %>
+        <a class="w3-btn-floating" style="position:absolute;top:45%;left:0" onclick="plusDivs(-1)">❮</a>
+        <a class="w3-btn-floating" style="position:absolute;top:45%;right:0" onclick="plusDivs(1)">❯</a>
+
+      </div>
+      <div class="user_summary">
+        <% summary = User.where(:user_id => @user[:id]).first[:self_summary] %>
+        <p><%= summary %></p>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
+<script>
+  var slideIndex = 1;
+  showDivs(slideIndex);
+
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    if (n > x.length) {
+      slideIndex = 1
+    }
+    if (n < 1) {
+      slideIndex = x.length
+    }
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    x[slideIndex - 1].style.display = "block";
+  }
+
+
+</script>

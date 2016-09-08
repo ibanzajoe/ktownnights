@@ -18,6 +18,18 @@ Sequel.migration do
       String :provider
       String :refid
       String :avatar_url
+      Fixnum :birth_month
+      Fixnum :birth_day
+      Fixnum :birth_year
+      String :gender
+      String :occupation
+      String :immigration
+      String :height_ft
+      String :height_in
+      String :cigarette
+      String :marijuana
+      String :self_summary
+      Boolean :have_pic
       DateTime :created_at
       DateTime :updated_at
       unique [:provider, :refid]

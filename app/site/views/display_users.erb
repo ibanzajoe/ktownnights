@@ -1,0 +1,57 @@
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Profile Pic</th>
+      <th>Age</th>
+      <th>My Summary</th>
+      <th></th>
+
+    </tr>
+
+  </thead>
+  <tbody>
+  <% @users.each do |id| %>
+    <tr>
+      <td>
+        <% pic = Picture.where(:user_id => id[:id], :main_pic => "true").first %>
+        <a href="/viewprofile/<%= id[:user_id] %>">
+          <img class="" style="max-height: 100px; max-width: 200px; margin-left: auto; margin-right: auto;" src="<%= pic[:image_url] %>">
+        </a>
+          <p><strong><%= id[:username] %></strong></p>
+      </td>
+      <td>
+        <% age1 = id[:birth_year]
+            age = Date.today().to_s.split('-')[0].to_i - age1.to_i
+
+        %>
+        <p><%= age %></p>
+      </td>
+      <td>
+        <p class="card-text"><%= id[:self_summary] %></p>
+      </td>
+      <td>
+        <a class="btn btn-default btn-sm" href="/viewprofile/:<%= id[:id] %>">View Profile</a>
+      </td>
+
+
+
+    </tr>
+  <% end %>
+  </tbody>
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
