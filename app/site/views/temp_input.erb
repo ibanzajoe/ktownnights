@@ -1,0 +1,25 @@
+<form method="POST" action="/temp_input">
+  <label>user_id</label>
+  <input type="text" name="user_id">
+  <label>send_to_id></label>
+  <input type="text" name="send_to_id">
+  <label>content</label>
+  <input type="text" name="content">
+  <button type="submit">Submit</button>
+</form>
+
+<div>
+  <table>
+    <% @messages.each do |message| %>
+      <tr>
+        <td><%= message[:user_id] %></td>
+        <td><%= message[:send_to_id] %></td>
+        <td><%= message[:content] %></td>
+      </tr>
+    <% end %>
+  </table>
+
+
+
+
+</div>

@@ -1,0 +1,140 @@
+.no-padding{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+.navi {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    height: 60px;
+    background-color: #1bc98e;
+    z-index: 9999;
+}
+
+.footer {
+    height: 60px;
+    width: 100%;
+    background-color: #1bc98e;
+    position: fixed;
+    bottom: 0px;
+}
+
+.profile{
+    display: block;
+    margin-bottom: 25px;
+}
+
+.profile_container {
+    display: block;
+    position: relative;
+    background-color: #f6ebf9;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.image_wrapper {
+    display: block;
+    height: 235px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+}
+
+.profile_pic {
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: auto;
+    margin-top: 0px;
+}
+
+.profile_text {
+    text-align: center;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    box-shadow: 0px 5px 5px #888888;
+    background-color: #f6ebf9;
+    z-index: 12;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+.slide {
+    position: relative;
+    overflow: scroll;
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding-top: 40px;
+}
+
+.slides {
+    height: 100%;
+    margin: 0;
+    padding: 60px 0px 60px 0px;
+    overflow: hidden;
+    background-color: #ce9adb;
+}
+
+#slideshow {
+    transition: .25s linear;
+}
+
+.profile_box {
+    height: 450px;
+}
+
+.summary_box {
+    height: 385px;
+}
+
+.image_slide {
+    max-height: 300px;
+}
+
+.message_output {
+    height: 500px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+
+}
+
+.message_input {
+    height: 150px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+.exchange_container {
+    height: 100px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+
+}
+
+.exchange_image {
+    float: left;
+}
+
+.exchange_message {
+    float:left;
+    margin-left: 20px;
+}
+
+.exchange_row {
+    margin-bottom: 20px;
+}
+
+.navbar-fixed-top {
+    background-color: #1bc98e;
+}

@@ -1,18 +1,22 @@
-@font-face{
-    font-family: 'ProximaNova';
-    src: url('/font/Proxima Nova Alt Thin.otf');
+@font-face {
+    font-family: 'ProximaNova-thin';
+    src: url('/font/Proxima Nova Thin.otf');
+}
+@font-face {
+    font-family: 'ProximaNova-reg';
+    src: url('/font/ProximaNova-Regular.otf')
 }
 
 body {
-    font-family: 'ProximaNova';
+    font-family: 'ProximaNova-reg';
 }
 
 body p{
-    line-height: 30px;
+
 }
 body h1 {
+    font-family: 'ProximaNova-thin';
     font-size: 72px;
-    line-height: 70px;
     color: #024c64;
 }
 body h2 {
@@ -30,27 +34,137 @@ body h3{
 .forescout-btn {
     font-size: 32px;
     border-radius: 0px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 0.2px;
     margin-right: auto;
     margin-left: auto;
     width: 230px;
 }
 
-.check_box {
-    font-size: 24px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+.no_padding {
     padding-left: 0px;
-    padding-right: 20px;
+    padding-right: 0px;
 }
 
-.check_box .input_type{
+.check_box {
+    color: #333333;
     font-size: 24px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 0px;
+    padding: 0px;
     border-style: solid;
-    border-color: black;
+    border-color: #959595;
     border-width: 1px;
+    background-color: #ffffff;
+}
+
+.check_box p{
+}
+
+
+.check_box img {
+    float: left;
+    display: inline;
+}
+
+.input_check {
+    opacity: 0;
+    width: 0px;
+}
+
+
+.select_container img{
+    position: absolute;
+    display: block;
+    right: 10px;
+    top: 20px;
+}
+
+.select_container::after {
+    content: " ";
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    background-repeat: no-repeat;
+    background-image: url('/work/forescout_arrowdown.png');
+    width: 50px;
+    height: 20px;
+    margin-top: -9px;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #ffffff;
+    font-size: 24px;
+    height: 60px;
+}
+
+.select_input::after {
+    content: " "
+}
+
+select:after {
+    content: " ";
+}
+
+.check_box_end {
+    color: #333333;
+    font-size: 24px;
+    margin-left: -10px;
+    margin-right: 0px;
+    padding: 0px;
+}
+
+.check_box_end img {
+    float: left;
+    display: block;
+    padding-top: 8px;
+
+}
+
+.check_box_end p {
+    margin: 0px;
+}
+
+.box {
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+
+.back_white {
+    background-color: #ffffff;
+}
+.thin-font {
+    font-family: ProximaNova-thin;
+}
+.reg-font {
+    font-family: ProximaNova-reg;
+}
+
+.h791 {
+    height: 791px;
+}
+
+.h668 {
+    height: 668px;
+}
+
+.w3-animate-top{
+    position:relative;
+    -webkit-animation:animatetop 0.4s;
+    animation:animatetop 0.4s
+}
+.w3-animate-bottom{
+    position:relative;
+    -webkit-animation:animatebottom 0.4s;
+    animation:animatebottom 0.4s
 }

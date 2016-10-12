@@ -1,85 +1,118 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-5">
-      <table>
-        <tr>
-          <td>
-            <p>Username:</p>
-          </td>
-          <td>
-            <p><%= @user[:username] %></p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>Age:</p>
-          </td>
-          <td>
-            <% age1 = @user[:birth_year]
-               age = Date.today().to_s.split('-')[0].to_i - age1.to_i
-
-            %>
-            <p><%= age %></p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>Gender:</p>
-          </td>
-          <td>
-            <p><%= @user[:gender] %></p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>Occupation:</p>
-          </td>
-          <td>
-            <p><%= @user[:occupation] %></p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>Immigration:</p>
-          </td>
-          <td>
-            <p><%= @user[:immigration] %></p>
-          </td>
-        </tr>
+<div id="slideshow" style="transform: matrix(1, 0, 0, 1, 0, 0)">
+  <div class="slide1 slide">
+    <div class="container">
+      <div class="row profile_box">
+        <div class="col-md-4">
+          <div class="w3-content" style="margin-left: auto; margin-right: auto; position:relative">
+            <div class="image_slide">
+              <% @pictures = Picture.where(:user_id => @user[:id]).all %>
+              <% @pictures.each do |f| %>
+                  <% if f[:main_pic] == "true" %>
+                      <img class="mySlides" name="main_pic" src="<%= f[:image_url] %>" id="<%= f[:id] %>" style="height:100%; width: 100%;">
+                  <% else %>
+                      <img class="mySlides" src="<%= f[:image_url] %>" id="<%= f[:id] %>" style="width:100%; height: 100%;">
+                  <% end %>
 
 
+              <% end %>
+              <a class="w3-btn-floating" style="position:absolute;top:45%;left:0" onclick="plusDivs(-1)">❮</a>
+              <a class="w3-btn-floating" style="position:absolute;top:45%;right:0" onclick="plusDivs(1)">❯</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5" style="margin-top: 25px;">
+          <table>
+            <tr>
+              <td>
+                <p>Username:</p>
+              </td>
+              <td>
+                <p><%= @user[:username] %></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Age:</p>
+              </td>
+              <td>
+                <% age1 = @user[:birth_year]
+                   age = Date.today().to_s.split('-')[0].to_i - age1.to_i
 
-      </table>
+                %>
+                <p><%= age %></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Gender:</p>
+              </td>
+              <td>
+                <p><%= @user[:gender] %></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Occupation:</p>
+              </td>
+              <td>
+                <p><%= @user[:occupation] %></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Immigration:</p>
+              </td>
+              <td>
+                <p><%= @user[:immigration] %></p>
+              </td>
+            </tr>
 
-    </div>
-    <div class="col-md-7">
-      <div class="w3-content" style="max-height:500px; margin-left: auto; margin-right: auto; position:relative">
-        <% @pictures = Picture.where(:user_id => @user[:id]).all %>
-        <% @pictures.each do |f| %>
-            <% if f[:main_pic] == "true" %>
-                <img class="mySlides" name="main_pic" src="<%= f[:image_url] %>" id="<%= f[:id] %>" style="width:100%">
-            <% else %>
-                <img class="mySlides" src="<%= f[:image_url] %>" id="<%= f[:id] %>" style="width:100%">
-            <% end %>
 
 
-        <% end %>
-        <a class="w3-btn-floating" style="position:absolute;top:45%;left:0" onclick="plusDivs(-1)">❮</a>
-        <a class="w3-btn-floating" style="position:absolute;top:45%;right:0" onclick="plusDivs(1)">❯</a>
+          </table>
+
+        </div>
 
       </div>
-      <div class="user_summary">
-        <% summary = User.where(:user_id => @user[:id]).first[:self_summary] %>
-        <p><%= summary %></p>
-      </div>
+      <div class="row summary_box">
+        <div class="row" style="width: 780px; margin-left: auto; margin-right: auto;">
+          <div class="user_summary">
+            <% summary = User.where(:id => @user[:id]).first[:self_summary] %>
+            <p><%= summary %></p>
+          </div>
+          <div class="row">
+            <button class="next">Send a Message</button>
+          </div>
+        </div>
 
+      </div>
+    </div>
+  </div>
+  <div class="slide2 slide" style="width: 780px; margin-left: auto; margin-right: auto;">
+    <div class="message_output">
+      <% @related_messages.each do |message| %>
+        <div class="exchange_container">
+          <div class="exchange_image" style="width: 100px; height: 100px;">
+            <% @picture = Picture.where(:user_id => message[:user_id], :main_pic => true).first %>
+            <img src="<%= @picture[:image_url] %>" alt="user_image" style="width: 100%; height: 100%;">
+          </div>
+          <div class="exchange_message" style="width: 570px; height: 200px;">
+            <p><%= message[:content] %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="message_input">
+
+        <label>Send them a nice message!</label>
+        <input class="send_message" name="<%= @session[:user][:id] %>" sendto="<%= @user[:id] %>" date="<%= Time.now.strftime("%d/%m/%Y %H:%M") %>"type="text">
+        <button type="submit">Submit</button>
 
     </div>
+    <button class="prev">Back to Profile</button>
 
 
   </div>
-
-
 </div>
 
 
@@ -105,6 +138,43 @@
     }
     x[slideIndex - 1].style.display = "block";
   }
+
+  var index = 0;
+  $(document).ready(function() {
+    $('.next').on('click', function(){
+      index++;
+      slide(index)
+    })
+
+    $('.prev').on('click', function(){
+      index--;
+      slide(index)
+    })
+
+    $('.send_message').on('change', function(e){
+      e.preventDefault();
+      var $this = $(this)
+      var sender_id = $this.attr('name')
+      var send_to = $this.attr('sendto')
+      var date = $this.attr('date')
+      var content = $this.val();
+      var data = {user_id: sender_id, send_to_id: send_to, content: content, sent_date: date};
+      console.log(sender_id, send_to, content);
+      $.post('/message_input', data, function(res){
+        console.log(res);
+      })
+    })
+
+  })
+
+  function slide(slide_index){
+    var height = $('.slide:first').outerHeight()
+
+    var slide_to = -(height * slide_index)
+    $('#slideshow').css('transform', "matrix(1, 0, 0, 1, 0," + slide_to + ")")
+  }
+
+
 
 
 </script>

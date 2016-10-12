@@ -1,50 +1,41 @@
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Profile Pic</th>
-      <th>Age</th>
-      <th>My Summary</th>
-      <th></th>
-
-    </tr>
-
-  </thead>
-  <tbody>
+<div class="container" style="width: 980px;">
+  <div class="row">
   <% @users.each do |id| %>
-    <tr>
-      <td>
-        <% pic = Picture.where(:user_id => id[:id], :main_pic => "true").first %>
-        <a href="/viewprofile/<%= id[:user_id] %>">
-          <img class="" style="max-height: 100px; max-width: 200px; margin-left: auto; margin-right: auto;" src="<%= pic[:image_url] %>">
+    <div class="col-md-4 profile">
+      <% pic = Picture.where(:user_id => id[:id], :main_pic => "true").first %>
+      <div class="profile_container">
+        <a class="image_link" href="/viewprofile/<%= id[:user_id] %>">
+          <span class="image_wrapper">
+            <img class="profile_pic" src="<%= pic[:image_url] %>">
+          </span>
         </a>
-          <p><strong><%= id[:username] %></strong></p>
-      </td>
-      <td>
-        <% age1 = id[:birth_year]
-            age = Date.today().to_s.split('-')[0].to_i - age1.to_i
-
-        %>
-        <p><%= age %></p>
-      </td>
-      <td>
-        <p class="card-text"><%= id[:self_summary] %></p>
-      </td>
-      <td>
-        <a class="btn btn-default btn-sm" href="/viewprofile/:<%= id[:id] %>">View Profile</a>
-      </td>
-
-
-
-    </tr>
+        <div class="profile_text">
+          <div class="profile_info">
+            <% age1 = id[:birth_year]
+               age = Date.today().to_s.split('-')[0].to_i - age1.to_i %>
+            <p><strong><%= id[:username] %></strong></p>
+            <p><%= age %></p>
+          </div>
+          <div class="view_profile_button">
+            <a class="btn btn-default btn-sm" href="/viewprofile/<%= id[:id] %>">View Profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
-  </tbody>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $(".image_link").on('hover', function(){
+      $(this).closest("image_wrapper").css("overflow", "visible")
+    })
+  })
 
 
 
-</table>
-
+</script>
 
 
 

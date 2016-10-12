@@ -10,8 +10,7 @@ module Honeybadger
     register WillPaginate::Sinatra
     enable :sessions
     enable :reload
-    #layout :site
-    layout :forescout
+    layout :user_layout
 
 
     ### this runs before all routes ###
@@ -138,7 +137,7 @@ module Honeybadger
 
     get "/user/logout" do
       session.delete(:user)
-      redirect("/")
+      redirect("/user/login")
     end
 
     get "/user/register" do
@@ -277,33 +276,69 @@ module Honeybadger
       make_main = Picture.where(:id => params[:id]).first
       user_id = make_main[:user_id]
       pic_to_change = Picture.where(:user_id => user_id, :main_pic => "true").first
-      make_main[:main_pic] = "true"
-      pic_to_change[:main_pic] = "false"
-      make_main.save
-      pic_to_change.save
-      p "*************************"
-      p user_id
-      p pic_to_change
+      if pic_to_change
+        make_main[:main_pic] = "true"
+        pic_to_change[:main_pic] = "false"
+        make_main.save
+        pic_to_change.save
+      else
+        make_main[:main_pic] = "true"
+        make_main.save
+      end
 
     end
 
     get '/viewprofile/:id' do
-      @identity = Identity.where(:user_id => params[:id]).first
+      @user = User.where(:id => params[:id]).first
+      @session = session
+      @related_messages = Message.where(:user_id => session[:user][:id], :send_to_id => params[:id]).or(:user_id => params[:id], :send_to_id => session[:user][:id]).all
 
 
       render "user_profile"
     end
 
-    get '/forescout' do
-      render "forescout"
+    get '/user/user_message' do
+      @mes_received = Message.where(:send_to_id => session[:user][:id]).all
+      @mes_sent = Message.where(:user_id => session[:user][:id]).all
+      @user = User.all
+      @message_from_id = []
+      @mes_received.each do |message|
+        @message_from_id.push(message[:user_id])
+      end
+      @message_from_id = @message_from_id.uniq
+
+
+      render "messages"
     end
 
-    get '/forescout/:id' do
-      render "page#{params[:id]}"
+    get '/user/message_from/:user_id' do
+      @related_messages = Message.where(:user_id => params[:user_id], :send_to_id => session[:user][:id]).or(:user_id => session[:user][:id], :send_to_id => params[:user_id]).all
+      @sendto_id = params[:user_id]
+      @session = session
+      render "view_message"
     end
 
+    get '/view/message/:id' do
 
-    
+    end
+
+    post '/message_input' do
+      message = Message.new(:user_id => params[:user_id], :send_to_id => params[:send_to_id], :content => params[:content], :sent_date => params[:sent_date])
+      message.save
+
+    end
+
+    get '/temp_input' do
+      @messages = Message.all
+      render "temp_input"
+    end
+
+    post '/temp_input' do
+      message = Message.new(:user_id => params[:user_id], :send_to_id => params[:send_to_id], :content => params[:content])
+      message.save
+      redirect '/temp_input'
+    end
+
 
   end
 
