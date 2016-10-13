@@ -298,16 +298,9 @@ module Honeybadger
     end
 
     get '/user/user_message' do
-      @mes_received = Message.where(:send_to_id => session[:user][:id]).all
+      @mes_received = Message.where(:send_to_id => session[:user][:id]).reverse_order(:id).all
       @mes_sent = Message.where(:user_id => session[:user][:id]).all
       @user = User.all
-      @message_from_id = []
-      @mes_received.each do |message|
-        @message_from_id.push(message[:user_id])
-      end
-      @message_from_id = @message_from_id.uniq
-
-
       render "messages"
     end
 

@@ -24,6 +24,7 @@ Sequel.migration do
       String :gender
       String :occupation
       String :immigration
+      String :language
       String :height_ft
       String :height_in
       String :cigarette

@@ -7,7 +7,7 @@
             <div class="col-md-12">
               <div class="exchange_image" style="width: 100px; height: 100px;">
                 <% @picture = Picture.where(:user_id => message[:user_id], :main_pic => true).first %>
-                <img src="<%= @picture[:image_url] %>" alt="user_image" style="width: 100%; height: 100%;">
+                <img src="<%= @picture[:image_url] %>" alt="user_image" style="width: 100%; height: 100%; border-radius: 50%;">
               </div>
               <div class="exchange_message" style="width: 570px; height: 100px;">
                 <p><%= message[:content] %></p>

@@ -1,36 +1,35 @@
 <div class="container">
-  <ul class="nav nav-tabs">
+  <h3>Your Messages!</h3>
+  <ul class="nav nav-tabs" style="margin-top: 10px;">
     <li class="active"><a data-toggle="tab" href="#inbox">Inbox</a></li>
     <li><a data-toggle="tab" href="#outbox">Outbox</a></li>
-    <li><a data-toggle="tab" href="#exchange">Exchanges</a></li>
   </ul>
   <div class="tab-content">
     <div id="inbox" class="tab-pane fade in active">
-      <h3>Your Inbox!</h3>
-      <p>List of messages received</p>
-      <div class="exchange_container container">
-        <% @message_from_id.each do |message_from| %>
+      <div class="exchange_container container" style="margin-top: 10px;">
+        <% @mes_received.each do |message_from| %>
           <div class="row message_box">
             <div class="exchange_image" style="width: 100px; height: 100px;">
-              <% @picture = Picture.where(:user_id => message_from, :main_pic => true).first %>
-              <a href="/viewprofile/<%= message_from %>"><img src="<%= @picture[:image_url] %>" alt="user_image" style="width: 100%; height: 100%;"></a>
+              <% @picture = Picture.where(:user_id => message_from[:user_id], :main_pic => true).first %>
+              <a href="/viewprofile/<%= message_from[:user_id]%>"><img src="<%= @picture[:image_url] %>" alt="user_image" style="width: 100%; height: 100%; border-radius: 50%;"></a>
             </div>
             <div class="exchange_message" style="width: 570px; height: 100px;">
-              <% @user = User.where(:id => message_from).first %>
-              <a href="/user/message_from/<%= message_from %>"><p>You have a message from: <%= @user[:username] %> ...</p></a>
+              <% @user = User.where(:id => message_from[:user_id]).first %>
+              <a href="/user/message_from/<%= message_from[:user_id] %>"><p>You have a message from: <%= @user[:username] %> ...</p></a>
+              # <%=message_from[:id] %>
+              <%=message_from[:content][0, 100]%>
             </div>
           </div>
         <% end %>
       </div>
     </div>
     <div id="outbox" class="tab-pane fade">
-      <h3>Your Outbox!</h3>
       <p>List of message sent out</p>
       <% @mes_sent.each do |message| %>
           <div class="exchange_container">
             <div class="exchange_image" style="width: 100px; height: 100px;">
               <% @picture = Picture.where(:user_id => message[:user_id], :main_pic => true).first %>
-              <img src="<%= @picture[:image_url] %>" alt="user_image" style="width: 100%; height: 100%;">
+              <img src="<%= @picture[:image_url] %>" alt="user_image" style="width: 100%; border-radius: 50%;">
             </div>
             <div class="exchange_message" style="width: 570px; height: 200px;">
               <%= message[:content] %>
@@ -41,10 +40,6 @@
             </div>
           </div>
       <% end %>
-    </div>
-    <div id="exchange" class="tab-pane fade">
-      <h3>Message Exchanged</h3>
-      <p>List of exchanges</p>
     </div>
   </div>
 </div>
