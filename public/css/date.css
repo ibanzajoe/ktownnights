@@ -18,6 +18,9 @@
 }
 
 .footer {
+    border-top-color: #e7e7e7;
+    border-top-width: 1px;
+    border-top-style: solid;
     padding-top: 20px;
     padding-bottom: 20px;
     width: 100%;
@@ -113,10 +116,31 @@
 }
 
 .message_input {
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 61px;
+    width: 100%;
     height: 150px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
+    z-index: 999;
+}
+
+.message_input_box {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.message_input_btn {
+    margin-top: 10px;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.view_message {
+    height: 100%;
+    padding-bottom: 150px;
 }
 
 .exchange_container {
@@ -134,6 +158,10 @@
 }
 
 .exchange_row {
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+
     margin-bottom: 20px;
 }
 
@@ -145,4 +173,89 @@
     max-width: 300px;
     margin-left: auto;
     margin-right: auto;
+}
+
+
+/* profile section */
+
+.profile_card {
+    margin-top: 25px;
+    width: 750px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile_card_image {
+    height: 200px;
+}
+
+
+.profile_card_image img {
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 10%;
+    max-width: 200px;
+    width: auto;
+    max-height: 200px;
+
+}
+
+.profile_card_id h2{
+    padding-top: 20px;
+    font-size: 24px;
+}
+
+.send_message {
+    margin-top: 15px;
+}
+
+.message_textarea {
+    margin-top: 5px;
+}
+
+.profile_summary {
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+
+.p_content {
+    min-height: 300px;
+}
+
+.info_card {
+    border-color: black;
+    border-style: dotted;
+    border-width: 1px;
+    border-radius: 5%;
+    margin-top: 10px;
+}
+
+.info_card table {
+    width: 100%;
+    font-size: 14px;
+}
+
+#About h4 {
+    margin-top: 25px;
+}
+
+#msgModal {
+    position: fixed;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    top: 100px;
+    width: 700px;
+    height: 400px;
+    background-color: #ffffff;
+
+}
+
+.photo_view {
+    margin-top: 25px;
 }

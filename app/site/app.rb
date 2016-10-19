@@ -330,20 +330,20 @@ module Honeybadger
       @user = User.where(:id => params[:id]).first
       @session = session
       @related_messages = Message.where(:user_id => session[:user][:id], :send_to_id => params[:id]).or(:user_id => params[:id], :send_to_id => session[:user][:id]).all
-
+      @pictures = Picture.where(:user_id => params[:id]).all
 
       render "user_profile"
     end
 
     get '/user/user_message' do
       @mes_received = Message.where(:send_to_id => session[:user][:id]).reverse_order(:id).all
-      @mes_sent = Message.where(:user_id => session[:user][:id]).all
+      @mes_sent = Message.where(:user_id => session[:user][:id]).reverse_order(:id).all
       @user = User.all
       render "messages"
     end
 
     get '/user/message_from/:user_id' do
-      @related_messages = Message.where(:user_id => params[:user_id], :send_to_id => session[:user][:id]).or(:user_id => session[:user][:id], :send_to_id => params[:user_id]).all
+      @related_messages = Message.where(:user_id => params[:user_id], :send_to_id => session[:user][:id]).or(:user_id => session[:user][:id], :send_to_id => params[:user_id]).order(:sent_date).all
       @sendto_id = params[:user_id]
       @session = session
       render "view_message"
@@ -354,9 +354,10 @@ module Honeybadger
     end
 
     post '/message_input' do
+      p "****************************************"
       message = Message.new(:user_id => params[:user_id], :send_to_id => params[:send_to_id], :content => params[:content], :sent_date => params[:sent_date])
       message.save
-
+      p "****************************************"
     end
 
     get '/temp_input' do
