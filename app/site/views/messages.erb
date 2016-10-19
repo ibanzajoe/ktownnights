@@ -26,17 +26,16 @@
     <div id="outbox" class="tab-pane fade">
       <p>List of message sent out</p>
       <% @mes_sent.each do |message| %>
-          <div class="exchange_container">
-            <div class="exchange_image" style="width: 100px; height: 100px;">
-              <% @picture = Picture.where(:user_id => message[:user_id], :main_pic => true).first %>
-              <img src="<%= @picture[:image_url] %>" alt="user_image" style="width: 100%; border-radius: 50%;">
+          <div class="row message_box">
+            <div class="exchange_image col-md-2" style="height: 100px;">
+              <% @picture_to = Picture.where(:user_id => message[:send_to_id], :main_pic => true).first %>
+              <a href="/viewprofile/<%=message[:send_to_id]%>"><img src="<%=@picture_to[:image_url]%>" alt="send_to_image" style="width: 100px; height: 100px; border-radius: 50%;"></a>
             </div>
-            <div class="exchange_message" style="width: 570px; height: 200px;">
-              <%= message[:content] %>
-            </div>
-            <div class="exchange_receiver" style="width: 100px; height: 100px; float: right;">
-              <% @picture = Picture.where(:user_id => message[:send_to_id], :main_pic => true).first %>
-              <img src="<%= @picture[:image_url] %>" alt="user_image" style="width: 100%; height: 100%;">
+            <div class="exchange_message col-md-7" style=" height: 100px;">
+              <% @user = User.where(:id => message[:send_to_id]).first %>
+              <a href="/user/message_from/<%= message[:send_to_id] %>"><p>You sent a message to: <%= @user[:username] %> ...</p></a>
+              # <%=message[:id] %>
+              <%=message[:content][0, 100]%>
             </div>
           </div>
       <% end %>
