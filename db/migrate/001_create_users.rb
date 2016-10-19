@@ -31,6 +31,7 @@ Sequel.migration do
       String :marijuana
       String :self_summary
       Boolean :have_pic
+      Boolean :paid
       DateTime :created_at
       DateTime :updated_at
       unique [:provider, :refid]
