@@ -9,6 +9,7 @@ Sequel.migration do
       String :city, :size => 64
       String :state, :size => 32
       String :zip, :size => 16
+      String :location, :size => 64
       String :country, :size => 2
       String :username
       String :password_digest
