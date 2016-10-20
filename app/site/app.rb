@@ -18,6 +18,11 @@ module Honeybadger
       @title = "Honeybadger CMS"
       @page = (params[:page] || 1).to_i
       @per_page = params[:per_page] || 5
+
+      if session[:user] && !session[:user][:paid] && (env["REQUEST_URI"] != '/pay' && env["REQUEST_URI"] != '/charge')
+        redirect '/pay'
+      end
+
     end      
 
     ### authentication routes ###
@@ -161,7 +166,7 @@ module Honeybadger
         user = User.register_with_email(params)
         if user.errors.empty?
           session[:user] = user
-          redirect("/user/account")
+          redirect("/pay")
         else
           flash.now[:notice] = user.errors[:validation][0]
           render "register"
@@ -176,6 +181,39 @@ module Honeybadger
     get '/' do
       @posts = Post.order(:id).paginate(@page, @per_page).reverse
       render "index"
+    end
+
+    get '/pay' do
+      @user = session[:user]
+      render 'pay'
+    end
+
+    post '/charge' do
+
+      Stripe.api_key = "sk_test_9yjqifpcg5f0PlJDEIHQWGRm"
+      Stripe.verify_ssl_certs = false
+
+      # Get the credit card details submitted by the form
+      token = params[:stripeToken]
+
+      # Create a charge: this will charge the user's card
+      begin
+        charge = Stripe::Charge.create(
+          :amount => 1999, # Amount in cents
+          :currency => "usd",
+          :source => token,
+          :description => "ktowncupid beta promotion"
+        )
+      rescue Stripe::CardError => e
+        # The card has been declined
+        e.to_json
+      end
+
+      user = session[:user]
+      user[:paid] = true
+      user.save
+
+      redirect '/user/account'
     end
 
     ### view page ###
