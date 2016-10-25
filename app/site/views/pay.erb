@@ -1,0 +1,12 @@
+<div class="container text-center">
+  <h1>Pay NOW! Only $19.99, one-time for the first 100 users.</h1>
+  <h4>only 23 spots left.</h4>
+
+  <p>Normally $49.99 a month</p>
+  <hr>
+
+  <form action="/charge" method="POST" style="text-align: center">
+    <input type="hidden" name="id" value="572a7cb44fb16a070057dd82">
+    <script src="https://checkout.stripe.com/checkout.js" data-key="pk_test_8iCRH4xJXGEWYt4DkbECYDM8" data-amount="1999" data-name="Beta Promotional Pricing" data-description="Limited time pricing"  data-locale="auto" data-email="<%=@user[:email]%>" class="stripe-button"></script>
+  </form>
+</div>

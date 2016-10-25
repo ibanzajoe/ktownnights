@@ -28,6 +28,9 @@ gem 'bcrypt'
 # Webserver
 gem 'passenger'
 
+#stripe
+gem 'stripe'
+
 # Testing
 gem 'rspec', :group => 'test'
 gem 'rack-test', :require => 'rack/test', :group => 'test'
