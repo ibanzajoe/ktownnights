@@ -1,0 +1,40 @@
+<div class="container">
+  <h3 style="margin-top: 80px;">Profile Wizard</h3>
+  <div class="col-md-offset-2 col-md-9" style="margin-top: 50px;">
+    <p class="lead">My Summary</p>
+    <form role="form" method="POST" class="form-horizontal" enctype="multipart/form-data">
+
+      <div class="form-group">
+        <label for="summary" class="col-sm-2 control-label">About Me</label>
+        <div class="col-sm-8">
+          <textarea name="self_summary" id="summary" class="form-control" rows="7" ><%= @user[:self_summary] %> </textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="summary" class="col-sm-2 control-label">My Ideal Mate</label>
+        <div class="col-sm-8">
+          <textarea name="self_summary" id="summary" class="form-control" rows="7" ><%= @user[:ideal_mate] %> </textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="summary" class="col-sm-2 control-label">My Interests</label>
+        <div class="col-sm-8">
+          <textarea name="self_summary" id="summary" class="form-control" rows="7" ><%= @user[:interests] %> </textarea>
+        </div>
+      </div>
+
+
+      <div class="form-group" style="margin-top: 50px;">
+        <div class="col-sm-2">
+          <a href="/user/wizard/2">PREV</a>
+        </div>
+
+        <div class="col-sm-offset-7 col-sm-2">
+          <a href="/user/wizard/4">NEXT</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

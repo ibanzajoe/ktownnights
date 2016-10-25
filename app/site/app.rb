@@ -81,6 +81,8 @@ module Honeybadger
       @user.birth_day = params[:birth_day]
       @user.birth_year = params[:birth_year]
       @user.self_summary = params[:self_summary]
+      @user.language = params[:language]
+      @user.zip = params[:zip]
       if params[:picture]
         filename = params[:picture][:filename]
         tempfile = params[:picture][:tempfile]
@@ -166,7 +168,11 @@ module Honeybadger
         user = User.register_with_email(params)
         if user.errors.empty?
           session[:user] = user
+<<<<<<< HEAD
+          redirect("/user/wizard/1")
+=======
           redirect("/pay")
+>>>>>>> 956b84818e347a0c06a9f897434af93a592588aa
         else
           flash.now[:notice] = user.errors[:validation][0]
           render "register"
@@ -223,6 +229,12 @@ module Honeybadger
 
     get '/about' do
       render "about"
+    end
+
+    get '/user/wizard/:id' do
+      @user = session[:user]
+      zxcv = "profile_wizard_" + params[:id]
+      render zxcv
     end
 
     post '/user/identity' do
@@ -357,6 +369,13 @@ module Honeybadger
       message = Message.new(:user_id => params[:user_id], :send_to_id => params[:send_to_id], :content => params[:content], :sent_date => params[:sent_date])
       message.save
       p "****************************************"
+    end
+
+    post '/user/profile/save' do
+      userdata = User.new(params)
+      p "****************************************"
+      p userdata
+
     end
 
     get '/temp_input' do
