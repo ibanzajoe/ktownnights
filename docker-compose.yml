@@ -5,7 +5,7 @@ app:
  - memcache:memcache 
  command: /app/bin/docker/init.sh
  environment:
- - VIRTUAL_HOST=ktowncupid.docker,ktowncupid.com,www.ktowncupid.com
+ - VIRTUAL_HOST=ktowncupid.docker,ktowncupid.com,www.ktowncupid.com,videodate.docker
  - RACK_ENV=development
  - BUNDLE_PATH=/app/volumes/bundler
  - PASSENGER_POOL_IDLE_TIME=0 
