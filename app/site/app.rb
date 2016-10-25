@@ -20,7 +20,7 @@ module Honeybadger
       @per_page = params[:per_page] || 5
 
       if session[:user] && !session[:user][:paid] && (env["REQUEST_URI"] != '/pay' && env["REQUEST_URI"] != '/charge')
-        redirect '/pay'
+        #redirect '/pay'
       end
 
     end      
@@ -168,11 +168,10 @@ module Honeybadger
         user = User.register_with_email(params)
         if user.errors.empty?
           session[:user] = user
-<<<<<<< HEAD
+
           redirect("/user/wizard/1")
-=======
-          redirect("/pay")
->>>>>>> 956b84818e347a0c06a9f897434af93a592588aa
+          #redirect("/pay")
+
         else
           flash.now[:notice] = user.errors[:validation][0]
           render "register"
