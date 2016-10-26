@@ -27,14 +27,14 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="username" class="col-sm-2 control-label">Userame</label>
+        <label for="username" class="col-sm-2 control-label">Username (Alias)</label>
         <div class="col-sm-8">
-          <input v-model="user.username" type="text" name="username" id="username" class="form-control">
+          <input v-model="user.username" type="text" name="username" id="username" class="form-control" placeholder="Usernames are 4 to 32 characters, ie; joy77">
         </div>
       </div>
       <div class="form-group" style="margin-top: 50px;">
         <div class="col-sm-offset-5 col-sm-6">
-          <a @click="handle_next">NEXT</a>
+          <a class="btn btn-default" @click="handle_next">Proceed Next >></a>
         </div>
       </div>
     </form>
@@ -45,8 +45,9 @@
       <div class="form-group">
         <label for="gender" class="col-sm-2 control-label">Gender/Sex</label>
         <div class="col-sm-8">
-          <input v-model="user.gender" type="radio" name="gender" id="gender" class="" value="male" <% if @user[:gender] == "male" %>checked <% end %>> Male
-          <input v-model="user.gender" type="radio" name="gender" id="gender" class="" value="female" <% if @user[:gender] == "female" %>checked <% end %>> Female
+          <input v-model="user.gender" type="radio" name="gender" id="gender_male" class="" value="male" <% if @user[:gender] == "male" %>checked <% end %>> <label for="gender_male">Male</label>
+          &nbsp;
+          <input v-model="user.gender" type="radio" name="gender" id="gender_female" class="" value="female" <% if @user[:gender] == "female" %>checked <% end %>> <label for="gender_female">Female</label>
         </div>
       </div>
 
@@ -55,15 +56,15 @@
         <div class="col-sm-8">
           <label for="birth_month" class="col-sm-1 control-label">Mo</label>
           <div class="col-sm-3">
-            <input v-model="user.birth_month" type="text" name="birth_month" class="form-control" value="<%= @user[:birth_month] %>">
+            <input v-model="user.birth_month" maxlength="2" type="text" name="birth_month" class="form-control" value="<%= @user[:birth_month] %>" placeholder="12">
           </div>
           <label for="birth_month" class="col-sm-1 control-label">Day</label>
           <div class="col-sm-3">
-            <input v-model="user.birth_day" type="text" name="birth_day" class="form-control" value="<%= @user[:birth_day] %>">
+            <input v-model="user.birth_day" maxlength="2" type="text" name="birth_day" class="form-control" value="<%= @user[:birth_day] %>" placeholder="31">
           </div>
           <label for="birth_month" class="col-sm-1 control-label">Year</label>
           <div class="col-sm-3">
-            <input v-model="user.birth_year" type="text" name="birth_year" class="form-control" value="<%= @user[:birth_year] %>">
+            <input v-model="user.birth_year" type="text" maxlength="2" name="birth_year" class="form-control" value="<%= @user[:birth_year] %>" placeholder="72">
           </div>
         </div>
       </div>
@@ -73,11 +74,11 @@
         <div class="col-sm-8">
           <label for="birth_month" class="col-sm-1 control-label">FT</label>
           <div class="col-sm-3">
-            <input v-model="user.height_ft" type="text" name="birth_month" class="form-control" value="<%= @user[:height_ft] %>">
+            <input v-model="user.height_ft" maxlength="1" type="text" name="birth_month" class="form-control" value="<%= @user[:height_ft] %>" placeholder="5">
           </div>
           <label for="birth_month" class="col-sm-1 control-label">IN</label>
           <div class="col-sm-3">
-            <input v-model="user.height_in" type="text" name="birth_day" class="form-control" value="<%= @user[:height_in] %>">
+            <input v-model="user.height_in" maxlength="2" type="text" name="birth_day" class="form-control" value="<%= @user[:height_in] %>" placeholder="5">
           </div>
         </div>
       </div>
@@ -92,19 +93,19 @@
       <div class="form-group">
         <label for="language" class="col-sm-2 control-label">Languages</label>
         <div class="col-sm-8">
-          <input v-model="user.language" type="radio" name="language" value="english" <% if @user[:language] == "english" %> checked <% end %>> English
-          <input v-model="user.language" type="radio" name="language" value="korean" <% if @user[:language] == "korean" %> checked <% end %>> Korean
-          <input v-model="user.language" type="radio" name="language" value="bilingual" <% if @user[:language] == "bilingual" %> checked <% end %>> Bilingual
+          <input v-model="user.language" type="radio" name="language" value="english" id="language_english" <% if @user[:language] == "english" %> checked <% end %>> <label for="language_english">English</label>
+          <input v-model="user.language" type="radio" name="language" value="korean" id="language_korean" <% if @user[:language] == "korean" %> checked <% end %>> <label for="language_korean">Korean</label>
+          <input v-model="user.language" type="radio" name="language" value="bilingual" id="language_bilingual" <% if @user[:language] == "bilingual" %> checked <% end %>> <label for="language_bilingual">Bilingual</label>
         </div>
       </div>
       <div class="form-group">
         <label for="zipcode" class="col-sm-2 control-label">Zip Code</label>
         <div class="col-sm-8">
-          <input v-model="user.zip" type="text" name="zip" id="occupation" class="form-control" value="<%= @user[:zip] %>">
+          <input v-model="user.zip" maxlength="5" type="text" name="zip" id="occupation" class="form-control" value="<%= @user[:zip] %>">
         </div>
       </div>
       <div class="form-group">
-        <label for="username" class="col-sm-2 control-label">Occupation</label>
+        <label for="username" class="col-sm-2 control-label">Job / Work</label>
         <div class="col-sm-8">
           <input v-model="user.occupation" type="text" name="occupation" id="occupation" class="form-control" value="<%= @user[:occupation] %>">
         </div>
@@ -112,11 +113,11 @@
 
       <div class="form-group" style="margin-top: 50px;">
         <div class="col-sm-2">
-          <a @click="handle_prev">PREV</a>
+          <a class="btn btn-default" @click="handle_prev">PREV</a>
         </div>
 
         <div class="col-sm-offset-7 col-sm-2">
-          <a @click="handle_next">NEXT</a>
+          <a class="btn btn-default" @click="handle_next">NEXT</a>
         </div>
       </div>
     </form>
