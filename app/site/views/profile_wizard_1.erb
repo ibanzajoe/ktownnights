@@ -1,5 +1,50 @@
 <div class="wizard container">
   <h3 style="margin-top: 80px;">Profile Wizard</h3>
+  <div v-if="active_step == 'account_reg'" class="col-md-offset-2 col-md-9" style="margin-top: 50px;">
+    <div style="text-align: center;" class=""><img width="200" class="image" src="/site/img/heart-128.png"></div>
+    <div class="col-md-offset-2 col-md-8">
+
+      <br><br>
+      <p class="lead" style="text-align: center;">Sign up and browse</p>
+      <br>
+
+      <form role="form" method="POST" class="form-horizontal">
+
+        <div class="form-group">
+          <label for="email" class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-4">
+            <input v-model="user.first_name" type="text" name="first_name" id="first_name" class="form-control" placeholder="first name" value="<%= params[:first_name]%>">
+          </div>
+          <div class="col-sm-4">
+            <input v-model="user.last_name" type="text" name="last_name" id="last_name" class="form-control" placeholder="last name" value="<%= params[:last_name]%>">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-8">
+            <input v-model="user.email" type="text" name="email" id="email" class="form-control" placeholder="joe@doe.com" value="<%= params[:email]%>">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-8">
+            <input type="password" name="password" id="password" class="form-control" placeholder="atleast 6 characters" value="<%= params[:password]%>">
+          </div>
+        </div>
+      </form>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-8">
+          <a @click="handle_next" type="submit" class="btn btn-primary"><i class="fa fa-lock"></i> Signup</a>
+        </div>
+      </div>
+
+      <p class="lead" style="text-align: center; margin-top: 120px;">Try us, you never know who you might meet!</p>
+
+
+    </div>
+  </div>
   <div v-if="active_step == 'account_info'" class="col-md-offset-2 col-md-9" style="margin-top: 50px;">
     <p class="lead">Account Information</p>
 
@@ -39,7 +84,7 @@
       </div>
     </form>
   </div>
-  <div v-if="active_step == 'account_identity'" class="col-md-offset-2 col-md-9">
+  <div v-if="active_step == 'account_identity'" class="col-md-offset-2 col-md-9" style="margin-top: 50px;">
     <p class="lead">My Identity</p>
     <form role="form" method="POST" class="form-horizontal" enctype="multipart/form-data">
       <div class="form-group">
@@ -210,14 +255,16 @@
     data: {
       test: {},
       steps: [
+          'account_reg',
           'account_info',
           'account_identity',
           'account_summary',
           'account_picture'
       ],
       active_index: 0,
-      active_step: 'account_info',
-      user: <%== @user.to_json %>
+      active_step: 'account_reg',
+      user: <%== @user.to_json %>,
+      picture: []
     },
     ready: function(){
 
@@ -256,6 +303,8 @@
             },
             function(Blobs){
               console.log(JSON.stringify(Blobs));
+              this.picture = JSON.stringify(Blobs)
+              $.post('/user/pictures/save', this.picture)
             }
         );
       }

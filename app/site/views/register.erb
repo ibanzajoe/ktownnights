@@ -1,46 +1,283 @@
-<div class="container" style="margin-top: 50px;">
-  <div style="text-align: center;" class=""><img width="200" class="image" src="/site/img/heart-128.png"></div>
-  <div class="col-md-offset-2 col-md-8">
+<div class="wizard container">
+  <div v-if="active_step == 'account_reg'" class="col-md-offset-2 col-md-9" style="margin-top: 50px;">
+    <div style="text-align: center;" class=""><img width="200" class="image" src="/site/img/heart-128.png"></div>
+    <div class="col-md-offset-2 col-md-8">
 
-    <br><br>  
-    <p class="lead" style="text-align: center;">Sign up and browse</p>
-    <br>
+      <br><br>
+      <p class="lead" style="text-align: center;">Sign up and browse</p>
+      <br>
 
-    <form role="form" method="POST" class="form-horizontal" action="/user/register">
+      <form role="form" method="POST" class="form-horizontal">
+
+        <div class="form-group">
+          <label for="email" class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-4">
+            <input v-model="user.first_name" type="text" name="first_name" id="first_name" class="form-control" placeholder="first name" value="<%= params[:first_name]%>">
+          </div>
+          <div class="col-sm-4">
+            <input v-model="user.last_name" type="text" name="last_name" id="last_name" class="form-control" placeholder="last name" value="<%= params[:last_name]%>">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-8">
+            <input v-model="user.email" type="text" name="email" id="email" class="form-control" placeholder="joe@doe.com" value="<%= params[:email]%>">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-8">
+            <input type="password" name="password" id="password" class="form-control" placeholder="atleast 6 characters" value="<%= params[:password]%>">
+          </div>
+        </div>
+      </form>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-8">
+            <a @click="handle_next" type="submit" class="btn btn-primary"><i class="fa fa-lock"></i> Signup</a>
+          </div>
+        </div>
+
+        <p class="lead" style="text-align: center; margin-top: 120px;">Try us, you never know who you might meet!</p>
+
+
+    </div>
+  </div>
+  <div v-if="active_step == 'account_info'" class="col-md-offset-2 col-md-9" style="margin-top: 50px;">
+    <p class="lead">Account Information</p>
+
+    <form role="form" method="POST" class="form-horizontal" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="first_name" class="col-sm-2 control-label">First Name</label>
+        <div class="col-sm-8">
+          <input v-model="user.first_name" type="text" name="first_name" id="first_name" class="form-control" value="<%= @user[:first_name] %>">
+        </div>
+      </div>
 
       <div class="form-group">
-        <label for="email" class="col-sm-2 control-label">Name</label>
-        <div class="col-sm-4">
-          <input type="text" name="first_name" id="first_name" class="form-control" placeholder="first name" value="<%= params[:first_name]%>">
-        </div>
-        <div class="col-sm-4">
-          <input type="text" name="last_name" id="last_name" class="form-control" placeholder="last name" value="<%= params[:last_name]%>">
+        <label for="last_name" class="col-sm-2 control-label">Last Name</label>
+        <div class="col-sm-8">
+          <input v-model="user.last_name" type="text" name="last_name" id="last_name" class="form-control" value="<%= @user[:last_name] %>">
         </div>
       </div>
 
       <div class="form-group">
         <label for="email" class="col-sm-2 control-label">Email</label>
         <div class="col-sm-8">
-          <input type="text" name="email" id="email" class="form-control" placeholder="joe@doe.com" value="<%= params[:email]%>">
+          <input v-model="user.email" type="text" name="email" id="email" class="form-control" value="<%= @user[:email] %>">
         </div>
       </div>
-
       <div class="form-group">
-        <label for="password" class="col-sm-2 control-label">Password</label>
+        <label for="username" class="col-sm-2 control-label">Userame</label>
         <div class="col-sm-8">
-          <input type="password" name="password" id="password" class="form-control" placeholder="atleast 6 characters" value="<%= params[:password]%>">
+          <input v-model="user.username" type="text" name="username" id="username" class="form-control">
+        </div>
+      </div>
+      <div class="form-group" style="margin-top: 50px;">
+        <div class="col-sm-2">
+          <a @click="handle_prev">PREV</a>
+        </div>
+
+        <div class="col-sm-offset-7 col-sm-2">
+          <a @click="handle_next">NEXT</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div v-if="active_step == 'account_identity'" class="col-md-offset-2 col-md-9" style="margin-top: 50px;">
+    <p class="lead">My Identity</p>
+    <form role="form" method="POST" class="form-horizontal" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="gender" class="col-sm-2 control-label">Gender/Sex</label>
+        <div class="col-sm-8">
+          <input v-model="user.gender" type="radio" name="gender" id="gender" class="" value="male" <% if @user[:gender] == "male" %>checked <% end %>> Male
+          <input v-model="user.gender" type="radio" name="gender" id="gender" class="" value="female" <% if @user[:gender] == "female" %>checked <% end %>> Female
         </div>
       </div>
 
       <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-8">
-          <button type="submit" class="btn btn-primary"><i class="fa fa-lock"></i> Signup</button>
+        <label for="username" class="col-sm-2 control-label">Birth Date</label>
+        <div class="col-sm-8">
+          <label for="birth_month" class="col-sm-1 control-label">Mo</label>
+          <div class="col-sm-3">
+            <input v-model="user.birth_month" type="text" name="birth_month" class="form-control" value="<%= @user[:birth_month] %>">
+          </div>
+          <label for="birth_month" class="col-sm-1 control-label">Day</label>
+          <div class="col-sm-3">
+            <input v-model="user.birth_day" type="text" name="birth_day" class="form-control" value="<%= @user[:birth_day] %>">
+          </div>
+          <label for="birth_month" class="col-sm-1 control-label">Year</label>
+          <div class="col-sm-3">
+            <input v-model="user.birth_year" type="text" name="birth_year" class="form-control" value="<%= @user[:birth_year] %>">
+          </div>
         </div>
       </div>
 
-      <p class="lead" style="text-align: center; margin-top: 120px;">Try us, you never know who you might meet!</p>
+      <div class="form-group">
+        <label for="height" class="col-sm-2 control-label">Height</label>
+        <div class="col-sm-8">
+          <label for="birth_month" class="col-sm-1 control-label">FT</label>
+          <div class="col-sm-3">
+            <input v-model="user.height_ft" type="text" name="birth_month" class="form-control" value="<%= @user[:height_ft] %>">
+          </div>
+          <label for="birth_month" class="col-sm-1 control-label">IN</label>
+          <div class="col-sm-3">
+            <input v-model="user.height_in" type="text" name="birth_day" class="form-control" value="<%= @user[:height_in] %>">
+          </div>
+        </div>
+      </div>
 
+      <div class="form-group">
+        <label for="username" class="col-sm-2 control-label">US Citizen?</label>
+        <div class="col-sm-8">
+          <input v-model="user.immigration" type="checkbox" name="immigration" id="immigration" value="citizen" <% if @user[:immigration] == "citizen" %> checked <% end %>>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="language" class="col-sm-2 control-label">Languages</label>
+        <div class="col-sm-8">
+          <input v-model="user.language" type="radio" name="language" value="english" <% if @user[:language] == "english" %> checked <% end %>> English
+          <input v-model="user.language" type="radio" name="language" value="korean" <% if @user[:language] == "korean" %> checked <% end %>> Korean
+          <input v-model="user.language" type="radio" name="language" value="bilingual" <% if @user[:language] == "bilingual" %> checked <% end %>> Bilingual
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="zipcode" class="col-sm-2 control-label">Zip Code</label>
+        <div class="col-sm-8">
+          <input v-model="user.zip" type="text" name="zip" id="occupation" class="form-control" value="<%= @user[:zip] %>">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="username" class="col-sm-2 control-label">Occupation</label>
+        <div class="col-sm-8">
+          <input v-model="user.occupation" type="text" name="occupation" id="occupation" class="form-control" value="<%= @user[:occupation] %>">
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-top: 50px;">
+        <div class="col-sm-2">
+          <a @click="handle_prev">PREV</a>
+        </div>
+
+        <div class="col-sm-offset-7 col-sm-2">
+          <a @click="handle_next">NEXT</a>
+        </div>
+      </div>
     </form>
+  </div>
+  <div v-if="active_step == 'account_summary'" class="col-md-offset-2 col-md-9" style="margin-top: 50px;">
+    <p class="lead">My Summary</p>
+    <form role="form" method="POST" class="form-horizontal" enctype="multipart/form-data">
 
+      <div class="form-group">
+        <label for="summary" class="col-sm-2 control-label">About Me</label>
+        <div class="col-sm-8">
+          <textarea v-model="user.self_summary" name="self_summary" id="summary" class="form-control" rows="7" ><%= @user[:self_summary] %> </textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="summary" class="col-sm-2 control-label">My Ideal Mate</label>
+        <div class="col-sm-8">
+          <textarea v-model="user.ideal_mate" name="self_summary" id="summary" class="form-control" rows="7" ><%= @user[:ideal_mate] %> </textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="summary" class="col-sm-2 control-label">My Interests</label>
+        <div class="col-sm-8">
+          <textarea v-model="user.interests" name="self_summary" id="summary" class="form-control" rows="7" ><%= @user[:interests] %> </textarea>
+        </div>
+      </div>
+
+
+      <div class="form-group" style="margin-top: 50px;">
+        <div class="col-sm-2">
+          <a @click="handle_prev">PREV</a>
+        </div>
+
+        <div class="col-sm-offset-7 col-sm-2">
+          <a @click="save_user_next">NEXT</a>
+        </div>
+      </div>
+    </form>
   </div>
 </div>
+
+<script>
+  new Vue({
+    el: '.wizard',
+    data: {
+      test: {},
+      steps: [
+        'account_reg',
+        'account_info',
+        'account_identity',
+        'account_summary'
+      ],
+      active_index: 0,
+      active_step: 'account_reg',
+      user: <%== @user.to_json %>,
+      picture: []
+    },
+    ready: function(){
+
+    },
+    methods: {
+      handle_prev: function(){
+        var _this = this
+        this.prev()
+      },
+      handle_next: function(){
+        var _this = this
+        this.next()
+      },
+      save_user_next: function(user){
+        console.log("it is on the path to save the profile: ")
+        var _this = this
+        this.save_user(this.user).then(function(){
+          $(location).attr('href', '/user/account')
+        })
+      },
+      save_user: function(user){
+        var _this = this
+        return $.post('/user/profile/save', user, function(res){
+          _this.user = JSON.parse(res)
+        })
+      },
+      next: function(){
+        this.active_index++
+        this.active_step = this.steps[this.active_index]
+      },
+      prev: function(){
+        this.active_index--
+        this.active_step = this.steps[this.active_index]
+      },
+      handle_filepicker: function(){
+        var _this = this
+        console.log(this.user.id, this.user)
+        filepicker.setKey("AXK1F28ryQw6nD4BSeh2jz")
+        filepicker.pickAndStore(
+            {
+              mimetype:"image/*",
+              multiple: true
+            },
+            {
+              path:"/images/<%=@user[:id]%>/"
+            },
+            function(Blobs){
+              console.log(Blobs[0].url);
+              var data = {
+                url: Blobs[0].url,
+                user_id: _this.user.id
+              }
+              $.post('/user/pictures/save', data)
+            }
+        );
+      }
+    }
+
+  })
+</script>

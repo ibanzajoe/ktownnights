@@ -43,3 +43,48 @@
     </form>
   </div>
 </div>
+
+<div v-if="active_step == 'account_picture'" class="col-md-offset-2 col-md-9" style="margin-top: 50px;">
+  <p class="lead">My Pictures</p>
+  <form role="form" method="POST" class="form-horizontal" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="pictures" class="col-sm-2 control-label">Picture to Upload</label>
+      <div class="col-sm-8">
+        <% if @user[:have_pic] == true %>
+            <div class="w3-content" style="max-width: 300px; position:relative">
+              <% @picture = Picture.where(:user_id => @user[:id]).all %>
+              <% @picture.each do |f| %>
+                  <% if f[:main_pic] == "true" %>
+                      <img class="mySlides" name="main_pic" src="<%= f[:image_url] %>" id="<%= f[:id] %>" wiggy="<%= f[:main_pic] %>">
+                  <% else %>
+                      <img class="mySlides" src="<%= f[:image_url] %>" id="<%= f[:id] %>" wiggy="<%= f[:main_pic] %>">
+                  <% end %>
+
+              <% end %>
+              <a class="w3-btn-floating" style="position:absolute;top:48%;left:0" onclick="plusDivs(-1)">❮</a>
+              <a class="w3-btn-floating" style="position:absolute;top:48%;right:0" onclick="plusDivs(1)">❯</a>
+              <a class="make-main" style="position:absolute; top:5%; right: 5%; display: block">M</a>
+              <a class="delete_pic" style="position:absolute; top:5%; right: 5%;">X</a>
+              <a class="change_main" style="position:absolute; bottom: 5%; right: 5%;">C</a>
+            </div>
+        <% end %>
+        <br>
+        <br>
+        <input type="hidden" name="user_id" value="<%= @user[:id] %>">
+        <input type="filepicker-dragdrop" data-fp-multiple="true"/>
+        <a @click="handle_filepicker">Select Image</a>
+
+      </div>
+    </div>
+
+    <div class="form-group" style="margin-top: 50px;">
+      <div class="col-sm-2">
+        <a @click="handle_prev">PREV</a>
+      </div>
+
+      <div class="col-sm-offset-7 col-sm-2">
+        <a href="/display_users">NEXT</a>
+      </div>
+    </div>
+  </form>
+</div>

@@ -148,6 +148,7 @@ module Honeybadger
     end
 
     get "/user/register" do
+      @user = User.new
       render "register"
     end
 
@@ -307,7 +308,6 @@ module Honeybadger
         if sex == "male"
           @users = User.where(:gender => "female").all
           @pictures = Picture.all
-
           render "display_users"
         else
           @users = User.where(:gender => "male").all
@@ -372,9 +372,26 @@ module Honeybadger
 
     post '/user/profile/save' do
       userdata = User.new(params)
-      p "****************************************"
-      p userdata
+      userdata.save
+      session[:user] = userdata
+      userdata.to_json
 
+    end
+
+    post '/user/pictures/save' do
+      p "****************************************"
+      p params[:url]
+      @user = User.where(:id => params[:user_id]).first
+      temp_pic = Picture.where(:user_id => params[:user_id]).first
+      if temp_pic == nil
+        picture = Picture.new(:user_id => params[:user_id], :image_url => params[:url], :main_pic => "true")
+        @user.have_pic = true
+        picture.save
+      else
+        picture = Picture.new(:user_id => params[:user_id], :image_url => target, :main_pic => "false")
+        @user.have_pic = true
+        picture.save
+      end
     end
 
     get '/temp_input' do

@@ -46,11 +46,21 @@
       </ul>
       <div class="tab-content">
         <div id="About" class="p_content tab-pane fade in active">
-          <h4>Self-Summary</h4>
           <% if @user[:self_summary].blank? %>
           <p style="margin-top: 20px;"><img src="https://cdn0.iconfinder.com/data/icons/popo_emotions_the_blacy_png/128/nothing.png"></p>
           <% end %>
+          <h4>Self-Summary</h4>
           <p><%=@user[:self_summary]%></p>
+          <% if @user[:ideal_mate].blank? %>
+              <p style="margin-top: 20px;"><img src="https://cdn0.iconfinder.com/data/icons/popo_emotions_the_blacy_png/128/nothing.png"></p>
+          <% end %>
+          <h4>My Ideal Mate</h4>
+          <p><%=@user[:ideal_mate]%></p>
+          <% if @user[:interests].blank? %>
+              <p style="margin-top: 20px;"><img src="https://cdn0.iconfinder.com/data/icons/popo_emotions_the_blacy_png/128/nothing.png"></p>
+          <% end %>
+          <h4>My Interests</h4>
+          <p><%=@user[:interests]%></p>
         </div>
         <div id="Photos" class="p_content tab-pane fade">
           <div class="row photo_view">
@@ -113,13 +123,30 @@
             <p>
               <%
               case @user[:immigration]
-              when nil
+              when "false"
                 concat "?"
-              when "citizen"
+              when "true"
                 concat "<img src='/images/flag_american_icon.jpg'>".html_safe
               end
               %>
             </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Height</p>
+          </td>
+          <td>
+            <p><%=@user[:height_ft]%>' <%=@user[:height_in]%></p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p>Language</p>
+          </td>
+          <td>
+            <p><%=@user[:language]%></p>
           </td>
         </tr>
 

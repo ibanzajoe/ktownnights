@@ -31,6 +31,8 @@ Sequel.migration do
       String :cigarette
       String :marijuana
       String :self_summary
+      String :ideal_mate
+      String :interests
       Boolean :have_pic
       Boolean :paid
       DateTime :created_at
