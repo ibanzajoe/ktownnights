@@ -75,8 +75,8 @@
 
 .slide {
     position: relative;
-    overflow: scroll;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     width: 100%;
     overflow-y: hidden;
     overflow-x: hidden;
@@ -117,25 +117,22 @@
 
 .message_input {
     background-color: #ffffff;
-    position: fixed;
-    bottom: 61px;
     width: 100%;
     height: 150px;
     z-index: 999;
 }
 
 .message_input_box {
-    width: 1000px;
+    width: 750px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .message_input_btn {
     margin-top: 10px;
-    width: 1000px;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
+    text-align: right;
 }
 
 .view_message {
@@ -145,6 +142,7 @@
 
 .exchange_container {
     height: 100px;
+
 
 }
 
@@ -250,12 +248,32 @@
     margin-left: auto;
     margin-right: auto;
     top: 100px;
-    width: 700px;
-    height: 400px;
+    width: 550px;
+    height: 380px;
+    background-color: #ffffff;
+
+}
+
+#msgModal2 {
+    position: fixed;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    top: 100px;
+    width: 550px;
+    height: 380px;
     background-color: #ffffff;
 
 }
 
 .photo_view {
     margin-top: 25px;
+}
+
+#outbox {
+    padding: 20px;
+}
+
+#inbox {
+    padding: 20px;
 }

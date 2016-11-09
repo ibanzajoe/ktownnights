@@ -25,13 +25,14 @@
 
           param_key = rule
           param_value = params[rule]
-
           if param_value.blank? && !conditions[:required].present?
             next
           end
 
           # puts conditions
           conditions.each do |condition, condition_value|
+            p "************************"
+            p  conditions.to_s, condition.to_s, condition_value
             if condition.to_s == "type"
               method = "check_type_#{condition_value}".to_sym
             else

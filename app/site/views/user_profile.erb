@@ -19,6 +19,13 @@
       <div class="send_message">
         <a id="modalPopper" userid="<%=@user[:id]%>"><button class="btn">Message</button></a>
       </div>
+      <div id="msgModal2" class="modal hide fade">
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <img class="mess_sent" src="/images/messageincoming.gif" alt="message sent" style="width: 85%; margin-top:10px;">
+          <h3 style="position: relative; bottom: 90px;">Your message was sent!</h3>
+        </div>
+      </div>
       <div id="msgModal" class="modal hide fade">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -28,10 +35,13 @@
           <input type="hidden" name="user_id" value="<%=@session[:user][:id]%>">
           <input type="hidden" name="send_to_id" value="<%=@user[:id]%>">
           <input type="hidden" name="date" value="<%=Time.now%>">
-          <textarea class="form-control message_textarea" name="content" style="height:100px;"></textarea>
+          <textarea id="textbox-toggle" class="form-control message_textarea" name="content" style="height:100px;"></textarea>
         </div>
         <div class="modal-footer">
-          <button form="message_form" userid="<%=@session[:user][:id]%>" send="<%=@user[:id]%>" date="<%=Time.now%>" class="btn btn-primary message_btn callback-btn" data-dismiss="modal" >Send</button>
+          <div id="alert">
+            <span></span>
+          </div>
+          <button form="message_form" userid="<%=@session[:user][:id]%>" send="<%=@user[:id]%>" date="<%=Time.now%>" class="btn btn-primary message_btn callback-btn" >Send</button>
         </div>
       </div>
     </div>
@@ -47,20 +57,26 @@
       <div class="tab-content">
         <div id="About" class="p_content tab-pane fade in active">
           <% if @user[:self_summary].blank? %>
+          <h4>Self-Summary</h4>
           <p style="margin-top: 20px;"><img src="https://cdn0.iconfinder.com/data/icons/popo_emotions_the_blacy_png/128/nothing.png"></p>
-          <% end %>
+          <% else %>
           <h4>Self-Summary</h4>
           <p><%=@user[:self_summary]%></p>
-          <% if @user[:ideal_mate].blank? %>
-              <p style="margin-top: 20px;"><img src="https://cdn0.iconfinder.com/data/icons/popo_emotions_the_blacy_png/128/nothing.png"></p>
           <% end %>
+          <% if @user[:ideal_mate].blank? %>
+            <h4>My Ideal Mate</h4>
+            <p style="margin-top: 20px;"><img src="https://cdn0.iconfinder.com/data/icons/popo_emotions_the_blacy_png/128/nothing.png"></p>
+          <% else %>
           <h4>My Ideal Mate</h4>
           <p><%=@user[:ideal_mate]%></p>
-          <% if @user[:interests].blank? %>
-              <p style="margin-top: 20px;"><img src="https://cdn0.iconfinder.com/data/icons/popo_emotions_the_blacy_png/128/nothing.png"></p>
           <% end %>
+          <% if @user[:interests].blank? %>
+            <h4>My Interests</h4>
+            <p style="margin-top: 20px;"><img src="https://cdn0.iconfinder.com/data/icons/popo_emotions_the_blacy_png/128/nothing.png"></p>
+          <% else %>
           <h4>My Interests</h4>
           <p><%=@user[:interests]%></p>
+          <% end %>
         </div>
         <div id="Photos" class="p_content tab-pane fade">
           <div class="row photo_view">
@@ -123,10 +139,10 @@
             <p>
               <%
               case @user[:immigration]
-              when "false"
-                concat "?"
-              when "true"
+              when "citizen"
                 concat "<img src='/images/flag_american_icon.jpg'>".html_safe
+              else
+                concat "?"
               end
               %>
             </p>
@@ -214,6 +230,12 @@
       })
     })
 
+    $('#modalPopper').on('click', function(){
+      $('#msgModal').removeClass('hide')
+      $('#msgModal').modal('show')
+    })
+
+
     $('.message_btn').on('click', function(e){
       e.preventDefault();
       var $this = $(this)
@@ -221,16 +243,24 @@
       var send_to = $this.attr('send')
       var date = $this.attr('date')
       var content = $('.message_textarea').val();
-      if (content == undefined) {
-        console.log("this is the content: ", content);
+      console.log("this is the content: ", content)
+      if (content != "") {
+        console.log("it went to backend")
         var data = {user_id: sender_id, send_to_id: send_to, content: content, sent_date: date};
         console.log(data);
         $.post('/message_input', data, function(res){
           console.log(res);
         })
+        $('#textbox-toggle').val('')
+        $('#msgModal').addClass('hide')
+        $('#msgModal').modal('hide')
+        $('#msgModal2').removeClass('hide')
+        $('#msgModal2').modal('show')
+
       }
       else {
-
+        $('#textbox-toggle').effect("shake");
+        $('#alert span').text("Please write a little something...");
       }
 
     })

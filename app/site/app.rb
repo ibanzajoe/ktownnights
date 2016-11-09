@@ -130,6 +130,7 @@ module Honeybadger
         render "login"
       else
         user = User.login(params)
+        abort
         if user.errors.empty?
           session[:user] = user
           flash[:success] = "You are now logged in"
@@ -353,8 +354,8 @@ module Honeybadger
     end
 
     get '/user/message_from/:user_id' do
-      @related_messages = Message.where(:user_id => params[:user_id], :send_to_id => session[:user][:id]).or(:user_id => session[:user][:id], :send_to_id => params[:user_id]).order(:sent_date).all
-      @sendto_id = params[:user_id]
+      @related_messages = Message.where(:user_id => params[:user_id], :send_to_id => session[:user][:id]).or(:user_id => session[:user][:id], :send_to_id => params[:user_id]).reverse_order(:sent_date).all
+      @send_to_id = params[:user_id]
       @session = session
       render "view_message"
     end
@@ -365,16 +366,43 @@ module Honeybadger
 
     post '/message_input' do
       p "****************************************"
-      message = Message.new(:user_id => params[:user_id], :send_to_id => params[:send_to_id], :content => params[:content], :sent_date => params[:sent_date])
+
+      message = Message.new(:user_id => session[:user][:id], :send_to_id => params[:send_to_id], :content => params[:content], :sent_date => Time.now)
       message.save
       p "****************************************"
     end
 
     post '/user/profile/save' do
-      userdata = User.new(params)
-      userdata.save
-      session[:user] = userdata
-      userdata.to_json
+      rules = {
+          :email => {:type => 'email', :required => true},
+          :first_name => {:type => 'string', :required => true},
+          :last_name => {:type => 'string', :required => true},
+          :password => {:type => 'string', :required => true}
+      }
+      data = {
+          :email => params[:email],
+          :first_name => params[:first_name],
+          :last_name => params[:last_name],
+          :password => params[:password]
+      }
+      validator = Validator.new(data, rules)
+      p params
+      p validator
+      if !validator.valid?
+        flash.now[:notice] = validator.errors[0][:error]
+
+      else
+        user = User.register_with_email(params)
+        if user.errors.empty?
+          session[:user] = user
+          p "inside 2nd if ***************************"
+          p user.to_json
+          user.to_json
+        else
+          flash.now[:notice] = user.errors[:validation][0]
+          render "register"
+        end
+      end
 
     end
 

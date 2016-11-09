@@ -4,8 +4,8 @@ Sequel.migration do
       primary_key :id
       Fixnum :user_id
       Fixnum :send_to_id
-      Date :sent_date
-      Date :received_date
+      DateTime :sent_date
+      DateTime :received_date
       String :content
 
 

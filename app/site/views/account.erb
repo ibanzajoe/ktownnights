@@ -79,7 +79,7 @@
       <div class="form-group">
         <label for="username" class="col-sm-2 control-label">US Citizen?</label>
         <div class="col-sm-8">
-          <input type="checkbox" name="immigration" id="immigration" value="citizen" <% if @user[:immigration] == "true" %> checked <% end %>>
+          <input type="checkbox" name="immigration" id="immigration" value="citizen" <% if @user[:immigration] == "citizen" %> checked <% end %>>
         </div>
       </div>
 
@@ -93,9 +93,9 @@
       </div>
 
       <div class="form-group">
-        <label for="zipcode" class="col-sm-2 control-label">Zip Code</label>
+        <label for="city" class="col-sm-2 control-label">City</label>
         <div class="col-sm-8">
-          <input v-model="user.zip" type="text" name="zip" id="occupation" class="form-control" value="<%= @user[:zip] %>">
+          <input v-model="user.city" type="text" name="zip" id="occupation" class="form-control" value="<%= @user[:city] %>">
         </div>
       </div>
 
@@ -147,10 +147,10 @@
                     <% end %>
 
                 <% end %>
-                <a class="w3-btn-floating" style="position:absolute;top:48%;left:0" onclick="plusDivs(-1)">❮</a>
-                <a class="w3-btn-floating" style="position:absolute;top:48%;right:0" onclick="plusDivs(1)">❯</a>
-                <a class="make-main" style="position:absolute; top:5%; right: 5%; display: block">M</a>
-                <a class="delete_pic" style="position:absolute; top:5%; right: 5%;">X</a>
+                <button class="w3-btn-floating" style="position:absolute;top:48%;left:-27px" onclick="plusDivs(-1)">❮</button>
+                <button class="w3-btn-floating" style="position:absolute;top:48%;right:-27px" onclick="plusDivs(1)">❯</button>
+                <button class="make-main" style="position:absolute; top:5%; right: 5%; display: block">Set as Main</button>
+                <button class="delete_pic" style="position:absolute; top:-2%; right: -2%;">X</button>
                 <a class="change_main" style="position:absolute; bottom: 5%; right: 5%;">C</a>
               </div>
           <% end %>
@@ -206,12 +206,14 @@
       $(".make-main").attr("style", "display: none");
     }
   }
+
   $(".delete_pic").on("click", function(){
     console.log(current_pic, "wtf wtf wtf wtf")
     $.post('/user/picture_delete', {id: current_pic}, function(res){
 
     })
   })
+
   $(".change_main").on("click", function(){
     $.post('/user/change_picture', {id: current_pic}, function(){
 
@@ -224,10 +226,3 @@
 </script>
 
 
-
-
-
-<div class="col-md-12">
-
-
-</div>

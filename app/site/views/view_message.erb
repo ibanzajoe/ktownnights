@@ -1,45 +1,35 @@
-<div id="slideshow" class="view_message" style="transform: matrix(1, 0, 0, 1, 0, 0)">
-  <div class="slide1 slide">
-    <div id="trigger" class="row trigger_refresh">
-      <div class="container">
-        <% @related_messages.each do |message| %>
-          <div class="row exchange_row">
-            <div class="col-md-2">
-              <div class="exchange_image" style="height: 100px; width: 100px;">
-                <% @picture = Picture.where(:user_id => message[:user_id], :main_pic => true).first %>
-                <img src="<%= @picture[:image_url] %>" alt="user_image" style="width: 100%; height: 100%; border-radius: 50%;">
-              </div>
-            </div>
-            <div class="col-md-7">
-              <div class="exchange_message">
-                <p><%= message[:content] %></p>
-              </div>
-            </div>
-            <div class="col-md-3" style="margin-left: 0px;">
-              <div class="exchange_date">
-                <p><%=message[:sent_date].strftime("%d/%m/%Y %H:%M")%></p>
-
-              </div>
-
-            </div>
+<div id="slideshow" class="view_message">
+  <div class="message_input">
+    <div class="message_input_box">
+      <label>Send them a nice message!</label>
+      <textarea rows="4" class="form-control message_textarea"></textarea>
+      <div class="message_input_btn">
+        <button class="trigger_comment" type="submit" send_to_id="<%= @send_to_id %>">Send</button>
+      </div>
+      <% @related_messages.each do |message| %>
+      <div class="row exchange_row">
+        <div class="col-md-2">
+          <div class="exchange_image" style="height: 100px; width: 100px;">
+            <% @picture = Picture.where(:user_id => message[:user_id], :main_pic => true).first %>
+            <img src="<%= @picture[:image_url] %>" alt="user_image" style="width: 100%; height: 100%; border-radius: 50%;">
           </div>
-        <% end %>
+        </div>
+        <div class="col-md-6">
+          <div class="exchange_message">
+            <p><%= message[:content] %></p>
+          </div>
+        </div>
+        <div class="col-md-3" style="margin-left: 0px;">
+          <div class="exchange_date">
+            <p><%=message[:sent_date].strftime("%d/%m/%Y %H:%M")%></p>
+          </div>
         </div>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
-<div class="message_input">
-  <div class="message_input_box">
-    <label>Send them a nice message!</label>
-    <textarea class="form-control message_textarea" name="<%= @session[:user][:id] %>" sendto="<%= @sendto_id %>" date="<%= Time.now %>"></textarea>
-  </div>
-  <div class="message_input_btn">
-    <button type="submit">Send</button>
-  </div>
 
-
-</div>
 
 <script>
 $(document).ready(function() {
@@ -53,18 +43,17 @@ $(document).ready(function() {
     slide(index)
   })
 
-  $('.message_textarea').on('change', function(e){
+  $('.trigger_comment').on('click', function(e){
     e.preventDefault();
-    var $this = $(this)
-    var sender_id = $this.attr('name')
-    var send_to = $this.attr('sendto')
-    var date = $this.attr('date')
-    var content = $this.val();
-    var data = {user_id: sender_id, send_to_id: send_to, content: content, sent_date: date};
-    console.log(sender_id, send_to, content);
+    $this = $(this)
+    var content = $('.message_textarea').val()
+    console.log("this is the content: ", content)
+    var send_to_id = $this.attr('send_to_id')
+    var data = {send_to_id: send_to_id, content: content};
+    console.log(send_to_id, content);
     $.post('/message_input', data, function(res){
       console.log(res);
-      $("#trigger").load(location.href + " #trigger");
+      location.reload()
     })
   })
 

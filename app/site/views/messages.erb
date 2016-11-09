@@ -1,44 +1,58 @@
 <div class="container">
-  <h3>Your Messages!</h3>
-  <ul class="nav nav-tabs" style="margin-top: 10px;">
-    <li class="active"><a data-toggle="tab" href="#inbox">Inbox</a></li>
-    <li><a data-toggle="tab" href="#outbox">Outbox</a></li>
-  </ul>
-  <div class="tab-content">
-    <div id="inbox" class="tab-pane fade in active">
-      <div class="exchange_container container" style="margin-top: 10px;">
+  <div class="row" style="width: 750px; margin-left: auto; margin-right: auto;">
+    <h3>Your Messages!</h3>
+    <ul class="nav nav-tabs" style="margin-top: 10px;">
+      <li class="active"><a data-toggle="tab" href="#inbox">Inbox</a></li>
+      <li><a data-toggle="tab" href="#outbox">Outbox</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="inbox" class="tab-pane fade in active">
+        <% if @mes_received.blank?%>
+          <h3>You have no messages at this time</h3>
+        <% end %>
         <% @mes_received.each do |message_from| %>
-          <div class="row message_box">
-            <div class="exchange_image" style="width: 100px; height: 100px;">
+          <div class="row message_box" style="margin-top: 10px;">
+            <div class="exchange_image col-md-2" style="height: 100px; margin-top: 10px; text-align: center;">
               <% @picture = Picture.where(:user_id => message_from[:user_id], :main_pic => true).first %>
-              <a href="/viewprofile/<%= message_from[:user_id]%>"><img src="<%= @picture[:image_url] %>" alt="user_image" style="width: 100%; height: 100%; border-radius: 50%;"></a>
+              <a href="/viewprofile/<%= message_from[:user_id]%>"><img src="<%= @picture[:image_url] %>" alt="user_image" style="width: 60px; height: 60px; border-radius: 50%;"></a>
+              <% @user_rec = User.where(:id => message_from[:user_id]).first %>
+              <br>
+              <%=@user_rec[:username]%>
             </div>
-            <div class="exchange_message" style="width: 570px; height: 100px;">
+            <div class="exchange_message col-md-6" style="margin-top: 10px; height: 100px;">
               <% @user = User.where(:id => message_from[:user_id]).first %>
               <a href="/user/message_from/<%= message_from[:user_id] %>"><p>You have a message from: <%= @user[:username] %> ...</p></a>
-              # <%=message_from[:id] %>
               <%=message_from[:content][0, 100]%>
+            </div>
+            <div class="exchange_time col-md-3" style="margin-top: 10px; height: 100px;">
+              <p><%=message_from[:sent_date].strftime("%d/%m/%Y %H:%M")%></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div id="outbox" class="tab-pane fade">
+        <% if @mes_sent.blank? %>
+          <h3>You have no message sent out</h3>
+        <% end %>
+        <% @mes_sent.each do |message| %>
+          <div class="row message_box" style="margin-top: 10px;">
+            <div class="exchange_image col-md-2" style="height: 100px; margin-top: 10px; text-align: center;">
+              <% @picture_to = Picture.where(:user_id => message[:send_to_id], :main_pic => true).first %>
+              <a href="/viewprofile/<%=message[:user_id]%>"><img src="<%=@picture_to[:image_url]%>" alt="send_to_image" style="width: 60px; height: 60px; border-radius: 50%;"></a>
+              <% @user_sent = User.where(:id => message[:send_to_id]).first %>
+              <br>
+              <%= @user_sent[:username]%>
+            </div>
+            <div class="exchange_message col-md-6" style="margin-top: 10px; height: 100px;">
+              <a href="/user/message_from/<%= message[:send_to_id] %>"><p><%=message[:content][0, 100]%></p></a>
+            </div>
+            <div class="exchange_message col-md-3" style="margin-top: 10px; height: 100px;">
+              <p><%=message[:sent_date].strftime("%d/%m/%Y %H:%M")%></p>
             </div>
           </div>
         <% end %>
       </div>
     </div>
-    <div id="outbox" class="tab-pane fade">
-      <p>List of message sent out</p>
-      <% @mes_sent.each do |message| %>
-          <div class="row message_box">
-            <div class="exchange_image col-md-2" style="height: 100px;">
-              <% @picture_to = Picture.where(:user_id => message[:send_to_id], :main_pic => true).first %>
-              <a href="/viewprofile/<%=message[:send_to_id]%>"><img src="<%=@picture_to[:image_url]%>" alt="send_to_image" style="width: 100px; height: 100px; border-radius: 50%;"></a>
-            </div>
-            <div class="exchange_message col-md-7" style=" height: 100px;">
-              <% @user = User.where(:id => message[:send_to_id]).first %>
-              <a href="/user/message_from/<%= message[:send_to_id] %>"><p>You sent a message to: <%= @user[:username] %> ...</p></a>
-              # <%=message[:id] %>
-              <%=message[:content][0, 100]%>
-            </div>
-          </div>
-      <% end %>
-    </div>
+
   </div>
 </div>
