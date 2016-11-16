@@ -58,21 +58,21 @@
         <div id="About" class="p_content tab-pane fade in active">
           <% if @user[:self_summary].blank? %>
           <h4>Self-Summary</h4>
-          <p style="margin-top: 20px;"><img src="https://cdn0.iconfinder.com/data/icons/popo_emotions_the_blacy_png/128/nothing.png"></p>
+          <p style="margin-top: 20px;">Nothing Yet</p>
           <% else %>
           <h4>Self-Summary</h4>
           <p><%=@user[:self_summary]%></p>
           <% end %>
           <% if @user[:ideal_mate].blank? %>
             <h4>My Ideal Mate</h4>
-            <p style="margin-top: 20px;"><img src="https://cdn0.iconfinder.com/data/icons/popo_emotions_the_blacy_png/128/nothing.png"></p>
+            <p style="margin-top: 20px;">Nothing Yet</p>
           <% else %>
           <h4>My Ideal Mate</h4>
           <p><%=@user[:ideal_mate]%></p>
           <% end %>
           <% if @user[:interests].blank? %>
             <h4>My Interests</h4>
-            <p style="margin-top: 20px;"><img src="https://cdn0.iconfinder.com/data/icons/popo_emotions_the_blacy_png/128/nothing.png"></p>
+            <p style="margin-top: 20px;">Nothing Yet</p>
           <% else %>
           <h4>My Interests</h4>
           <p><%=@user[:interests]%></p>
@@ -163,6 +163,15 @@
           </td>
           <td>
             <p><%=@user[:language]%></p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p>User ID</p>
+          </td>
+          <td>
+            <p><%=@user[:id]%></p>
           </td>
         </tr>
 

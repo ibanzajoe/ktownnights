@@ -1,31 +1,51 @@
 <div id="slideshow" class="view_message">
   <div class="message_input">
     <div class="message_input_box">
+      <div class="row exchange_pic">
+        <div class="col-md-3 col-md-offset-2">
+          <% @user_pic = Picture.where(:user_id => session[:user][:id], :main_pic => true).first %>
+          <img src="<%=@user_pic[:image_url]%>" alt="your picture" style="width: 100%; height: 100%; text-align: center;s">
+          <% @yourname = User.where(:id => session[:user][:id]).first[:username] %>
+          <p style="text-align: center;"><%= @yourname %></p>
+        </div>
+        <div class="col-md-3" style="text-align: center;">
+          <img src="/images/cupid_arrow.png" alt="cupid_arrow" style="height: 80px; max-width: 120px; margin-top: 30px;">
+        </div>
+        <div class="col-md-3" style="text-align: center;">
+          <% @sender_pic = Picture.where(:user_id => @send_to_id, :main_pic => true).first %>
+          <img src="<%=@sender_pic[:image_url]%>" alt="their picture" style="height: 120px; max-width: 120px; text-align: center;">
+          <p style="text-align: center;"><%= @them[:username] %></p>
+        </div>
+      </div>
+      <h3 style="text-align: center;">Messages</h3>
+      <div class="exchange_contents" style="margin-top: 20px;">
+        <% @related_messages.each do |message| %>
+          <div class="row exchange_row">
+            <div class="col-md-2">
+              <div class="exchange_image" style="width: 100px;">
+
+                <% @yourname = User.where(:id => message[:user_id]).first[:username]%>
+                <p><%=@yourname%></p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="exchange_message">
+                <p><%= message[:content] %></p>
+              </div>
+            </div>
+            <div class="col-md-3" style="margin-left: 0px;">
+              <div class="exchange_date">
+                <p><%=message[:sent_date].strftime("%d/%m/%Y %H:%M")%></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
       <label>Send them a nice message!</label>
       <textarea rows="4" class="form-control message_textarea"></textarea>
       <div class="message_input_btn">
         <button class="trigger_comment" type="submit" send_to_id="<%= @send_to_id %>">Send</button>
       </div>
-      <% @related_messages.each do |message| %>
-      <div class="row exchange_row">
-        <div class="col-md-2">
-          <div class="exchange_image" style="height: 100px; width: 100px;">
-            <% @picture = Picture.where(:user_id => message[:user_id], :main_pic => true).first %>
-            <img src="<%= @picture[:image_url] %>" alt="user_image" style="width: 100%; height: 100%; border-radius: 50%;">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="exchange_message">
-            <p><%= message[:content] %></p>
-          </div>
-        </div>
-        <div class="col-md-3" style="margin-left: 0px;">
-          <div class="exchange_date">
-            <p><%=message[:sent_date].strftime("%d/%m/%Y %H:%M")%></p>
-          </div>
-        </div>
-      </div>
-      <% end %>
     </div>
   </div>
 </div>

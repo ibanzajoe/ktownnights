@@ -130,7 +130,6 @@ module Honeybadger
         render "login"
       else
         user = User.login(params)
-        abort
         if user.errors.empty?
           session[:user] = user
           flash[:success] = "You are now logged in"
@@ -347,16 +346,23 @@ module Honeybadger
     end
 
     get '/user/user_message' do
-      @mes_received = Message.where(:send_to_id => session[:user][:id]).reverse_order(:id).all
-      @mes_sent = Message.where(:user_id => session[:user][:id]).reverse_order(:id).all
-      @user = User.all
-      render "messages"
+      @mes_received = Message.where(:send_to_id => session[:user][:id]).reverse_order(:sent_date).all
+      @user_list = []
+      @mes_received.each do |x|
+        @user_list.push(x[:user_id])
+      end
+      @user_list = @user_list.uniq
+
+      render "messages2"
     end
 
     get '/user/message_from/:user_id' do
       @related_messages = Message.where(:user_id => params[:user_id], :send_to_id => session[:user][:id]).or(:user_id => session[:user][:id], :send_to_id => params[:user_id]).reverse_order(:sent_date).all
       @send_to_id = params[:user_id]
       @session = session
+      @you = User.where(:id => session[:user][:id]).first
+      @them = User.where(:id => params[:user_id]).first
+
       render "view_message"
     end
 
