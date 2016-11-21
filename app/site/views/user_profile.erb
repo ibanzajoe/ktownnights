@@ -2,6 +2,9 @@
   <div class="row profile_card">
     <div class="col-md-4 profile_card_image">
       <% @pictures = Picture.where(:user_id => @user[:id]).all %>
+      <% if @pictures.blank? %>
+      <img src="/images/default-profile.png">
+      <% end %>
       <% @pictures.each do |f| %>
         <% if f[:main_pic] == "true" %>
             <img class="mySlides" name="main_pic" src="<%= f[:image_url] %>" id="<%= f[:id] %>">
@@ -15,7 +18,15 @@
       <% age1 = @user[:birth_year]
          age = Date.today().to_s.split('-')[0].to_i - age1.to_i %>
       <br>
-      <%=age%> - <%= @user[:zip]%>
+      <% if age.blank? %>
+      ?
+      <% else %>
+      <%=age%> years old
+      <% end %>
+
+      <% if !@user[:city].blank? %>
+      <p>From <%= @user[:city]%></p>
+      <% end %>
       <div class="send_message">
         <a id="modalPopper" userid="<%=@user[:id]%>"><button class="btn btn-info">Message</button></a>
       </div>
@@ -52,31 +63,132 @@
     <div class="col-md-8">
       <ul class="nav nav-tabs" style="margin-top: 10px;">
         <li class="active"><a data-toggle="tab" href="#About">About</a></li>
-        <li><a data-toggle="tab" href="#Photos">Photos</a></li>
+        <li><a data-toggle="tab" href="#Photos">Pics</a></li>
       </ul>
       <div class="tab-content">
         <div id="About" class="p_content tab-pane fade in active">
-          <% if @user[:self_summary].blank? %>
-          <h4>Self-Summary</h4>
-          <p style="margin-top: 20px;">Nothing Yet</p>
-          <% else %>
-          <h4>Self-Summary</h4>
-          <p><%=@user[:self_summary]%></p>
-          <% end %>
-          <% if @user[:ideal_mate].blank? %>
-            <h4>My Ideal Mate</h4>
-            <p style="margin-top: 20px;">Nothing Yet</p>
-          <% else %>
-          <h4>My Ideal Mate</h4>
-          <p><%=@user[:ideal_mate]%></p>
-          <% end %>
-          <% if @user[:interests].blank? %>
-            <h4>My Interests</h4>
-            <p style="margin-top: 20px;">Nothing Yet</p>
-          <% else %>
-          <h4>My Interests</h4>
-          <p><%=@user[:interests]%></p>
-          <% end %>
+
+
+          <div class="info_card" style="border: 0; border-radius: 0; margin-top: 20px;">
+     
+            <table>
+              <tr>
+                <td width="140">
+                  <p>Username:</p>
+                </td>
+                <td>
+                  <p><%= @user[:username] %></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Age:</p>
+                </td>
+                <td>
+                  <% age1 = @user[:birth_year]
+                     age = Date.today().to_s.split('-')[0].to_i - age1.to_i
+
+                  %>
+                  <p><%= age %></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Gender:</p>
+                </td>
+                <td>
+                  <p><%= @user[:gender] %></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Occupation:</p>
+                </td>
+                <td>
+                  <p><%= @user[:occupation] %></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>U.S. Citizen:</p>
+                </td>
+                <td>
+                  <p>
+                    <%
+                    case @user[:immigration]
+                    when "citizen"
+                      concat "<img src='/images/flag_american_icon.jpg'>".html_safe
+                    else
+                      concat "?"
+                    end
+                    %>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Height</p>
+                </td>
+                <td>
+                  <p><%=@user[:height_ft]%>' <%=@user[:height_in]%></p>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <p>Language</p>
+                </td>
+                <td>
+                  <p><%=@user[:language]%></p>
+                </td>
+              </tr>
+
+
+              <tr>
+                <td valign="top">
+                  <p>About Me</p>
+                </td>
+                <td valign="top">
+                  <p><%=@user[:self_summary] || 'Nothing yet'%></p>
+                </td>
+              </tr>
+
+
+              <tr>
+                <td valign="top">
+                  <p>I'm looking for</p>
+                </td>
+                <td valign="top">
+                  <p><%=@user[:ideal_mate] || 'Nothing yet'%></p>
+                </td>
+              </tr>
+
+              <tr>
+                <td valign="top">
+                  <p>My Interests</p>
+                </td>
+                <td valign="top">
+                  <p><%=@user[:interests] || 'Nothing yet'%></p>
+                </td>
+              </tr>
+              <!-- <tr>
+              <td>
+              <p>User ID</p>
+              </td>
+              <td>
+              <p><%=@user[:id]%></p>
+              </td>
+              </tr> -->
+
+
+
+            </table>
+
+          </div>
+
+
+
+
         </div>
         <div id="Photos" class="p_content tab-pane fade">
           <div class="row photo_view">
@@ -92,94 +204,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4 info_card" style="border-radius: 0;">
-      <h4>Quick Info</h4>
-      <table>
-        <tr>
-          <td>
-            <p>Username:</p>
-          </td>
-          <td>
-            <p><%= @user[:username] %></p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>Age:</p>
-          </td>
-          <td>
-            <% age1 = @user[:birth_year]
-               age = Date.today().to_s.split('-')[0].to_i - age1.to_i
-
-            %>
-            <p><%= age %></p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>Gender:</p>
-          </td>
-          <td>
-            <p><%= @user[:gender] %></p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>Occupation:</p>
-          </td>
-          <td>
-            <p><%= @user[:occupation] %></p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>U.S. Citizen:</p>
-          </td>
-          <td>
-            <p>
-              <%
-              case @user[:immigration]
-              when "citizen"
-                concat "<img src='/images/flag_american_icon.jpg'>".html_safe
-              else
-                concat "?"
-              end
-              %>
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>Height</p>
-          </td>
-          <td>
-            <p><%=@user[:height_ft]%>' <%=@user[:height_in]%></p>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <p>Language</p>
-          </td>
-          <td>
-            <p><%=@user[:language]%></p>
-          </td>
-        </tr>
-
-        <!-- <tr>
-        <td>
-        <p>User ID</p>
-        </td>
-        <td>
-        <p><%=@user[:id]%></p>
-        </td>
-        </tr> -->
-
-
-
-      </table>
-
-    </div>
+    
 
     </div>
   </div>
