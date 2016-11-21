@@ -4,50 +4,51 @@
     <div class="col-md-offset-2 col-md-8">
 
       <br><br>
+      <style>
+      .input.radiobtn { float: left; margin-right: 10px; margin-top: 5px; display: block;}
+      </style>
       <p class="lead" style="text-align: center;">Sign up and browse</p>
       <br>
 
-      <form role="form" method="POST" class="form-horizontal">
+      <form role="form" method="POST" class="form-horizontal" @submit.prevent="handle_next" >
 
         <div class="form-group">
           <label for="email" class="col-sm-2 control-label">Name</label>
           <div class="col-sm-4">
-            <input v-model="user.first_name" type="text" name="first_name" id="first_name" class="form-control" placeholder="first name" value="<%= params[:first_name]%>">
+            <input v-model="user.first_name" type="text" required name="first_name" id="first_name" class="form-control" placeholder="first name" value="<%= params[:first_name]%>">
           </div>
           <div class="col-sm-4">
-            <input v-model="user.last_name" type="text" name="last_name" id="last_name" class="form-control" placeholder="last name" value="<%= params[:last_name]%>">
+            <input v-model="user.last_name" type="text" required name="last_name" id="last_name" class="form-control" placeholder="last name" value="<%= params[:last_name]%>">
           </div>
         </div>
 
         <div class="form-group">
           <label for="email" class="col-sm-2 control-label">Email</label>
           <div class="col-sm-8">
-            <input v-model="user.email" type="text" name="email" id="email" class="form-control" placeholder="joe@doe.com" value="<%= params[:email]%>">
+            <input v-model="user.email" type="email" required name="email" id="email" class="form-control" placeholder="joe@doe.com" value="<%= params[:email]%>">
           </div>
         </div>
 
         <div class="form-group">
           <label for="password" class="col-sm-2 control-label">Password</label>
           <div class="col-sm-8">
-            <input v-model="user.password" type="password" name="password" id="password" class="form-control" placeholder="atleast 6 characters" value="<%= params[:password]%>">
+            <input v-model="user.password" type="password" required name="password" id="password" class="form-control" placeholder="atleast 6 characters" value="<%= params[:password]%>">
           </div>
         </div>
-      </form>
+      
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-8">
-            <a @click="handle_next" type="submit" class="btn btn-primary"><i class="fa fa-lock"></i> Signup</a>
+            <button type="submit" class="btn btn-primary"> Signup</button>
           </div>
         </div>
-
         <p class="lead" style="text-align: center; margin-top: 120px;">Try us, you never know who you might meet!</p>
-
-
+      </form>        
     </div>
   </div>
   <div v-if="active_step == 'account_info'" class="col-md-offset-2 col-md-9" style="margin-top: 50px;">
     <p class="lead">Account Information</p>
 
-    <form role="form" method="POST" class="form-horizontal" enctype="multipart/form-data">
+    <form role="form" method="POST" class="form-horizontal" enctype="multipart/form-data" @submit.prevent="handle_next">
       <div class="form-group">
         <label for="first_name" class="col-sm-2 control-label">First Name</label>
         <div class="col-sm-8">
@@ -69,31 +70,32 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="username" class="col-sm-2 control-label">Userame</label>
+        <h3 style="margin: 40px;">Great, now choose a username for your profile!</h3>
+        <label for="username" class="col-sm-2 control-label">Username</label>
         <div class="col-sm-8">
           <input v-model="user.username" type="text" name="username" id="username" class="form-control">
         </div>
       </div>
       <div class="form-group" style="margin-top: 50px;">
         <div class="col-sm-2">
-          <a class="btn btn-default" @click="handle_prev">PREV</a>
+          <a class="btn btn-default" @click="handle_prev">Back</a>
         </div>
 
         <div class="col-sm-offset-7 col-sm-2">
-          <a class="btn btn-default" @click="handle_next">NEXT</a>
+          <button class="btn btn-default" >Next</button>
         </div>
       </div>
     </form>
   </div>
   <div v-if="active_step == 'account_identity'" class="col-md-offset-2 col-md-9" style="margin-top: 50px;">
     <p class="lead">My Identity</p>
-    <form role="form" method="POST" class="form-horizontal" enctype="multipart/form-data">
+    <form role="form" method="POST" class="form-horizontal" enctype="multipart/form-data"  @submit.prevent="handle_next">
       <div class="form-group">
         <label for="gender" class="col-sm-2 control-label">Gender/Sex</label>
         <div class="col-sm-8">
-          <input v-model="user.gender" type="radio" name="gender" id="gender_male" class="" value="male" <% if @user[:gender] == "male" %>checked <% end %>>
+          <input class="input radiobtn" v-model="user.gender" type="radio" name="gender" id="gender_male" class="" value="male" <% if @user[:gender] == "male" %>checked <% end %>>
           <label for="gender_male">Male</label>
-          <input v-model="user.gender" type="radio" name="gender" id="gender_female" class="" value="female" <% if @user[:gender] == "female" %>checked <% end %>>
+          <input class="input radiobtn" v-model="user.gender" type="radio" name="gender" id="gender_female" class="" value="female" <% if @user[:gender] == "female" %>checked <% end %>>
           <label for="gender_female">Female</label>
         </div>
       </div>
@@ -140,11 +142,11 @@
       <div class="form-group">
         <label for="language" class="col-sm-2 control-label">Languages</label>
         <div class="col-sm-8">
-          <input v-model="user.language" id="language_eng" type="radio" name="language" value="english" <% if @user[:language] == "english" %> checked <% end %>>
+          <input class="input radiobtn" v-model="user.language" id="language_eng" type="radio" name="language" value="english" <% if @user[:language] == "english" %> checked <% end %>>
           <label for="language_eng">English</label>
-          <input v-model="user.language" id="language_kor" type="radio" name="language" value="korean" <% if @user[:language] == "korean" %> checked <% end %>>
+          <input class="input radiobtn" v-model="user.language" id="language_kor" type="radio" name="language" value="korean" <% if @user[:language] == "korean" %> checked <% end %>>
           <label for="language_kor">Korean</label>
-          <input v-model="user.language" id="language_bi" type="radio" name="language" value="bilingual" <% if @user[:language] == "bilingual" %> checked <% end %>>
+          <input class="input radiobtn" v-model="user.language" id="language_bi" type="radio" name="language" value="bilingual" <% if @user[:language] == "bilingual" %> checked <% end %>>
           <label for="language_bi">Bilingual</label>
         </div>
       </div>
@@ -163,18 +165,18 @@
 
       <div class="form-group" style="margin-top: 50px;">
         <div class="col-sm-2">
-          <a class="btn btn-default" @click="handle_prev">PREV</a>
+          <a class="btn btn-default" @click="handle_prev">Back</a>
         </div>
 
         <div class="col-sm-offset-7 col-sm-2">
-          <a class="btn btn-default" @click="handle_next">NEXT</a>
+          <button class="btn btn-default">Next</button>
         </div>
       </div>
     </form>
   </div>
   <div v-if="active_step == 'account_summary'" class="col-md-offset-2 col-md-9" style="margin-top: 50px;">
     <p class="lead">My Summary</p>
-    <form role="form" method="POST" class="form-horizontal" enctype="multipart/form-data">
+    <form role="form" method="POST" class="form-horizontal" enctype="multipart/form-data" @submit="save_user_next">
 
       <div class="form-group">
         <label for="summary" class="col-sm-2 control-label">About Me</label>
@@ -200,11 +202,11 @@
 
       <div class="form-group" style="margin-top: 50px;">
         <div class="col-sm-2">
-          <a class="btn btn-default" @click="handle_prev">PREV</a>
+          <a class="btn btn-default" @click="handle_prev">Back</a>
         </div>
 
         <div class="col-sm-offset-7 col-sm-2">
-          <a class="btn btn-default" @click="save_user_next">NEXT</a>
+          <button class="btn btn-default" >Next</button>
         </div>
       </div>
     </form>

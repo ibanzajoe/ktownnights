@@ -27,6 +27,12 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <li>
+
+        </li>
+        <!-- <li> <div id="google_translate_element" style="margin-top: 10px;"></div> </li> -->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
         <% if session[:user][:id].nil?  %>
           <li><a href="/">Home</a></li>
         <% else %>
@@ -34,12 +40,11 @@
           <li ><a href="/display_users">Browse <span class="sr-only">(current)</span></a></li>
           <li><a href="/user/user_message">Messages</a></li>
         <% end %>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/user/account"></a></li>
+
+        <!-- <li><a href="/user/account"></a></li> -->
         <li class="dropdown">
           <% username = User.where(:id => session[:user][:id]).first[:username] %>
-          
+
           <% if session[:user][:id].nil?  %>
               <a href="/about" style="float: left;">About Us</a>
               <a href="/user/register" style="float: left;">Join Us</a>
@@ -63,11 +68,8 @@
   </div>
   <div class="container-fluid footer">
     <div class="container text-center">
-      KtownCupid &copy; 2016 All rights reserved 
+        <div>KtownCupid &copy; 2016 All rights reserved</div>
     </div>
-
-
-
   </div>
 
 

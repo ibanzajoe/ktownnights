@@ -16,6 +16,7 @@ Padrino.before_load do
   require 'will_paginate/view_helpers/sinatra'
   include WillPaginate::Sinatra::Helpers
   require "bootstrap_pagination/sinatra"
+  I18n.locale = :de
 end
 
 ##

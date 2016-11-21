@@ -17,7 +17,7 @@
       <br>
       <%=age%> - <%= @user[:zip]%>
       <div class="send_message">
-        <a id="modalPopper" userid="<%=@user[:id]%>"><button class="btn">Message</button></a>
+        <a id="modalPopper" userid="<%=@user[:id]%>"><button class="btn btn-info">Message</button></a>
       </div>
       <div id="msgModal2" class="modal hide fade">
         <div class="modal-body">
@@ -52,7 +52,7 @@
     <div class="col-md-8">
       <ul class="nav nav-tabs" style="margin-top: 10px;">
         <li class="active"><a data-toggle="tab" href="#About">About</a></li>
-        <li><a data-toggle="tab" href="#Photos">Photos</a></li>        
+        <li><a data-toggle="tab" href="#Photos">Photos</a></li>
       </ul>
       <div class="tab-content">
         <div id="About" class="p_content tab-pane fade in active">
@@ -92,7 +92,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4 info_card">
+    <div class="col-md-4 info_card" style="border-radius: 0;">
       <h4>Quick Info</h4>
       <table>
         <tr>
@@ -166,14 +166,14 @@
           </td>
         </tr>
 
-        <tr>
-          <td>
-            <p>User ID</p>
-          </td>
-          <td>
-            <p><%=@user[:id]%></p>
-          </td>
-        </tr>
+        <!-- <tr>
+        <td>
+        <p>User ID</p>
+        </td>
+        <td>
+        <p><%=@user[:id]%></p>
+        </td>
+        </tr> -->
 
 
 
@@ -210,7 +210,8 @@
     for (i = 0; i < x.length; i++) {
       x[i].style.display = "none";
     }
-    x[slideIndex - 1].style.display = "block";
+    if(x[slideIndex - 1]){    x[slideIndex - 1].style.display = "block"; }
+
   }
 
   var index = 0;
