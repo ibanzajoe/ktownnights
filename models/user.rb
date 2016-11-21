@@ -40,6 +40,12 @@ class User < Sequel::Model
   end
 
   def self.register_with_email(params, role = "users")
+
+    immigration = ''
+    if !params[:immigration].blank?
+      immigration = 'citizen'
+    end
+
     user = User.new
     user.first_name = params[:first_name]
     user.last_name = params[:last_name]
@@ -50,7 +56,7 @@ class User < Sequel::Model
     user.birth_year = params[:birth_year]
     user.height_ft = params[:height_ft]
     user.height_in = params[:height_in]
-    user.immigration = params[:immigration]
+    user.immigration = immigration
     user.language = params[:language]
     user.occupation = params[:occupation]
     user.self_summary = params[:self_summary]

@@ -3,12 +3,13 @@
   <h3>Members</h3>
   <div class="row" style="margin-top: 25px;">
   <% @users.each do |id| %>
-    <div class="col-md-4 profile">
+    <div class="col-md-4 profile" style="background-color: white;">
       <% pic = Picture.where(:user_id => id[:id], :main_pic => "true").first %>
+      
       <div class="profile_container">
         <a class="image_link" href="/viewprofile/<%= id[:id] %>">
           <span class="image_wrapper">
-            <img class="profile_pic" src="<%= pic[:image_url] %>">
+            <img class="profile_pic" src="<%= pic[:image_url] || 'https://www.buira.org/assets/images/shared/default-profile.png' %>">
           </span>
         </a>
         <div class="profile_text">

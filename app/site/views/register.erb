@@ -176,7 +176,7 @@
   </div>
   <div v-if="active_step == 'account_summary'" class="col-md-offset-2 col-md-9" style="margin-top: 50px;">
     <p class="lead">My Summary</p>
-    <form role="form" method="POST" class="form-horizontal" enctype="multipart/form-data" @submit="save_user_next">
+    <form role="form" method="POST" class="form-horizontal" enctype="multipart/form-data" @submit.prevent="save_user_next">
 
       <div class="form-group">
         <label for="summary" class="col-sm-2 control-label">About Me</label>
@@ -244,14 +244,15 @@
       save_user_next: function(user){
         console.log("it is on the path to save the profile: ")
         var _this = this
-        this.save_user(this.user).then(function(){
+        console.log('this is it', user)
+        this.save_user(this.user).then(function(res){
+          console.log(res)
           $(location).attr('href', '/user/account')
         })
       },
       save_user: function(user){
         var _this = this
-        return $.post('/user/profile/save', user, function(res){
-        })
+        return $.post('/user/profile/save', user)
       },
       next: function(){
         console.log(this.user)

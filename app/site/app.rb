@@ -80,6 +80,8 @@ module Honeybadger
       @user.birth_month = params[:birth_month]
       @user.birth_day = params[:birth_day]
       @user.birth_year = params[:birth_year]
+      @user.height_ft = params[:height_ft]
+      @user.height_in = params[:height_in]
       @user.self_summary = params[:self_summary]
       @user.language = params[:language]
       @user.zip = params[:zip]

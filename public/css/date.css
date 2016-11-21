@@ -37,9 +37,9 @@
 .profile_container {
     display: block;
     position: relative;
-    background-color: #f6ebf9;
+/*    background-color: #f6ebf9;
     border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-right-radius: 10px;*/
 }
 
 .image_wrapper {
@@ -63,10 +63,10 @@
 
 .profile_text {
     text-align: center;
-    border-bottom-right-radius: 6px;
+    /*border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
     box-shadow: 0px 5px 5px #888888;
-    background-color: #f6ebf9;
+    background-color: #f6ebf9;*/
     z-index: 12;
     padding-top: 10px;
     padding-bottom: 10px;
